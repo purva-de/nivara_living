@@ -524,6 +524,60 @@
     border-color: var(--shepel-gold, #C59A3F);
 }
 
+/* Swatch Selector Grid for Visualizer */
+.swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.swatch-item {
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
+    padding: 10px 8px;
+    background: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    border-radius: 2px;
+}
+
+.swatch-item:hover {
+    border-color: var(--shepel-charcoal, #2B2F32);
+    transform: translateY(-2px);
+}
+
+.swatch-item.active {
+    border-color: var(--shepel-gold, #C59A3F);
+    box-shadow: 0 0 0 1px var(--shepel-gold, #C59A3F);
+    background: rgba(197, 154, 63, 0.04);
+}
+
+.swatch-disc {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.swatch-name {
+    font-size: 11px;
+    color: var(--shepel-charcoal, #2B2F32);
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.swatch-texture-tag {
+    font-size: 9px;
+    color: var(--shepel-muted, #767B82);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
 /* Interior Style Grid */
 .style-chips-grid {
     display: grid;
