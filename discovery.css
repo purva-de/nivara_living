@@ -398,6 +398,22 @@
     border-bottom: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
 }
 
+.compare-tag {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--shepel-gold, #C59A3F);
+    font-weight: 600;
+}
+
+.compare-heading {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--shepel-dark, #1E2328);
+    margin: 4px 0 0;
+}
+
 .compare-body {
     flex: 1;
     overflow-x: auto;

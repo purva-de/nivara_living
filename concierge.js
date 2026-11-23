@@ -200,8 +200,7 @@
                             <p class="concierge-product-specs">${item.specs}</p>
                             <span class="concierge-product-dim">${item.dimensions}</span>
                             <div class="concierge-product-actions">
-                                <button class="btn-card-customize" data-id="${item.id}">Customize in Studio</button>
-                                <button class="btn-card-details" data-id="${item.id}">View Details</button>
+                                <button class="btn-card-details" data-id="${item.id}" style="width: 100%; text-align: center;">View Details & Specifications</button>
                             </div>
                         </div>
                     </div>
@@ -220,16 +219,6 @@
         area.appendChild(msg);
 
         // Bind card buttons
-        msg.querySelectorAll('.btn-card-customize').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = btn.getAttribute('data-id');
-                const piece = furnitureCatalog.find(x => x.id === id);
-                if (piece && window.openFurnitureStudio) {
-                    window.openFurnitureStudio(piece);
-                }
-            });
-        });
-
         msg.querySelectorAll('.btn-card-details').forEach(btn => {
             btn.addEventListener('click', () => {
                 const id = btn.getAttribute('data-id');
@@ -304,7 +293,7 @@
                 • <strong>Heavy Textured Bouclé:</strong> Tactile, cozy, and stain-guarded with high Martindale rub counts.<br>
                 • <strong>Italian Aniline Leather:</strong> Full-grain top layer that breathes naturally and develops a rich patina over decades.<br>
                 • <strong>Ergonomic Core:</strong> 40-density high-resilience foam layered with genuine memory down for cloud-like sinking comfort.<br><br>
-                You can test any material combination in our <strong>Bespoke Customization Studio</strong> or visit our showroom to feel the physical swatches.
+                You can explore these material specifications in our atelier gallery or visit our showroom to feel the physical swatches.
             `;
             matchedItems = furnitureCatalog.filter(p => ['anton-sectional', 'antalia-sofa'].includes(p.id));
         }

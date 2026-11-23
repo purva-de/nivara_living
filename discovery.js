@@ -338,8 +338,8 @@
             <div class="compare-modal-box">
                 <header class="compare-header">
                     <div>
-                        <span class="customizer-tag">Bespoke Atelier Matrix</span>
-                        <h3 class="customizer-heading">Product Comparison</h3>
+                        <span class="compare-tag">Bespoke Atelier Matrix</span>
+                        <h3 class="compare-heading">Product Comparison</h3>
                     </div>
                     <button class="search-close-btn" id="compare-close-btn" aria-label="Close Comparison">&times;</button>
                 </header>
@@ -414,8 +414,7 @@
         let dimRows = items.map(p => `<td>${p.dimensions}</td>`).join('');
         let actionRows = items.map(p => `
             <td>
-                <button class="btn-shepel-primary" style="padding: 8px 16px; font-size: 11px; width: 100%; margin-bottom: 6px;" onclick="window.openFurnitureStudio && window.openFurnitureStudio(window.allFurniturePieces.find(x => x.id === '${p.id}'))">Customize Studio</button>
-                <button class="btn-shepel-outline" style="padding: 8px 16px; font-size: 11px; width: 100%;" onclick="window.openSpecModal && window.openSpecModal(window.allFurniturePieces.find(x => x.id === '${p.id}'))">View Details</button>
+                <button class="btn-shepel-primary" style="padding: 10px 16px; font-size: 11px; width: 100%;" onclick="window.openSpecModal && window.openSpecModal(window.allFurniturePieces.find(x => x.id === '${p.id}'))">View Details & Specifications</button>
             </td>
         `).join('');
 
