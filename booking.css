@@ -1,0 +1,275 @@
+/* ==========================================================================
+   NIVARAA LIVING — SHOWROOM EXPERIENCE & APPOINTMENT BOOKING
+   Creaticity Mall Experience Center | 8px Grid | Semantic & Accessible
+   ========================================================================== */
+
+/* 1. Appointment Modal Overlay */
+.booking-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(30, 35, 40, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10030;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.booking-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.booking-modal-box {
+    background: var(--shepel-bg, #FAF8F5);
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    border-radius: 4px;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.15));
+}
+
+/* 2. Header */
+.booking-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    background: var(--shepel-card-bg, #FFFFFF);
+    border-bottom: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
+}
+
+.booking-tag {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--shepel-gold, #C59A3F);
+    font-weight: 600;
+}
+
+.booking-heading {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--shepel-dark, #1E2328);
+    margin: 4px 0 0;
+    line-height: 1.15;
+}
+
+/* 3. Form Body */
+.booking-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.booking-field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.booking-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.booking-field-group label {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--shepel-dark, #1E2328);
+}
+
+.booking-input {
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.15));
+    background: #FFFFFF;
+    padding: 12px 14px;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 13px;
+    color: var(--shepel-dark, #1E2328);
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.booking-input:focus {
+    border-color: var(--shepel-gold, #C59A3F);
+}
+
+.booking-select {
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.15));
+    background: #FFFFFF;
+    padding: 12px 14px;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 13px;
+    color: var(--shepel-dark, #1E2328);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.booking-checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.booking-checkbox-row input {
+    accent-color: var(--shepel-gold, #C59A3F);
+    width: 16px;
+    height: 16px;
+}
+
+.booking-checkbox-label {
+    font-size: 13px;
+    color: var(--shepel-charcoal, #2B2F32);
+}
+
+.booking-showroom-proof {
+    background: #FFFFFF;
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.1));
+    padding: 16px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--shepel-muted, #767B82);
+    line-height: 1.4;
+}
+
+.booking-showroom-proof strong {
+    color: var(--shepel-dark, #1E2328);
+}
+
+/* 4. Footer & Confirmation State */
+.booking-footer {
+    padding: 20px 32px;
+    background: var(--shepel-card-bg, #FFFFFF);
+    border-top: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-booking-submit {
+    background: var(--shepel-dark, #1E2328);
+    color: #FFFFFF;
+    border: none;
+    padding: 14px 32px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: var(--font-sans, sans-serif);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-booking-submit:hover {
+    background: var(--shepel-gold, #C59A3F);
+}
+
+/* Confirmation Card */
+.booking-success-view {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 24px;
+    gap: 16px;
+}
+
+.booking-success-view.active {
+    display: flex;
+}
+
+.success-badge-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(197, 154, 63, 0.1);
+    border: 1px solid var(--shepel-gold, #C59A3F);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--shepel-gold, #C59A3F);
+}
+
+.success-title {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: 28px;
+    color: var(--shepel-dark, #1E2328);
+    margin: 0;
+}
+
+.success-ref-pill {
+    background: #FFFFFF;
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.15));
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--shepel-gold, #C59A3F);
+}
+
+.success-desc {
+    font-size: 13px;
+    color: var(--shepel-charcoal, #2B2F32);
+    line-height: 1.5;
+    max-width: 440px;
+}
+
+.success-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .booking-field-row {
+        grid-template-columns: 1fr;
+    }
+    .booking-body {
+        padding: 20px;
+    }
+    .booking-footer {
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .btn-booking-submit {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .booking-modal-overlay {
+        transition: none !important;
+    }
+}

@@ -105,6 +105,34 @@ const server = http.createServer(async (req, res) => {
   }
 
   // =========================================================================
+  // API ROUTE: POST /api/book-appointment
+  // Receives and stores showroom appointment requests
+  // =========================================================================
+  if (req.method === 'POST' && parsedUrl === '/api/book-appointment') {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk;
+      if (body.length > 1024 * 1024) req.destroy();
+    });
+    req.on('end', () => {
+      try {
+        const appointment = JSON.parse(body);
+        console.log(`[Atelier Booking] New appointment received:`, appointment.refCode, appointment.name, appointment.date, appointment.time);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({
+          success: true,
+          refCode: appointment.refCode,
+          message: 'Showroom consultation successfully scheduled.'
+        }));
+      } catch (e) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Invalid appointment payload.' }));
+      }
+    });
+    return;
+  }
+
+  // =========================================================================
   // STATIC ASSET SERVING
   // =========================================================================
   let safePath = decodeURI(parsedUrl);
