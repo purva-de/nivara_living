@@ -1,0 +1,302 @@
+[
+  {
+    "id": "anton-sectional",
+    "name": "ANTON",
+    "category": "sofas",
+    "category_label": "Sectional Sofa",
+    "img_normal": "catalog_images/page_2.jpg",
+    "img_hover": "catalog_images/page_3.jpg",
+    "specs": "Seasoned Sal Wood internal frame, high-resilience 40-density foam with memory down layer, luxury stain-resistant bouclé.",
+    "dimensions": "Custom lengths up to 340cm, bespoke depth & orientation."
+  },
+  {
+    "id": "antalia-sofa",
+    "name": "ANTALIA",
+    "category": "sofas",
+    "category_label": "Dual-Tone Luxury Sofa",
+    "img_normal": "catalog_images/antalia_sofa.jpg",
+    "img_hover": "catalog_images/antalia_sofa_detail.jpg",
+    "specs": "Architectural dual-tone silhouette with sculptured cappuccino leatherette outer frame, artisanal braided edge stitch trim, soft cream oatmeal bouclé cushions, and sleek dark stiletto legs.",
+    "dimensions": "3-Seater: 230cm x 95cm x 88cm; 2-Seater: 175cm x 95cm x 88cm."
+  },
+  {
+    "id": "phantom-sofa",
+    "name": "PHANTOM",
+    "category": "sofas",
+    "category_label": "Contemporary Lounge Sofa",
+    "img_normal": "catalog_images/phantom_sofa.jpg",
+    "img_hover": "catalog_images/phantom_sofa_detail.jpg",
+    "specs": "Deep emerald teal textured chenille-bouclé upholstery, precision tailored track arms, pocket spring core with feather topper, and royal elephant motif accent cushions.",
+    "dimensions": "3-Seater: 225cm x 96cm x 85cm."
+  },
+  {
+    "id": "miranda-sofa",
+    "name": "MIRANDA",
+    "category": "sofas",
+    "category_label": "Scandinavian Lounge Sofa",
+    "img_normal": "catalog_images/miranda_sofa.jpg",
+    "img_hover": "catalog_images/miranda_sofa_detail.jpg",
+    "specs": "Warm ivory textured weave over an architectural solid Burma teak wood plinth base, split pillow-top ergonomic backrest, and dual-tone blush-rose throw cushions.",
+    "dimensions": "3-Seater: 235cm x 98cm x 86cm."
+  },
+  {
+    "id": "berlin-sofa",
+    "name": "BERLIN",
+    "category": "sofas",
+    "category_label": "Curved Silhouette Sofa",
+    "img_normal": "catalog_images/berlin_sofa.jpg",
+    "img_hover": "catalog_images/berlin_sofa_detail.jpg",
+    "specs": "Organic rounded cocoon silhouette in cozy heather oatmeal bouclé, contoured sloping armrests, and circular button-tufted caramel velvet bolster cushions.",
+    "dimensions": "3-Seater: 220cm x 94cm x 82cm."
+  },
+  {
+    "id": "arturo-sofa",
+    "name": "ARTURO",
+    "category": "sofas",
+    "category_label": "Curved Modular Sectional",
+    "img_normal": "catalog_images/arturo_sofa.jpg",
+    "img_hover": "catalog_images/arturo_sofa_detail.jpg",
+    "specs": "Grand architectural curved sectional with extended rounded daybed chaise, upholstered in cream bouclé with low-profile continuous curved back and spherical accent ball.",
+    "dimensions": "Sectional Arc: 330cm x 165cm chaise x 78cm."
+  },
+  {
+    "id": "sierra-sofa",
+    "name": "SIERRA",
+    "category": "sofas",
+    "category_label": "Crescent Sculptural Sofa",
+    "img_normal": "catalog_images/sierra_sofa.jpg",
+    "img_hover": "catalog_images/sierra_sofa_detail.jpg",
+    "specs": "Dramatic crescent monolithic arc in off-white heavy bouclé weave, deep bench seat cushion, and sculptural polished chrome sphere ball feet.",
+    "dimensions": "3-Seater Crescent: 240cm x 105cm x 78cm."
+  },
+  {
+    "id": "dining-calacatta",
+    "name": "CALACATTA MONOLITH",
+    "category": "dining",
+    "category_label": "Dining Table",
+    "img_normal": "catalog_images/dining_monolith.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/002-Shepel-Furniture-Roosevelt-Dining-Table.jpg",
+    "specs": "Bookmatched Italian Calacatta marble slab with curved bullnose profile, dual solid fluted teak wood pedestal bases with internal steel reinforcement.",
+    "dimensions": "260cm x 115cm x 76cm (Custom 6, 8, 10 or 12-seater sizing)."
+  },
+  {
+    "id": "bed-fluted-master",
+    "name": "AURELIA FLUTED",
+    "category": "beds",
+    "category_label": "Master Bed",
+    "img_normal": "catalog_images/bed_master.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/03/001-Shepel-Furniture-Elena-Bed.jpg",
+    "specs": "Floor-to-ceiling vertical fluted velvet headboard with brushed gold trim, heavy-duty pneumatic hydraulic storage lift with seasoned hardwood slats.",
+    "dimensions": "King Master (220cm x 230cm x 220cm headboard height)."
+  },
+  {
+    "id": "coffee-travertine-dual",
+    "name": "SOLIS NESTED",
+    "category": "coffee_tables",
+    "category_label": "Coffee Table Set",
+    "img_normal": "catalog_images/coffee_table.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/02/003-Shepel-Furniture-Soho-Side-Table.jpg",
+    "specs": "Pair of dual nesting tables: honed natural Italian beige travertine with cylindrical fluted oak base, paired with smoked walnut accent table with brass inlay rim.",
+    "dimensions": "Travertine: 110cm dia x 42cm; Walnut: 75cm dia x 48cm."
+  },
+  {
+    "id": "recliner-cognac-motorized",
+    "name": "HAVEN MOTORIZED",
+    "category": "recliners",
+    "category_label": "Luxury Recliner",
+    "img_normal": "catalog_images/recliner_luxury.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/001-Shepel-Furniture-Cruz-Accent-Chair.jpg",
+    "specs": "Dual-motor whisper-quiet German actuator mechanism with hidden touch sensors, 100% full-grain cognac Italian aniline leather, multi-density ergonomic foam.",
+    "dimensions": "98cm x 105cm x 106cm (Fully extended recline 175cm)."
+  },
+  {
+    "id": "avian-2r-motorized",
+    "name": "AVIAN 2R MOTORISED",
+    "category": "recliners",
+    "category_label": "Luxury Recliner",
+    "img_normal": "catalog_images/avian_recliner.jpg",
+    "img_hover": "catalog_images/avian_recliner_detail.jpg",
+    "specs": "Whisper-quiet dual-motor German actuator with 360° smooth swivel base, circular brushed metallic touch sensor controls, bespoke sage green textured linen-bouclé weave, and motorized articulated footrest.",
+    "dimensions": "92cm x 98cm x 108cm (Fully extended recline 172cm)."
+  },
+  {
+    "id": "vivian-motorized",
+    "name": "VIVIAN MOTORISED",
+    "category": "recliners",
+    "category_label": "Luxury Recliner",
+    "img_normal": "catalog_images/vivian_recliner.jpg",
+    "img_hover": "catalog_images/vivian_recliner_detail.jpg",
+    "specs": "Dual-motor whisper-quiet actuator mechanism with concealed lateral touch controls, premium butter-soft warm ivory Italian top-grain leather with tailored grid stitching, and multi-density memory foam core.",
+    "dimensions": "96cm x 102cm x 104cm (Fully extended recline 174cm)."
+  },
+  {
+    "id": "tpoy-sculptural-teak",
+    "name": "ZENO SCULPTURAL",
+    "category": "tpoy",
+    "category_label": "Artisanal T-Poy",
+    "img_normal": "catalog_images/tpoy_accent.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/004-Shepel-Furniture-Alba-Console.jpg",
+    "specs": "Hand-lathed solid Burma Teak wood hourglass pedestal with natural grain flow, fitted with brushed champagne brass rim tray top.",
+    "dimensions": "52cm diameter x 56cm height."
+  },
+  {
+    "id": "almeda-chair",
+    "name": "ALMEDA",
+    "category": "chairs",
+    "category_label": "Artisanal Chair",
+    "img_normal": "catalog_images/almeda_chair.jpg",
+    "img_hover": "catalog_images/almeda_chair_detail.jpg",
+    "specs": "Sculptural mid-century silhouette upholstered in textured off-white boucle, sculptured solid teak legs with distinctive curved front jointing, and matching suede lumbar cushion with buckle strap.",
+    "dimensions": "82cm x 88cm x 78cm (Seat height 42cm)."
+  },
+  {
+    "id": "munro-chair",
+    "name": "MUNRO",
+    "category": "chairs",
+    "category_label": "Artisanal Chair",
+    "img_normal": "catalog_images/munro_chair.jpg",
+    "img_hover": "catalog_images/munro_chair_detail.jpg",
+    "specs": "Organic wrap-around barrel cocoon silhouette upholstered in rich terracotta boucle fabric, 360-degree silent swivel plinth, and plush spherical bouclé accent pillow.",
+    "dimensions": "88cm x 86cm x 76cm."
+  },
+  {
+    "id": "ria-sleeper-chair",
+    "name": "RIA SLEEPER",
+    "category": "chairs",
+    "category_label": "Artisanal Chair",
+    "img_normal": "catalog_images/ria_sleeper_chair.jpg",
+    "img_hover": "catalog_images/ria_sleeper_chair_detail.jpg",
+    "specs": "Curved barrel low-profile lounge chair upholstered in buttery caramel velvet, tapered kiln-dried hardwood legs, high-resilience memory foam cushioning, and textured woven lumbar cushion.",
+    "dimensions": "84cm x 85cm x 75cm."
+  },
+  {
+    "id": "roma-designer-chair",
+    "name": "ROMA DESIGNER",
+    "category": "chairs",
+    "category_label": "Artisanal Chair",
+    "img_normal": "catalog_images/roma_designer_chair.jpg",
+    "img_hover": "catalog_images/roma_designer_chair_detail.jpg",
+    "specs": "Architectural high-back wingback armchair upholstered in slate blue textured tweed weave with tailored welted seams, contrast mustard yellow lumbar pillow, and matte black steel stiletto legs.",
+    "dimensions": "86cm x 90cm x 102cm."
+  },
+  {
+    "id": "torrie-chesterfield",
+    "name": "TORRIE",
+    "category": "sofas",
+    "category_label": "Chesterfield Sofa",
+    "img_normal": "catalog_images/page_3.jpg",
+    "img_hover": "catalog_images/page_4.jpg",
+    "specs": "Deep diamond hand-tufted backrest, solid teak turned bun feet, premium velvet with high rub count (60,000+ Martindale).",
+    "dimensions": "3-Seater: 245cm x 100cm x 82cm."
+  },
+  {
+    "id": "roosevelt-dining",
+    "name": "ROOSEVELT",
+    "category": "dining",
+    "category_label": "Dining Table",
+    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/01/001-Shepel-Furniture-Roosevelt-Dining-Table.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/002-Shepel-Furniture-Roosevelt-Dining-Table.jpg",
+    "specs": "Solid seasoned teak wood top with sculpted bevel, brushed champagne brass base.",
+    "dimensions": "240cm x 110cm x 76cm (Custom 6, 8, 10 or 12-seater seating)."
+  },
+  {
+    "id": "sail-bed",
+    "name": "SAIL WINGBACK",
+    "category": "beds",
+    "category_label": "Upholstered Bed",
+    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/03/002-Shepel-Furniture-Sail-Bed.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/03/001-Shepel-Furniture-Sail-Bed.jpg",
+    "specs": "Wingback architectural headboard, hand-tufted Italian linen fabric, reinforced hardwood foundation.",
+    "dimensions": "King Master (215cm x 225cm x 145cm)."
+  },
+  {
+    "id": "taurus-modular",
+    "name": "TAURUS",
+    "category": "sofas",
+    "category_label": "Modular L-Shape",
+    "img_normal": "catalog_images/page_4.jpg",
+    "img_hover": "catalog_images/page_5.jpg",
+    "specs": "Versatile modular seating configuration, pocket spring core with feather topper, textured weave upholstery.",
+    "dimensions": "Modular pieces configurable up to 360cm."
+  },
+  {
+    "id": "soho-table",
+    "name": "SOHO FLUTED",
+    "category": "coffee_tables",
+    "category_label": "Coffee Table",
+    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/02/002-Shepel-Furniture-Soho-Side-Table.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/02/003-Shepel-Furniture-Soho-Side-Table.jpg",
+    "specs": "Natural honed Italian Carrara marble insert, fluted smoked oak exterior, soft-close concealed drawer.",
+    "dimensions": "110cm x 110cm x 42cm (Custom dual nesting available)."
+  },
+  {
+    "id": "dot-tpoy",
+    "name": "DOT PEDESTAL",
+    "category": "tpoy",
+    "category_label": "Pedestal T-Poy",
+    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/01/002-Shepel-Furniture-Dot-Chest.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/003-Shepel-Furniture-Dot-Chest.jpg",
+    "specs": "Turned solid wood monolithic accent tea-poy with recessed top brass tray.",
+    "dimensions": "48cm diameter x 54cm height."
+  },
+  {
+    "id": "cruz-recliner",
+    "name": "CRUZ LOUNGE",
+    "category": "recliners",
+    "category_label": "Luxury Recliner",
+    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/01/000-Shepel-Furniture-Cruz-Accent-Chair.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/001-Shepel-Furniture-Cruz-Accent-Chair.jpg",
+    "specs": "Sculpted ergonomic shell with top-grain saddle leather and high-density memory foam core.",
+    "dimensions": "95cm x 102cm x 105cm."
+  },
+  {
+    "id": "capro-sofa",
+    "name": "CAPRO",
+    "category": "sofas",
+    "category_label": "Lounge Sofa",
+    "img_normal": "catalog_images/page_5.jpg",
+    "img_hover": "catalog_images/page_6.jpg",
+    "specs": "Low profile Scandinavian silhouette, solid Burma teak wood plinth base, stain-resistant textured fabric.",
+    "dimensions": "3-Seater: 235cm x 95cm x 75cm."
+  },
+  {
+    "id": "forte-curved",
+    "name": "FORTE",
+    "category": "sofas",
+    "category_label": "Curved Modern Sofa",
+    "img_normal": "catalog_images/page_6.jpg",
+    "img_hover": "catalog_images/page_7.jpg",
+    "specs": "Dramatic crescent organic curve, continuous backrest with internal steel and sal wood structure, luxury cream bouclé.",
+    "dimensions": "Curved Arc: 290cm x 125cm x 80cm."
+  },
+  {
+    "id": "miro-dining",
+    "name": "MIRO",
+    "category": "dining",
+    "category_label": "Dining Table",
+    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/01/004-Shepel-Furniture-Miro-Dining-Table.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/002-Shepel-Furniture-Miro-Dining-Table.jpg",
+    "specs": "Bookmatched monolithic Statuario marble top, dual cylindrical fluted oak pedestals with internal steel reinforcement.",
+    "dimensions": "260cm x 120cm x 76cm."
+  },
+  {
+    "id": "core-bed",
+    "name": "V08 CORE",
+    "category": "beds",
+    "category_label": "Platform Bed",
+    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/03/001-Shepel-Furniture-Core-Bed.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/03/002-Shepel-Furniture-Core-Bed.jpg",
+    "specs": "Minimalist low-profile platform bed with floating nightstands and integrated LED backlighting, brushed oak and bouclé.",
+    "dimensions": "Custom King Platform (230cm x 240cm x 110cm)."
+  },
+  {
+    "id": "steven-recliner",
+    "name": "STEVEN",
+    "category": "recliners",
+    "category_label": "Swivel Recliner",
+    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/02/006-Shepel-Furniture-Steven-Ottoman.jpg",
+    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/02/007-Shepel-Furniture-Steven-Ottoman.jpg",
+    "specs": "Swivel base recliner with matching ergonomic ottoman, top-grain saddle leather, molded high-resilience foam core.",
+    "dimensions": "88cm x 92cm x 100cm."
+  }
+]

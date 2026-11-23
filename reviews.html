@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Review Assistant | Nivaraa Living Pune</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="review_portal.css">
+    <link rel="icon" type="image/png" href="logo_transparent.png">
+</head>
+<body>
+
+    <div class="portal-container">
+        
+        <!-- Main Floating Card (Shirke's Kitchen Style) -->
+        <main class="main-review-card">
+            
+            <!-- Top Navigation Row -->
+            <div class="back-link-row">
+                <a href="/" class="back-to-home">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span>Back to Atelier Website</span>
+                </a>
+                <a href="tel:09146189933" class="phone-quick-call">📞 091461 89933</a>
+            </div>
+
+            <!-- Brand Header Block -->
+            <div class="brand-header-block">
+                <div class="brand-pill-badge">
+                    <span>🏠</span>
+                    <span>BESPOKE FURNITURE ATELIER</span>
+                </div>
+                <h1 class="brand-main-title">Nivaraa Living</h1>
+                <p class="brand-subtitle-italic">Bespoke Luxury Furniture & Living</p>
+            </div>
+
+            <!-- 1. Rate Your Experience Section -->
+            <div class="rating-section-block">
+                <h2 class="rating-header-title">Rate Your Project Experience</h2>
+                <div class="stars-row" id="stars-row">
+                    <span class="star-tap-btn active" data-val="1">★</span>
+                    <span class="star-tap-btn active" data-val="2">★</span>
+                    <span class="star-tap-btn active" data-val="3">★</span>
+                    <span class="star-tap-btn active" data-val="4">★</span>
+                    <span class="star-tap-btn active" data-val="5">★</span>
+                </div>
+                <div class="rating-score-pill" id="score-pill">
+                    <span>Selected:</span>
+                    <strong id="rating-score-text">5.0 / 5.0 (Exceptional)</strong>
+                </div>
+            </div>
+
+            <!-- 2. Furniture Commission Category Chips -->
+            <section class="category-block">
+                <div class="category-label">
+                    <span>🛋️</span>
+                    <span>SELECT YOUR COMMISSIONED FURNITURE</span>
+                </div>
+                <div class="chips-wrap" id="cat-chips">
+                    <button class="pill-chip-btn active" data-cat="sofas">Custom Sofas & Couches 🛋️</button>
+                    <button class="pill-chip-btn" data-cat="beds">Bespoke Beds & Headboards 🛏️</button>
+                    <button class="pill-chip-btn" data-cat="dining">Marble & Teak Dining Tables 🪵</button>
+                    <button class="pill-chip-btn" data-cat="recliners">Motorized Luxury Recliners ⚡</button>
+                    <button class="pill-chip-btn" data-cat="coffee_tables">Coffee & Center Tables ☕</button>
+                    <button class="pill-chip-btn" data-cat="tpoy">Artisanal T-Poy & Accents ✨</button>
+                </div>
+            </section>
+
+            <!-- 3. Preferred Language / Dialect Chips -->
+            <section class="category-block">
+                <div class="category-label">
+                    <span>🌐</span>
+                    <span>SELECT REVIEW LANGUAGE / DIALECT</span>
+                </div>
+                <div class="chips-wrap" id="lang-chips">
+                    <button class="pill-chip-btn active" data-lang="mixed">🌐 Mixed (Eng + Hinglish + Marathlish)</button>
+                    <button class="pill-chip-btn" data-lang="hinglish">🗣️ Hinglish (Hindi in English)</button>
+                    <button class="pill-chip-btn" data-lang="marathlish">🚩 Marathlish (Marathi in English)</button>
+                    <button class="pill-chip-btn" data-lang="english">🇬🇧 Pure English</button>
+                    <button class="pill-chip-btn" data-lang="hindi">🇮🇳 Hindi (हिंदी)</button>
+                    <button class="pill-chip-btn" data-lang="marathi">🚩 Marathi (मराठी)</button>
+                </div>
+            </section>
+
+            <!-- 4. Impressed Aspects Focus -->
+            <section class="category-block">
+                <div class="category-label">
+                    <span>⭐</span>
+                    <span>WHAT IMPRESSED YOU THE MOST?</span>
+                </div>
+                <div class="chips-wrap" id="aspect-chips">
+                    <button class="pill-chip-btn active" data-aspect="quality">Wood & Fabric Quality ✨</button>
+                    <button class="pill-chip-btn" data-aspect="custom">Custom Sizing & Precision 📐</button>
+                    <button class="pill-chip-btn" data-aspect="comfort">Cushioning & Ergonomics ☁️</button>
+                    <button class="pill-chip-btn" data-aspect="delivery">Timely Setup & Delivery 🚚</button>
+                </div>
+            </section>
+
+            <!-- 5. Anti-AI Natural Typo Switch -->
+            <div class="typo-switch-bar">
+                <div class="typo-text-info">
+                    <div class="typo-headline">
+                        <span>🛡️ Natural Human Typing Mode</span>
+                    </div>
+                    <p class="typo-subtext">
+                        Injects organic conversational variations so Google algorithms never flag your review as AI-generated.
+                    </p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="typo-toggle-input" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <!-- Primary Generate CTA (Shirke Style Navy Button) -->
+            <button class="btn-generate-primary" id="btn-generate">
+                <span>Generate 5 Review Options</span>
+                <span>✨</span>
+            </button>
+
+            <!-- 6. 5 Review Cards Output (Dashed Border Shirke Style) -->
+            <div class="reviews-container-block">
+                <div class="output-header-row">
+                    <span class="output-heading">5 Generated Review Options</span>
+                    <span class="seed-indicator" id="seed-badge">Seed: #NL-1042</span>
+                </div>
+
+                <div class="review-cards-list" id="review-cards-output">
+                    <!-- Cards populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- 7. QR Code Standee Card (Shirke Warm Beige Container) -->
+            <div class="qr-standee-box">
+                <div class="qr-box-label">
+                    <span>📷</span>
+                    <span>SCAN TO REVIEW ON PHONE</span>
+                </div>
+                <div class="qr-image-frame">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dnivara%2Bliving%23lrd%3D0x3bc2c1367c6b1d75%3A0xaf348dca7eb33ada%2C3%2C%2C%2C%2C" alt="Google Review QR Code" id="qr-img">
+                </div>
+                <p class="qr-instructions">
+                    Scan with your phone camera to easily generate, copy, and paste your 5-star review directly on Google Maps!
+                </p>
+                <div class="qr-actions-row">
+                    <a href="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dnivara%2Bliving%23lrd%3D0x3bc2c1367c6b1d75%3A0xaf348dca7eb33ada%2C3%2C%2C%2C%2C" download="Nivaraa_Living_Review_QR.png" target="_blank" class="btn-qr-action btn-qr-download">
+                        <span>📥 Download QR Standee</span>
+                    </a>
+                    <a href="https://www.google.com/search?q=nivara+living#lrd=0x3bc2c1367c6b1d75:0xaf348dca7eb33ada,3,,,," target="_blank" class="btn-qr-action btn-qr-test">
+                        <span>Direct Google Link ➔</span>
+                    </a>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="portal-footer-note">
+            <p>Nivaraa Living • Creaticity Mall, Airport Rd, Yerawada, Pune • 091461 89933</p>
+        </footer>
+
+    </div>
+
+    <!-- Floating Feedback Toast -->
+    <div class="floating-toast" id="toast-msg">
+        <span class="toast-dot-check">✓</span>
+        <span id="toast-text">Review Copied! Opening Google Reviews...</span>
+    </div>
+
+    <script src="review_portal.js"></script>
+</body>
+</html>

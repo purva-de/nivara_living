@@ -1,0 +1,600 @@
+/* ==========================================================================
+   NIVARAA LIVING — SHIRKE'S KITCHEN STYLE REVIEW CONCIERGE
+   Clean, Premium, Modern UI/UX with High Contrast & Polished Micro-Interactions
+   ========================================================================== */
+
+:root {
+    --bg-page: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+    --card-white: #FFFFFF;
+    --card-subtle: #F8FAFC;
+    --card-border: #E2E8F0;
+    --card-dashed: #CBD5E1;
+    
+    --text-navy: #0F172A;
+    --text-charcoal: #1E293B;
+    --text-slate: #334155;
+    --text-muted: #64748B;
+    --text-light: #94A3B8;
+    
+    --accent-navy: #0F172A;
+    --accent-hover: #1E293B;
+    --accent-gold: #F59E0B;
+    --accent-gold-light: #FEF3C7;
+    --accent-gold-border: #FDE68A;
+    --accent-amber: #B45309;
+    
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: var(--bg-page);
+    color: var(--text-charcoal);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    min-height: 100vh;
+    padding: 36px 16px 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.portal-container {
+    width: 100%;
+    max-width: 660px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   MAIN WHITE FLOATING CARD
+   ========================================================================== */
+
+.main-review-card {
+    background: var(--card-white);
+    border-radius: 32px;
+    padding: 44px 38px;
+    box-shadow: 0 25px 55px -12px rgba(15, 23, 42, 0.12), 0 10px 25px -8px rgba(15, 23, 42, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative;
+}
+
+@media (max-width: 640px) {
+    .main-review-card {
+        padding: 30px 20px;
+        border-radius: 24px;
+    }
+}
+
+/* Top Back Nav */
+.back-link-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.back-to-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.back-to-home:hover {
+    color: var(--text-navy);
+    transform: translateX(-2px);
+}
+
+.phone-quick-call {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-navy);
+    background: var(--card-subtle);
+    border: 1px solid var(--card-border);
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.phone-quick-call:hover {
+    background: var(--card-border);
+}
+
+/* Header & Branding (Shirke's Kitchen Style) */
+.brand-header-block {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.brand-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-gold-light);
+    border: 1px solid var(--accent-gold-border);
+    color: var(--accent-amber);
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.brand-main-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-navy);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 6px;
+}
+
+.brand-subtitle-italic {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    font-style: italic;
+    color: var(--accent-amber);
+    font-weight: 500;
+}
+
+/* Rate Experience Section */
+.rating-section-block {
+    text-align: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--card-border);
+    margin-bottom: 28px;
+}
+
+.rating-header-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-navy);
+    margin-bottom: 12px;
+}
+
+.stars-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.star-tap-btn {
+    font-size: 38px;
+    color: #CBD5E1;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    line-height: 1;
+}
+
+.star-tap-btn.active {
+    color: var(--accent-gold);
+    text-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+}
+
+.star-tap-btn:hover {
+    transform: scale(1.18);
+}
+
+.rating-score-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card-subtle);
+    border: 1px solid var(--card-border);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-slate);
+}
+
+.rating-score-pill strong {
+    color: var(--text-navy);
+}
+
+/* Category Sections & Interactive Chips */
+.category-block {
+    margin-bottom: 26px;
+}
+
+.category-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.chips-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pill-chip-btn {
+    background: var(--card-white);
+    border: 1px solid var(--card-border);
+    color: var(--text-slate);
+    padding: 9px 16px;
+    border-radius: 9999px;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.pill-chip-btn:hover {
+    border-color: var(--text-muted);
+    color: var(--text-navy);
+    background: var(--card-subtle);
+    transform: translateY(-1px);
+}
+
+.pill-chip-btn.active {
+    background: var(--accent-navy);
+    border-color: var(--accent-navy);
+    color: #FFFFFF;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
+/* Natural Typo Shield Switch */
+.typo-switch-bar {
+    background: var(--card-subtle);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.typo-text-info {
+    max-width: 80%;
+}
+
+.typo-headline {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2px;
+}
+
+.typo-subtext {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #CBD5E1;
+    transition: .3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 26px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--accent-navy);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(20px);
+}
+
+/* Primary Generate Button (Shirke's Kitchen Full Width Dark Slate) */
+.btn-generate-primary {
+    width: 100%;
+    padding: 16px 24px;
+    background: var(--accent-navy);
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+    margin-bottom: 32px;
+    transition: all 0.25s ease;
+}
+
+.btn-generate-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.3);
+}
+
+.btn-generate-primary:active {
+    transform: translateY(0);
+}
+
+/* Review Cards Output Block (Dashed Border Shirke Style) */
+.reviews-container-block {
+    margin-bottom: 32px;
+}
+
+.output-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.output-heading {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-navy);
+}
+
+.seed-indicator {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--card-subtle);
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+}
+
+.review-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Individual Shirke's Kitchen Review Card */
+.review-item-card {
+    background: var(--card-subtle);
+    border: 1.5px dashed var(--card-dashed);
+    border-radius: 18px;
+    padding: 20px 22px;
+    transition: all 0.25s ease;
+}
+
+.review-item-card:hover {
+    background: #FFFFFF;
+    border-color: var(--accent-navy);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+    transform: translateY(-2px);
+}
+
+.card-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.stars-cluster {
+    color: var(--accent-gold);
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.btn-click-post {
+    background: var(--accent-navy);
+    color: #FFFFFF;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-click-post:hover {
+    background: var(--accent-amber);
+    box-shadow: 0 4px 12px rgba(180, 83, 9, 0.3);
+    transform: scale(1.03);
+}
+
+.review-quote-text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-slate);
+    font-style: italic;
+}
+
+/* ==========================================================================
+   QR CODE STANDEE CARD (Shirke's Soft Warm Beige Box)
+   ========================================================================== */
+
+.qr-standee-box {
+    background: #F6F2EC;
+    border-radius: 24px;
+    padding: 28px 24px;
+    text-align: center;
+    border: 1px solid #EAE2D8;
+    margin-bottom: 16px;
+}
+
+.qr-box-label {
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.qr-image-frame {
+    background: #FFFFFF;
+    padding: 16px;
+    border-radius: 20px;
+    display: inline-block;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    margin-bottom: 16px;
+}
+
+.qr-image-frame img {
+    width: 170px;
+    height: 170px;
+    display: block;
+}
+
+.qr-instructions {
+    font-size: 13px;
+    color: var(--text-slate);
+    max-width: 440px;
+    margin: 0 auto 16px;
+    line-height: 1.5;
+}
+
+.qr-actions-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-qr-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-qr-download {
+    background: var(--card-white);
+    color: var(--text-navy);
+    border: 1px solid var(--card-border);
+}
+
+.btn-qr-download:hover {
+    background: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn-qr-test {
+    background: var(--accent-navy);
+    color: #FFFFFF;
+    border: 1px solid var(--accent-navy);
+}
+
+.btn-qr-test:hover {
+    background: var(--accent-hover);
+}
+
+/* Footer Info */
+.portal-footer-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding-top: 10px;
+}
+
+/* Toast Notification */
+.floating-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--accent-navy);
+    color: #FFFFFF;
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1000;
+}
+
+.floating-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast-dot-check {
+    width: 20px;
+    height: 20px;
+    background: #10B981;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+}

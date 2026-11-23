@@ -1,0 +1,13 @@
+node_modules/
+.vercel/
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+header_screenshot.png
+header_scrolled.png
+header_scrolled_crop.png
+logo_page_*.png
+nl_crop_*.png
+nl_emblem_*.png
+preview_*.png

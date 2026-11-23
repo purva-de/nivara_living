@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <!-- Subtle ivory/linen luxury textured background -->
+  <rect width="600" height="600" fill="#faf7f2"/>
+  
+  <!-- Subtle pattern dots -->
+  <g opacity="0.05" fill="#c99a2c">
+    <circle cx="50" cy="50" r="2"/>
+    <circle cx="150" cy="50" r="2"/>
+    <circle cx="250" cy="50" r="2"/>
+    <circle cx="350" cy="50" r="2"/>
+    <circle cx="450" cy="50" r="2"/>
+    <circle cx="550" cy="50" r="2"/>
+  </g>
+
+  <!-- Luxury Monogram Serif 'NL' interlocking -->
+  <g transform="translate(195, 90)">
+    <!-- Letter N -->
+    <path d="M 15 220 L 15 25 L 45 25 L 140 175 L 140 25 L 175 25 L 175 220 L 145 220 L 45 65 L 45 220 Z" fill="#c5992c"/>
+    <!-- Letter L overlapping in harmony -->
+    <path d="M 125 25 L 160 25 L 160 178 L 225 178 L 225 220 L 125 220 Z" fill="#d8ad3d"/>
+  </g>
+
+  <!-- NIVARAA Text in Classical Roman Serif -->
+  <text x="300" y="380" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="52" font-weight="700" fill="#0f172a" text-anchor="middle" letter-spacing="8">NIVARAA</text>
+
+  <!-- LIVING Subtext with tracked luxury sans-serif -->
+  <text x="300" y="445" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle" letter-spacing="18">LIVING</text>
+
+  <!-- Decorative baseline -->
+  <line x1="220" y1="475" x2="380" y2="475" stroke="#c5992c" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+</svg>

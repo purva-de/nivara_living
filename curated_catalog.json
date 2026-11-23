@@ -1,0 +1,534 @@
+[
+  {
+    "id": "sofa-1",
+    "name": "Anton",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Sectional Sofas",
+    "image": "catalog_images/page_2.jpg",
+    "page": 2,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-2",
+    "name": "Torrie",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Chesterfield & Tufted",
+    "image": "catalog_images/page_3.jpg",
+    "page": 3,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-3",
+    "name": "Taurus",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Contemporary Lounges",
+    "image": "catalog_images/page_4.jpg",
+    "page": 4,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-4",
+    "name": "Capro",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Modular L-Shapes",
+    "image": "catalog_images/page_5.jpg",
+    "page": 5,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-5",
+    "name": "Forte",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Minimalist Classics",
+    "image": "catalog_images/page_6.jpg",
+    "page": 6,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-6",
+    "name": "Banton",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Curved Modern Sofas",
+    "image": "catalog_images/page_7.jpg",
+    "page": 7,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-7",
+    "name": "Atlas",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Sectional Sofas",
+    "image": "catalog_images/page_8.jpg",
+    "page": 8,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-8",
+    "name": "Mobiko",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Chesterfield & Tufted",
+    "image": "catalog_images/page_9.jpg",
+    "page": 9,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-9",
+    "name": "Nortigo",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Contemporary Lounges",
+    "image": "catalog_images/page_10.jpg",
+    "page": 10,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-10",
+    "name": "Crest",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Modular L-Shapes",
+    "image": "catalog_images/page_11.jpg",
+    "page": 11,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-11",
+    "name": "Arcadia",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Minimalist Classics",
+    "image": "catalog_images/page_12.jpg",
+    "page": 12,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-12",
+    "name": "Romania",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Curved Modern Sofas",
+    "image": "catalog_images/page_13.jpg",
+    "page": 13,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-13",
+    "name": "Elan",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Sectional Sofas",
+    "image": "catalog_images/page_14.jpg",
+    "page": 14,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-14",
+    "name": "Dorm",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Chesterfield & Tufted",
+    "image": "catalog_images/page_15.jpg",
+    "page": 15,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-15",
+    "name": "Lara",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Contemporary Lounges",
+    "image": "catalog_images/page_16.jpg",
+    "page": 16,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-16",
+    "name": "Solace",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Modular L-Shapes",
+    "image": "catalog_images/page_17.jpg",
+    "page": 17,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-17",
+    "name": "Norin",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Minimalist Classics",
+    "image": "catalog_images/page_18.jpg",
+    "page": 18,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-18",
+    "name": "Aatiro",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Curved Modern Sofas",
+    "image": "catalog_images/page_19.jpg",
+    "page": 19,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-19",
+    "name": "Monarch",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Sectional Sofas",
+    "image": "catalog_images/page_20.jpg",
+    "page": 20,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-20",
+    "name": "Oslo",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Chesterfield & Tufted",
+    "image": "catalog_images/page_21.jpg",
+    "page": 21,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-21",
+    "name": "Verona",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Contemporary Lounges",
+    "image": "catalog_images/page_22.jpg",
+    "page": 22,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-22",
+    "name": "Evana",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Modular L-Shapes",
+    "image": "catalog_images/page_23.jpg",
+    "page": 23,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-23",
+    "name": "Ervin",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Minimalist Classics",
+    "image": "catalog_images/page_24.jpg",
+    "page": 24,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-24",
+    "name": "Nestra",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Curved Modern Sofas",
+    "image": "catalog_images/page_25.jpg",
+    "page": 25,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-25",
+    "name": "Arvo",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Sectional Sofas",
+    "image": "catalog_images/page_26.jpg",
+    "page": 26,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-26",
+    "name": "Urbano",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Chesterfield & Tufted",
+    "image": "catalog_images/page_27.jpg",
+    "page": 27,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-27",
+    "name": "Nordic",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Contemporary Lounges",
+    "image": "catalog_images/page_28.jpg",
+    "page": 28,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-28",
+    "name": "Crest L-Shape",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Modular L-Shapes",
+    "image": "catalog_images/page_29.jpg",
+    "page": 29,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-29",
+    "name": "Modura",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Minimalist Classics",
+    "image": "catalog_images/page_30.jpg",
+    "page": 30,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-30",
+    "name": "Nestique",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Curved Modern Sofas",
+    "image": "catalog_images/page_31.jpg",
+    "page": 31,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-31",
+    "name": "Munro",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Sectional Sofas",
+    "image": "catalog_images/page_32.jpg",
+    "page": 32,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-32",
+    "name": "Milan",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Chesterfield & Tufted",
+    "image": "catalog_images/page_33.jpg",
+    "page": 33,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-33",
+    "name": "Volt",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Contemporary Lounges",
+    "image": "catalog_images/page_34.jpg",
+    "page": 34,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-34",
+    "name": "Verona",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Modular L-Shapes",
+    "image": "catalog_images/page_35.jpg",
+    "page": 35,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-35",
+    "name": "Zen",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Minimalist Classics",
+    "image": "catalog_images/page_36.jpg",
+    "page": 36,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-36",
+    "name": "Monarch",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Curved Modern Sofas",
+    "image": "catalog_images/page_37.jpg",
+    "page": 37,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-37",
+    "name": "Lumina",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Sectional Sofas",
+    "image": "catalog_images/page_38.jpg",
+    "page": 38,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  },
+  {
+    "id": "sofa-38",
+    "name": "Atom",
+    "subtitle": "Bespoke Handcrafted Sofa",
+    "category": "Chesterfield & Tufted",
+    "image": "catalog_images/page_39.jpg",
+    "page": 39,
+    "specs": {
+      "frame": "Kiln-Dried Solid Teak & Sal Wood",
+      "fabric": "Custom Belgian Velvet / Premium Textured Linen",
+      "cushioning": "Multi-Density High-Resilience Foam with Feather Down Top",
+      "customization": "Dimensions, Seating Depth, Fabric Colors & Wooden Legs"
+    }
+  }
+]

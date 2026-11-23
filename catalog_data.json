@@ -1,0 +1,242 @@
+[
+  {
+    "page": 1,
+    "name": "Nivaraa Living",
+    "desc": "Catalogue",
+    "image": "catalog_images/page_1.jpg"
+  },
+  {
+    "page": 2,
+    "name": "Anton",
+    "desc": "",
+    "image": "catalog_images/page_2.jpg"
+  },
+  {
+    "page": 3,
+    "name": "Torrie",
+    "desc": "",
+    "image": "catalog_images/page_3.jpg"
+  },
+  {
+    "page": 4,
+    "name": "Taurus",
+    "desc": "",
+    "image": "catalog_images/page_4.jpg"
+  },
+  {
+    "page": 5,
+    "name": "Capro",
+    "desc": "",
+    "image": "catalog_images/page_5.jpg"
+  },
+  {
+    "page": 6,
+    "name": "Forte",
+    "desc": "",
+    "image": "catalog_images/page_6.jpg"
+  },
+  {
+    "page": 7,
+    "name": "Banton",
+    "desc": "",
+    "image": "catalog_images/page_7.jpg"
+  },
+  {
+    "page": 8,
+    "name": "Atlas",
+    "desc": "",
+    "image": "catalog_images/page_8.jpg"
+  },
+  {
+    "page": 9,
+    "name": "Mobiko",
+    "desc": "",
+    "image": "catalog_images/page_9.jpg"
+  },
+  {
+    "page": 10,
+    "name": "Nortigo",
+    "desc": "",
+    "image": "catalog_images/page_10.jpg"
+  },
+  {
+    "page": 11,
+    "name": "Crest",
+    "desc": "",
+    "image": "catalog_images/page_11.jpg"
+  },
+  {
+    "page": 12,
+    "name": "Arcadia",
+    "desc": "",
+    "image": "catalog_images/page_12.jpg"
+  },
+  {
+    "page": 13,
+    "name": "Romania",
+    "desc": "",
+    "image": "catalog_images/page_13.jpg"
+  },
+  {
+    "page": 14,
+    "name": "Elan",
+    "desc": "",
+    "image": "catalog_images/page_14.jpg"
+  },
+  {
+    "page": 15,
+    "name": "Dorm",
+    "desc": "",
+    "image": "catalog_images/page_15.jpg"
+  },
+  {
+    "page": 16,
+    "name": "Lara",
+    "desc": "",
+    "image": "catalog_images/page_16.jpg"
+  },
+  {
+    "page": 17,
+    "name": "Solace",
+    "desc": "",
+    "image": "catalog_images/page_17.jpg"
+  },
+  {
+    "page": 18,
+    "name": "Norin",
+    "desc": "",
+    "image": "catalog_images/page_18.jpg"
+  },
+  {
+    "page": 19,
+    "name": "Aatiro",
+    "desc": "",
+    "image": "catalog_images/page_19.jpg"
+  },
+  {
+    "page": 20,
+    "name": "Monarch",
+    "desc": "",
+    "image": "catalog_images/page_20.jpg"
+  },
+  {
+    "page": 21,
+    "name": "Oslo",
+    "desc": "",
+    "image": "catalog_images/page_21.jpg"
+  },
+  {
+    "page": 22,
+    "name": "Verona",
+    "desc": "",
+    "image": "catalog_images/page_22.jpg"
+  },
+  {
+    "page": 23,
+    "name": "Evana",
+    "desc": "",
+    "image": "catalog_images/page_23.jpg"
+  },
+  {
+    "page": 24,
+    "name": "Ervin",
+    "desc": "",
+    "image": "catalog_images/page_24.jpg"
+  },
+  {
+    "page": 25,
+    "name": "Nestra",
+    "desc": "",
+    "image": "catalog_images/page_25.jpg"
+  },
+  {
+    "page": 26,
+    "name": "Arvo",
+    "desc": "",
+    "image": "catalog_images/page_26.jpg"
+  },
+  {
+    "page": 27,
+    "name": "Urbano",
+    "desc": "",
+    "image": "catalog_images/page_27.jpg"
+  },
+  {
+    "page": 28,
+    "name": "Nordic",
+    "desc": "",
+    "image": "catalog_images/page_28.jpg"
+  },
+  {
+    "page": 29,
+    "name": "L shape Sofa",
+    "desc": "Crest",
+    "image": "catalog_images/page_29.jpg"
+  },
+  {
+    "page": 30,
+    "name": "Modura",
+    "desc": "",
+    "image": "catalog_images/page_30.jpg"
+  },
+  {
+    "page": 31,
+    "name": "Nestique",
+    "desc": "",
+    "image": "catalog_images/page_31.jpg"
+  },
+  {
+    "page": 32,
+    "name": "Munro",
+    "desc": "",
+    "image": "catalog_images/page_32.jpg"
+  },
+  {
+    "page": 33,
+    "name": "Milan",
+    "desc": "",
+    "image": "catalog_images/page_33.jpg"
+  },
+  {
+    "page": 34,
+    "name": "Volt",
+    "desc": "",
+    "image": "catalog_images/page_34.jpg"
+  },
+  {
+    "page": 35,
+    "name": "Verona",
+    "desc": "",
+    "image": "catalog_images/page_35.jpg"
+  },
+  {
+    "page": 36,
+    "name": "Zen",
+    "desc": "",
+    "image": "catalog_images/page_36.jpg"
+  },
+  {
+    "page": 37,
+    "name": "Monarch",
+    "desc": "",
+    "image": "catalog_images/page_37.jpg"
+  },
+  {
+    "page": 38,
+    "name": "Lumina",
+    "desc": "",
+    "image": "catalog_images/page_38.jpg"
+  },
+  {
+    "page": 39,
+    "name": "Atom",
+    "desc": "",
+    "image": "catalog_images/page_39.jpg"
+  },
+  {
+    "page": 40,
+    "name": "Nivaraa Living",
+    "desc": "Lower ground, CREATICITY MALL Airport Road opposite Golf Course Shastrinagar, Yerawada Pune, Maharashtra 411006 India Shrinivas - 9146189933",
+    "image": "catalog_images/page_40.jpg"
+  }
+]

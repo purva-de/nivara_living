@@ -1,0 +1,1162 @@
+/* ==========================================================================
+   NIVARAA LIVING — SHEPEL FURNITURE LUXURY ARCHITECTURAL DESIGN SYSTEM
+   Exact replication of https://shepelfurniture.com layout, typography, & animations
+   ========================================================================== */
+
+:root {
+    --shepel-bg: #FAF8F5;
+    --shepel-card-bg: #FFFFFF;
+    --shepel-dark: #1E2328;
+    --shepel-charcoal: #2B2F32;
+    --shepel-muted: #767B82;
+    --shepel-border: rgba(43, 47, 50, 0.12);
+    --shepel-gold: #C59A3F;
+    --shepel-gold-light: #DFBE72;
+    
+    --font-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    --container-max: 1440px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--shepel-bg);
+    color: var(--shepel-charcoal);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.container-xxl {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+@media (max-width: 768px) {
+    .container-xxl {
+        padding: 0 20px;
+    }
+}
+
+/* ==========================================================================
+   1. FIXED HEADER (Transparent -> Solid on Scroll)
+   ========================================================================== */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 24px 0;
+    transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+}
+
+.site-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 14px 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.header-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left, .header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.header-right {
+    justify-content: flex-end;
+    gap: 28px;
+}
+
+.header-center {
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+.site-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.site-logo img {
+    height: 38px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.site-logo-text {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    letter-spacing: 0.16em;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    transition: color 0.4s ease;
+}
+
+.site-header.scrolled .site-logo-text {
+    color: var(--shepel-dark);
+}
+
+.header-menu {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+.header-menu li a {
+    color: #FFFFFF;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.4s ease;
+}
+
+.header-menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #FFFFFF;
+    transition: width 0.3s ease;
+}
+
+.header-menu li a:hover::after {
+    width: 100%;
+}
+
+.site-header.scrolled .header-menu li a {
+    color: var(--shepel-charcoal);
+}
+
+.site-header.scrolled .header-menu li a::after {
+    background-color: var(--shepel-charcoal);
+}
+
+.header-review-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #FFFFFF !important;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.header-review-btn:hover {
+    background: #FFFFFF;
+    color: var(--shepel-dark) !important;
+}
+
+.site-header.scrolled .header-review-btn {
+    background: var(--shepel-dark);
+    border-color: var(--shepel-dark);
+    color: #FFFFFF !important;
+}
+
+.header-phone {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    font-weight: 500;
+    transition: color 0.4s ease;
+}
+
+.site-header.scrolled .header-phone {
+    color: var(--shepel-charcoal);
+}
+
+.header-phone:hover {
+    color: var(--shepel-gold);
+}
+
+/* Mobile Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 6px;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background-color: #FFFFFF;
+    transition: background-color 0.4s ease;
+}
+
+.site-header.scrolled .hamburger span {
+    background-color: var(--shepel-dark);
+}
+
+@media (max-width: 992px) {
+    .header-menu, .header-phone {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* ==========================================================================
+   2. HERO TOP SLIDER (Exact Shepel Component-14)
+   ========================================================================== */
+
+.component-14 {
+    position: relative;
+    width: 100%;
+    height: 880px;
+    background-color: #12161A;
+    overflow: hidden;
+}
+
+@media (max-width: 1100px) {
+    .component-14 {
+        height: 580px;
+    }
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.2s;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hero-slide::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(18, 22, 26, 0.5) 0%, rgba(18, 22, 26, 0.25) 50%, rgba(18, 22, 26, 0.75) 100%);
+}
+
+.hero-inner-container {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-column: column;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 140px;
+    padding-bottom: 70px;
+}
+
+.hero-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.hero-gallery-badge {
+    opacity: 0.9;
+}
+
+.hero-counter {
+    font-family: var(--font-sans);
+    font-weight: 400;
+}
+
+.hero-headline-wrap {
+    max-width: 780px;
+    margin-bottom: 40px;
+}
+
+.hero-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(38px, 6vw, 76px);
+    line-height: 1.05;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+.hero-actions-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-shepel-primary {
+    display: inline-block;
+    padding: 18px 48px;
+    background-color: #FFFFFF;
+    color: var(--shepel-dark);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-shepel-primary:hover {
+    background-color: var(--shepel-gold);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+/* Shepel's Circular Animated Next Button */
+.f-carousel__next {
+    position: absolute;
+    bottom: 50px;
+    right: 40px;
+    cursor: pointer;
+    z-index: 5;
+    width: 89px;
+    height: 90px;
+    transition: transform 0.3s ease;
+}
+
+.f-carousel__next:hover {
+    transform: scale(1.06);
+}
+
+.circle-progress-track {
+    stroke: rgba(255, 255, 255, 0.4);
+}
+
+.circle-progress-bar {
+    stroke: #FFFFFF;
+    stroke-dasharray: 274;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation: progressRotate 5s linear infinite;
+}
+
+@keyframes progressRotate {
+    0% { stroke-dashoffset: 274; }
+    100% { stroke-dashoffset: 0; }
+}
+
+@media (max-width: 1100px) {
+    .f-carousel__next {
+        width: 60px;
+        height: 60px;
+        bottom: 25px;
+        right: 20px;
+    }
+    .f-carousel__next svg {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* ==========================================================================
+   3. CATEGORY FILTER STRIP
+   ========================================================================== */
+
+.category-nav-bar {
+    padding: 48px 0 24px;
+    border-bottom: 1px solid var(--shepel-border);
+    margin-bottom: 60px;
+}
+
+.category-nav-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.category-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+}
+
+.category-filter-btn {
+    background: transparent;
+    border: 1px solid var(--shepel-border);
+    color: var(--shepel-muted);
+    padding: 10px 24px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.category-filter-btn:hover {
+    color: var(--shepel-dark);
+    border-color: var(--shepel-dark);
+}
+
+.category-filter-btn.active {
+    background-color: var(--shepel-dark);
+    border-color: var(--shepel-dark);
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   4. ASYMMETRIC GALLERY GRID (Exact Shepel Component-1 & Component-2)
+   ========================================================================== */
+
+.gallery-section {
+    padding-bottom: 100px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px;
+    row-gap: 60px;
+}
+
+/* Cards */
+.furniture-card {
+    cursor: pointer;
+}
+
+.furniture-card.col-span-6 {
+    grid-column: span 6;
+}
+
+.furniture-card.col-span-12 {
+    grid-column: span 12;
+}
+
+.furniture-card.offset-bottom {
+    padding-bottom: 61px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+@media (max-width: 992px) {
+    .furniture-card.col-span-6 {
+        grid-column: span 12;
+    }
+    .furniture-card.offset-bottom {
+        padding-bottom: 0;
+    }
+}
+
+/* Shepel's Signature Dual Image Dissolve Hover */
+.change-img-hover {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: #EFECE6;
+    margin-bottom: 18px;
+}
+
+.change-img-hover .img-normal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.change-img-hover .img-normal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.change-img-hover .img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: scale(1.04);
+}
+
+.change-img-hover .img-hover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.furniture-card:hover .change-img-hover .img-normal img {
+    opacity: 0;
+    transform: scale(1.04);
+}
+
+.furniture-card:hover .change-img-hover .img-hover {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Shepel Title with Animated Bottom Border */
+.furniture-card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.furniture-card-title {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1;
+    border-bottom: 1px solid transparent;
+    display: inline-block;
+    transition: border-color 0.4s ease, transform 0.4s ease;
+    font-weight: 500;
+}
+
+.furniture-card:hover .furniture-card-title {
+    border-color: var(--shepel-dark);
+}
+
+.furniture-card-category {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--shepel-muted);
+}
+
+/* ==========================================================================
+   5. SHEPEL INFINITE MARQUEE TICKER (Component-4 .m-scroll)
+   ========================================================================== */
+
+.marquee-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 60px 0;
+    border-top: 1px solid var(--shepel-border);
+    border-bottom: 1px solid var(--shepel-border);
+    background-color: var(--shepel-bg);
+}
+
+.m-scroll {
+    display: flex;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.m-scroll .big-title {
+    font-family: var(--font-serif);
+    font-size: clamp(70px, 12vw, 180px);
+    font-weight: 300;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0.15;
+    letter-spacing: 0.04em;
+    color: var(--shepel-dark);
+}
+
+.m-scroll .big-title > div {
+    display: flex;
+    animation: scrollText 32s infinite linear;
+}
+
+@keyframes scrollText {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   6. ARTISANS & CRAFTSMANSHIP (Component-4)
+   ========================================================================== */
+
+.artisans-section {
+    padding: 120px 0;
+    background-color: #161A1F;
+    color: #FFFFFF;
+}
+
+.artisans-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .artisans-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.artisans-tag {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--shepel-gold);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.artisans-title {
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 4.5vw, 64px);
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.artisans-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #B5B9C0;
+    margin-bottom: 36px;
+}
+
+.artisans-video-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background-color: #0E1114;
+}
+
+.artisans-video-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.btn-arrow svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-arrow:hover svg {
+    transform: translateX(8px);
+}
+
+/* ==========================================================================
+   7. ABOUT SECTION (Component-5)
+   ========================================================================== */
+
+.about-section {
+    padding: 120px 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 48px;
+    align-items: flex-start;
+}
+
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.about-display-title {
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 4vw, 56px);
+    text-transform: uppercase;
+    line-height: 1.1;
+    font-weight: 300;
+}
+
+.about-col-img {
+    overflow: hidden;
+}
+
+.about-col-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--shepel-muted);
+}
+
+/* ==========================================================================
+   8. SELECTED PRODUCTS CAROUSEL (Component-3)
+   ========================================================================== */
+
+.carousel-section {
+    padding: 100px 0;
+    background-color: #FFFFFF;
+    border-top: 1px solid var(--shepel-border);
+    border-bottom: 1px solid var(--shepel-border);
+}
+
+.carousel-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.carousel-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 400;
+}
+
+.carousel-arrows {
+    display: flex;
+    gap: 20px;
+}
+
+.carousel-nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.2s ease;
+}
+
+.carousel-nav-btn:hover {
+    transform: scale(1.1);
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 28px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-slide-item {
+    flex: 0 0 calc((100% - 56px) / 3);
+    min-width: calc((100% - 56px) / 3);
+}
+
+@media (max-width: 992px) {
+    .carousel-slide-item {
+        flex: 0 0 calc((100% - 28px) / 2);
+        min-width: calc((100% - 28px) / 2);
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-slide-item {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+}
+
+/* ==========================================================================
+   9. SHOWROOM & GOOGLE RATING SECTION
+   ========================================================================== */
+
+.showroom-section {
+    padding: 100px 0;
+}
+
+.showroom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .showroom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.google-proof-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #FFFFFF;
+    border: 1px solid var(--shepel-border);
+    padding: 10px 18px;
+    border-radius: 30px;
+    margin-bottom: 24px;
+}
+
+.google-g-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.google-stars {
+    color: #F4B400;
+    font-size: 16px;
+}
+
+.google-rating-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--shepel-dark);
+}
+
+.showroom-title {
+    font-family: var(--font-serif);
+    font-size: clamp(32px, 3.5vw, 48px);
+    text-transform: uppercase;
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.showroom-address {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--shepel-muted);
+    margin-bottom: 30px;
+}
+
+.showroom-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.btn-shepel-outline {
+    display: inline-block;
+    padding: 16px 36px;
+    background-color: transparent;
+    border: 1px solid var(--shepel-dark);
+    color: var(--shepel-dark);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-shepel-outline:hover {
+    background-color: var(--shepel-dark);
+    color: #FFFFFF;
+}
+
+.map-container {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border: 1px solid var(--shepel-border);
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ==========================================================================
+   10. SHEPEL ARCHITECTURAL FOOTER (#colophon)
+   ========================================================================== */
+
+.site-footer {
+    background-color: #12161A;
+    color: #FFFFFF;
+    padding: 100px 0 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.footer-col-title {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    margin-bottom: 24px;
+}
+
+.footer-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #9BA3AF;
+    margin-bottom: 28px;
+    max-width: 440px;
+}
+
+.footer-links-list {
+    list-style: none;
+}
+
+.footer-links-list li {
+    margin-bottom: 12px;
+}
+
+.footer-links-list li a {
+    color: #9BA3AF;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    transition: color 0.2s ease;
+}
+
+.footer-links-list li a:hover {
+    color: #FFFFFF;
+}
+
+.footer-portal-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.footer-portal-card h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    color: var(--shepel-gold);
+}
+
+.footer-portal-card p {
+    font-size: 13px;
+    color: #9BA3AF;
+    margin-bottom: 16px;
+}
+
+.footer-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    font-size: 12px;
+    color: #767B82;
+    letter-spacing: 0.06em;
+}
+
+@media (max-width: 768px) {
+    .footer-bottom-row {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   11. SPECIFICATION MODAL
+   ========================================================================== */
+
+.spec-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(18, 22, 26, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+}
+
+.spec-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.spec-modal-box {
+    background-color: #FFFFFF;
+    max-width: 740px;
+    width: 100%;
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spec-modal-overlay.active .spec-modal-box {
+    transform: translateY(0);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--shepel-dark);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.spec-modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+}
+
+@media (max-width: 768px) {
+    .spec-modal-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.spec-modal-img-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.spec-modal-content-col {
+    padding: 36px;
+}
+
+.spec-modal-tag {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--shepel-gold);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.spec-modal-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.spec-row {
+    margin-bottom: 14px;
+}
+
+.spec-row-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--shepel-muted);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.spec-row-val {
+    font-size: 14px;
+    color: var(--shepel-charcoal);
+    line-height: 1.5;
+}
+
+.modal-whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px;
+    background-color: #25D366;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 24px;
+    transition: background-color 0.2s ease;
+}
+
+.modal-whatsapp-btn:hover {
+    background-color: #1EBE5D;
+}
