@@ -126,6 +126,7 @@ function renderGallery(filterCategory) {
 
 // 4. Product Specification Modal
 function openSpecModal(item) {
+    window.currentActivePiece = item;
     const modal = document.getElementById('spec-modal');
     if (!modal) return;
 
