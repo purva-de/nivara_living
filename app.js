@@ -99,7 +99,7 @@ function renderGallery(filterCategory) {
         const card = document.createElement('div');
         // Asymmetrical Shepel layout: alternating heights and offset padding
         const isOffset = index % 3 === 1;
-        card.className = `furniture-card col-span-6 ${isOffset ? 'offset-bottom' : ''}`;
+        card.className = 'furniture-card col-span-4';
         card.setAttribute('data-id', item.id);
 
         card.innerHTML = `

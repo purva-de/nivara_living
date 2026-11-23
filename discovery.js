@@ -481,25 +481,11 @@
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                     </svg>
                 </button>
-                <button class="card-action-icon-btn ${isComp ? 'active' : ''}" data-comp-id="${id}" title="Add to Compare" aria-label="Add to Compare">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="16 3 21 3 21 8"></polyline>
-                        <line x1="4" y1="20" x2="21" y2="3"></line>
-                        <polyline points="21 16 21 21 16 21"></polyline>
-                        <line x1="15" y1="15" x2="21" y2="21"></line>
-                        <line x1="4" y1="4" x2="9" y2="9"></line>
-                    </svg>
-                </button>
             `;
 
             overlay.querySelector('[data-wish-id]').addEventListener('click', (e) => {
                 e.stopPropagation();
                 toggleWishlist(id);
-            });
-
-            overlay.querySelector('[data-comp-id]').addEventListener('click', (e) => {
-                e.stopPropagation();
-                toggleCompare(id);
             });
 
             card.style.position = 'relative';
@@ -613,7 +599,7 @@
         filtered.forEach((item, index) => {
             const card = document.createElement('div');
             const isOffset = index % 3 === 1;
-            card.className = `furniture-card col-span-6 ${isOffset ? 'offset-bottom' : ''}`;
+            card.className = 'furniture-card col-span-4';
             card.setAttribute('data-id', item.id);
 
             card.innerHTML = `

@@ -473,37 +473,43 @@ button {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 32px;
-    row-gap: 60px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    row-gap: 52px;
 }
 
 /* Cards */
 .furniture-card {
     cursor: pointer;
+    grid-column: span 1;
 }
 
+.furniture-card.col-span-4,
 .furniture-card.col-span-6 {
-    grid-column: span 6;
+    grid-column: span 1;
 }
 
 .furniture-card.col-span-12 {
-    grid-column: span 12;
+    grid-column: 1 / -1;
 }
 
 .furniture-card.offset-bottom {
-    padding-bottom: 61px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    padding-bottom: 0;
 }
 
-@media (max-width: 992px) {
-    .furniture-card.col-span-6 {
-        grid-column: span 12;
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        row-gap: 40px;
     }
-    .furniture-card.offset-bottom {
-        padding-bottom: 0;
+}
+
+@media (max-width: 640px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        row-gap: 36px;
     }
 }
 
@@ -570,10 +576,10 @@ button {
 
 .furniture-card-title {
     font-family: var(--font-serif);
-    font-size: 26px;
+    font-size: clamp(19px, 1.6vw, 23px);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    line-height: 1;
+    line-height: 1.15;
     border-bottom: 1px solid transparent;
     display: inline-block;
     transition: border-color 0.4s ease, transform 0.4s ease;
