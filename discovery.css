@@ -1,0 +1,556 @@
+/* ==========================================================================
+   NIVARAA LIVING — DISCOVERY, SEARCH, WISHLIST & PRODUCT COMPARISON
+   Shepel Architectural Aesthetic | 8px Grid | Semantic & Accessible
+   ========================================================================== */
+
+/* 1. Header Discovery Bar (Search & Wishlist Icons) */
+.header-discovery-tools {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-right: 16px;
+}
+
+.discovery-tool-btn {
+    background: transparent;
+    border: none;
+    color: var(--shepel-dark, #1E2328);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.discovery-tool-btn:hover {
+    background: rgba(43, 47, 50, 0.08);
+}
+
+.tool-badge-count {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: var(--shepel-gold, #C59A3F);
+    color: #FFFFFF;
+    font-size: 9px;
+    font-weight: 700;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    line-height: 1;
+}
+
+/* 2. Fullscreen Search Modal Overlay */
+.search-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(30, 35, 40, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 10020;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 24px 40px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.search-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.search-modal-container {
+    width: 100%;
+    max-width: 840px;
+    background: var(--shepel-card-bg, #FFFFFF);
+    border-radius: 4px;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.15));
+}
+
+.search-input-header {
+    display: flex;
+    align-items: center;
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
+    gap: 16px;
+}
+
+.search-input-icon {
+    color: var(--shepel-gold, #C59A3F);
+    flex-shrink: 0;
+}
+
+.search-master-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: 24px;
+    color: var(--shepel-dark, #1E2328);
+    background: transparent;
+}
+
+.search-master-input::placeholder {
+    color: var(--shepel-muted, #767B82);
+    font-style: italic;
+}
+
+.search-close-btn {
+    background: transparent;
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--shepel-dark, #1E2328);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-close-btn:hover {
+    background: var(--shepel-dark, #1E2328);
+    color: #FFFFFF;
+}
+
+.search-results-tray {
+    max-height: 480px;
+    overflow-y: auto;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: var(--shepel-bg, #FAF8F5);
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: #FFFFFF;
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.1));
+    border-radius: 2px;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.search-result-item:hover {
+    border-color: var(--shepel-gold, #C59A3F);
+    transform: translateX(4px);
+}
+
+.search-result-thumb {
+    width: 72px;
+    height: 54px;
+    object-fit: cover;
+    background: #FFFFFF;
+}
+
+.search-result-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.search-result-name {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: 18px;
+    color: var(--shepel-dark, #1E2328);
+    font-weight: 500;
+    margin: 0;
+}
+
+.search-result-category {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--shepel-gold, #C59A3F);
+    font-weight: 600;
+}
+
+.search-result-specs {
+    font-size: 11px;
+    color: var(--shepel-muted, #767B82);
+    max-width: 440px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 3. Wishlist Slide-Out Drawer */
+.wishlist-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: calc(100vw - 32px);
+    height: 100vh;
+    background: var(--shepel-bg, #FAF8F5);
+    box-shadow: -16px 0 60px rgba(0, 0, 0, 0.3);
+    z-index: 10015;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    border-left: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
+}
+
+.wishlist-drawer.active {
+    transform: translateX(0);
+}
+
+.wishlist-drawer-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(30, 35, 40, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 10014;
+    display: none;
+}
+
+.wishlist-drawer-backdrop.active {
+    display: block;
+}
+
+.wishlist-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
+}
+
+.wishlist-title {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: 24px;
+    color: var(--shepel-dark, #1E2328);
+    font-weight: 400;
+    margin: 0;
+}
+
+.wishlist-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.wishlist-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    color: var(--shepel-muted, #767B82);
+    gap: 12px;
+}
+
+.wishlist-item-card {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #FFFFFF;
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
+    gap: 14px;
+}
+
+.wishlist-item-img {
+    width: 72px;
+    height: 56px;
+    object-fit: cover;
+}
+
+.wishlist-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.wishlist-item-name {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: 16px;
+    color: var(--shepel-dark, #1E2328);
+    font-weight: 500;
+    margin: 0;
+}
+
+.wishlist-item-cat {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--shepel-gold, #C59A3F);
+}
+
+.btn-remove-wishlist {
+    background: transparent;
+    border: none;
+    color: var(--shepel-muted, #767B82);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+}
+
+.btn-remove-wishlist:hover {
+    color: #D32F2F;
+}
+
+.wishlist-footer {
+    padding: 20px 24px;
+    background: #FFFFFF;
+    border-top: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-wishlist-whatsapp {
+    background: #25D366;
+    color: #FFFFFF;
+    border: none;
+    padding: 14px 20px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.btn-wishlist-whatsapp:hover {
+    background: #1EBE5D;
+}
+
+/* 4. Product Comparison Matrix Modal */
+.compare-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(30, 35, 40, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 10025;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.compare-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.compare-modal-box {
+    background: var(--shepel-bg, #FAF8F5);
+    width: 100%;
+    max-width: 1140px;
+    max-height: 90vh;
+    border-radius: 4px;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.15));
+}
+
+.compare-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
+}
+
+.compare-body {
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 32px;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFFFF;
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.12));
+}
+
+.compare-table th,
+.compare-table td {
+    padding: 16px 20px;
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.1));
+    text-align: left;
+    vertical-align: top;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.compare-table th {
+    background: var(--shepel-bg, #FAF8F5);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: var(--shepel-dark, #1E2328);
+    width: 180px;
+}
+
+.compare-prod-thumb {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+/* Floating Compare Pill */
+.floating-compare-pill {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9980;
+    background: var(--shepel-dark, #1E2328);
+    color: #FFFFFF;
+    border: 1px solid var(--shepel-gold, #C59A3F);
+    padding: 12px 24px;
+    border-radius: 40px;
+    display: none;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.floating-compare-pill.active {
+    display: flex;
+}
+
+.floating-compare-pill:hover {
+    background: var(--shepel-gold, #C59A3F);
+    color: #FFFFFF;
+}
+
+/* 5. Card Hover Action Tools (Wishlist & Compare) */
+.card-action-overlay {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 5;
+}
+
+.card-action-icon-btn {
+    width: 34px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(43, 47, 50, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--shepel-dark, #1E2328);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.card-action-icon-btn:hover {
+    background: var(--shepel-dark, #1E2328);
+    color: #FFFFFF;
+}
+
+.card-action-icon-btn.active {
+    color: #D32F2F;
+    border-color: #D32F2F;
+}
+
+/* 6. Advanced Filter Bar Extension */
+.advanced-filter-bar {
+    padding: 16px 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-top: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.08));
+    margin-top: 16px;
+}
+
+.filter-select-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-select-dropdown {
+    padding: 8px 14px;
+    background: #FFFFFF;
+    border: 1px solid var(--shepel-border, rgba(43, 47, 50, 0.15));
+    font-size: 12px;
+    color: var(--shepel-dark, #1E2328);
+    font-family: var(--font-sans, sans-serif);
+    outline: none;
+    cursor: pointer;
+}
+
+.filter-count-badge {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--shepel-gold, #C59A3F);
+    font-weight: 600;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .wishlist-drawer,
+    .search-modal-overlay,
+    .compare-modal-overlay,
+    .floating-compare-pill {
+        transition: none !important;
+    }
+}
