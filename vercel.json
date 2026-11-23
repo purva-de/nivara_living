@@ -1,8 +1,6 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/api/visualize-room", "destination": "/api/visualize-room.js" },
-    { "source": "/api/book-appointment", "destination": "/api/book-appointment.js" },
-    { "source": "/api/delete-room-data", "destination": "/api/delete-room-data.js" }
+    { "source": "/api/book-appointment", "destination": "/api/book-appointment.js" }
   ]
 }
