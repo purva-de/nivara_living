@@ -1,5 +1,5 @@
 {
-  "dependencies": {
-    "@imgly/background-removal-node": "^1.4.5"
-  }
+  "name": "nivara-living",
+  "version": "1.0.0",
+  "private": true
 }
