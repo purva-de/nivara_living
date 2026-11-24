@@ -60,16 +60,6 @@
     "dimensions": "3-Seater Crescent: 240cm x 105cm x 78cm."
   },
   {
-    "id": "recliner-cognac-motorized",
-    "name": "HAVEN MOTORIZED",
-    "category": "recliners",
-    "category_label": "Luxury Recliner",
-    "img_normal": "catalog_images/recliner_luxury.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/001-Shepel-Furniture-Cruz-Accent-Chair.jpg",
-    "specs": "Dual-motor whisper-quiet German actuator mechanism with hidden touch sensors, 100% full-grain cognac Italian aniline leather, multi-density ergonomic foam.",
-    "dimensions": "98cm x 105cm x 106cm (Fully extended recline 175cm)."
-  },
-  {
     "id": "avian-2r-motorized",
     "name": "AVIAN 2R MOTORISED",
     "category": "recliners",
@@ -128,25 +118,5 @@
     "img_hover": "catalog_images/roma_designer_chair_detail.jpg",
     "specs": "Architectural high-back wingback armchair upholstered in slate blue textured tweed weave with tailored welted seams, contrast mustard yellow lumbar pillow, and matte black steel stiletto legs.",
     "dimensions": "86cm x 90cm x 102cm."
-  },
-  {
-    "id": "cruz-recliner",
-    "name": "CRUZ LOUNGE",
-    "category": "recliners",
-    "category_label": "Luxury Recliner",
-    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/01/000-Shepel-Furniture-Cruz-Accent-Chair.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/001-Shepel-Furniture-Cruz-Accent-Chair.jpg",
-    "specs": "Sculpted ergonomic shell with top-grain saddle leather and high-density memory foam core.",
-    "dimensions": "95cm x 102cm x 105cm."
-  },
-  {
-    "id": "steven-recliner",
-    "name": "STEVEN",
-    "category": "recliners",
-    "category_label": "Swivel Recliner",
-    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/02/006-Shepel-Furniture-Steven-Ottoman.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/02/007-Shepel-Furniture-Steven-Ottoman.jpg",
-    "specs": "Swivel base recliner with matching ergonomic ottoman, top-grain saddle leather, molded high-resilience foam core.",
-    "dimensions": "88cm x 92cm x 100cm."
   }
 ]

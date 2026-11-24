@@ -1,4 +1,5 @@
 // NIVARAA LIVING — Master Atelier Script
+
 // Controls: Top Hero Slider, Category Filters, Dual-Image Hover, Spec Drawer, Carousel
 
 document.addEventListener('DOMContentLoaded', () => {
