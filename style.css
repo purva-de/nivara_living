@@ -361,8 +361,8 @@ button {
     visibility: hidden;
     z-index: 1;
     clip-path: inset(0 0 0 100%);
-    transform: scale(1.06);
-    transition: clip-path 1.25s cubic-bezier(0.77, 0, 0.175, 1), transform 8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease 1s, visibility 1.25s;
+    transform: scale(1.05);
+    transition: clip-path 0.85s cubic-bezier(0.77, 0, 0.175, 1), transform 6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease 0.85s, visibility 0.85s;
     will-change: clip-path, transform;
 }
 
@@ -373,7 +373,7 @@ button {
     z-index: 3;
     clip-path: inset(0 0 0 0%);
     transform: scale(1.0);
-    transition: clip-path 1.25s cubic-bezier(0.77, 0, 0.175, 1), transform 8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
+    transition: clip-path 0.85s cubic-bezier(0.77, 0, 0.175, 1), transform 6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
 }
 
 /* Outgoing slide: stays underneath, subtly scales back for architectural depth */
@@ -384,7 +384,7 @@ button {
     clip-path: inset(0 0 0 0%);
     transform: scale(0.985);
     filter: brightness(0.92);
-    transition: transform 1.25s cubic-bezier(0.77, 0, 0.175, 1), filter 1.25s ease, opacity 0.3s ease 1.25s;
+    transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1), filter 0.85s ease, opacity 0.25s ease 0.85s;
 }
 
 .hero-slide::after {
@@ -470,18 +470,18 @@ button {
 .hero-line {
     display: block;
     transform: translateY(115%);
-    transition: transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
 }
 
 .hero-slide.active .hero-mask-wrap:nth-child(1) .hero-line {
     transform: translateY(0);
-    transition-delay: 0.32s;
+    transition-delay: 0.18s;
 }
 
 .hero-slide.active .hero-mask-wrap:nth-child(2) .hero-line {
     transform: translateY(0);
-    transition-delay: 0.46s;
+    transition-delay: 0.28s;
 }
 
 .hero-actions-row {
@@ -570,9 +570,10 @@ button {
     transition: none;
 }
 
-/* Pause animation on hero hover */
-.component-14:hover .circle-progress-bar {
-    animation-play-state: paused;
+/* Running progress fill when active (2.8s auto-advance) */
+.showcase-nav-item.active .showcase-nav-fill {
+    width: 100%;
+    transition: width 2.8s linear;
 }
 
 @media (max-width: 992px) {
@@ -641,55 +642,8 @@ button {
     transform: translateY(-2px);
 }
 
-/* Shepel's Circular Animated Next Button */
 .f-carousel__next {
-    position: absolute;
-    top: 50%;
-    right: 48px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    z-index: 10;
-    width: 89px;
-    height: 90px;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-}
-
-.f-carousel__next:hover {
-    transform: translateY(-50%) scale(1.08);
-}
-
-.circle-progress-track {
-    stroke: rgba(255, 255, 255, 0.4);
-}
-
-.circle-progress-bar {
-    stroke: #FFFFFF;
-    stroke-dasharray: 274;
-    stroke-dashoffset: 0;
-    transform-origin: center;
-    animation: progressRotate 5.5s linear infinite;
-}
-
-@keyframes progressRotate {
-    0% { stroke-dashoffset: 274; }
-    100% { stroke-dashoffset: 0; }
-}
-
-@media (max-width: 1100px) {
-    .f-carousel__next {
-        width: 60px;
-        height: 60px;
-        top: 50%;
-        right: 20px;
-        transform: translateY(-50%);
-    }
-    .f-carousel__next:hover {
-        transform: translateY(-50%) scale(1.08);
-    }
-    .f-carousel__next svg {
-        width: 60px;
-        height: 60px;
-    }
+    display: none;
 }
 
 /* ==========================================================================

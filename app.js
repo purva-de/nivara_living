@@ -51,9 +51,10 @@ function initMobileMenu() {
     });
 }
 
-// 2. Hero Slider (Architectural Curtain Wipe with Chapter Progress & Hover Pause)
+// 2. Hero Slider (Architectural Curtain Wipe with 2.8s Auto-Advance & Chapter Progress)
 let currentSlide = 1;
 const totalSlides = 5;
+const SLIDE_DURATION = 2800; // 2.8 seconds automatic slide interval
 let slideInterval = null;
 let isHeroHovered = false;
 
@@ -61,7 +62,6 @@ function initHeroSlider() {
     const heroSection = document.getElementById('hero-slider');
     const slides = document.querySelectorAll('.hero-slide');
     const navItems = document.querySelectorAll('.showcase-nav-item');
-    const nextBtn = document.getElementById('slider-next-btn');
 
     if (!slides.length || !heroSection) return;
 
@@ -79,7 +79,7 @@ function initHeroSlider() {
             outgoing.classList.add('was-active');
             setTimeout(() => {
                 outgoing.classList.remove('was-active');
-            }, 1250);
+            }, 850);
         }
 
         if (incoming) {
@@ -99,7 +99,7 @@ function initHeroSlider() {
                     fill.style.width = '0%';
                     // Force reflow
                     void fill.offsetWidth;
-                    fill.style.transition = 'width 5.5s linear';
+                    fill.style.transition = `width ${SLIDE_DURATION}ms linear`;
                     fill.style.width = '100%';
                 }
             } else {
@@ -121,11 +121,11 @@ function initHeroSlider() {
         if (!isHeroHovered) {
             slideInterval = setInterval(() => {
                 goToSlide(currentSlide + 1);
-            }, 5500);
+            }, SLIDE_DURATION);
         }
     }
 
-    // Nav click handlers
+    // Nav chapter click handlers
     navItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
@@ -134,14 +134,6 @@ function initHeroSlider() {
             resetTimer();
         });
     });
-
-    // Circular next button handler
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            goToSlide(currentSlide + 1);
-            resetTimer();
-        });
-    }
 
     // Hover pause behavior
     heroSection.addEventListener('mouseenter', () => {
@@ -162,7 +154,7 @@ function initHeroSlider() {
         isHeroHovered = false;
         const activeFill = heroSection.querySelector('.showcase-nav-item.active .showcase-nav-fill');
         if (activeFill) {
-            activeFill.style.transition = 'width 5.5s linear';
+            activeFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
             activeFill.style.width = '100%';
         }
         resetTimer();
@@ -195,7 +187,7 @@ function initHeroSlider() {
     const firstFill = document.querySelector('.showcase-nav-item[data-slide="1"] .showcase-nav-fill');
     if (firstFill) {
         setTimeout(() => {
-            firstFill.style.transition = 'width 5.5s linear';
+            firstFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
             firstFill.style.width = '100%';
         }, 50);
     }
