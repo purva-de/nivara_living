@@ -478,6 +478,82 @@ button {
     color: rgba(255, 255, 255, 0.85);
 }
 
+/* ==========================================================================
+   Hero Premium Slide Indicator: 01 ━━━━━━━━━ 05
+   ========================================================================== */
+.hero-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 14px;
+    background: rgba(18, 22, 26, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 2px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.hero-indicator-num {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+}
+
+.hero-indicator-current {
+    color: var(--shepel-gold);
+    font-weight: 600;
+}
+
+.hero-indicator-track {
+    width: 64px;
+    height: 1.5px;
+    background: rgba(255, 255, 255, 0.22);
+    position: relative;
+    overflow: hidden;
+    border-radius: 1px;
+}
+
+.hero-indicator-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--shepel-gold);
+    box-shadow: 0 0 6px rgba(197, 154, 63, 0.6);
+    border-radius: 1px;
+    will-change: width;
+}
+
+.hero-indicator-total {
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .hero-indicator {
+        gap: 8px;
+        padding: 5px 10px;
+    }
+    .hero-indicator-num {
+        font-size: 11px;
+    }
+    .hero-indicator-track {
+        width: 44px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-indicator-fill {
+        transition: none !important;
+        width: 100% !important;
+    }
+}
+
 .hero-headline-wrap {
     max-width: 840px;
     margin-bottom: 24px;

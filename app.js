@@ -92,6 +92,8 @@ function initHeroSlider() {
 
         currentSlide = n;
 
+        const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         // Update Nav items & trigger fresh CSS animation for progress fill
         navItems.forEach(item => {
             const slideNum = parseInt(item.getAttribute('data-slide'), 10);
@@ -103,8 +105,12 @@ function initHeroSlider() {
                     fill.style.width = '0%';
                     // Force reflow
                     void fill.offsetWidth;
-                    fill.style.transition = `width ${SLIDE_DURATION}ms linear`;
-                    fill.style.width = '100%';
+                    if (!isReducedMotion) {
+                        fill.style.transition = `width ${SLIDE_DURATION}ms linear`;
+                        fill.style.width = '100%';
+                    } else {
+                        fill.style.width = '100%';
+                    }
                 }
             } else {
                 item.classList.remove('active');
@@ -115,9 +121,30 @@ function initHeroSlider() {
             }
         });
 
-        // Update counter elements
+        // Update top-row hero indicators: 01 ━━━━━━━━━ 05
+        slides.forEach((slide, idx) => {
+            const indFill = slide.querySelector('.hero-indicator-fill');
+            if (!indFill) return;
+            const slideNum = idx + 1;
+            if (slideNum === currentSlide) {
+                indFill.style.transition = 'none';
+                indFill.style.width = '0%';
+                void indFill.offsetWidth; // Force reflow
+                if (!isReducedMotion) {
+                    indFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
+                    indFill.style.width = '100%';
+                } else {
+                    indFill.style.width = '100%';
+                }
+            } else {
+                indFill.style.transition = 'none';
+                indFill.style.width = '0%';
+            }
+        });
+
+        // Update counter elements if any exist
         const counterEl = document.getElementById('curr-slide-num');
-        if (counterEl) counterEl.innerText = currentSlide;
+        if (counterEl) counterEl.innerText = currentSlide < 10 ? `0${currentSlide}` : currentSlide;
     }
 
     function resetTimer() {
@@ -152,6 +179,12 @@ function initHeroSlider() {
             activeFill.style.transition = 'none';
             activeFill.style.width = computedWidth;
         }
+        const activeIndFill = heroSection.querySelector('.hero-slide.active .hero-indicator-fill');
+        if (activeIndFill) {
+            const computedIndWidth = window.getComputedStyle(activeIndFill).width;
+            activeIndFill.style.transition = 'none';
+            activeIndFill.style.width = computedIndWidth;
+        }
     });
 
     heroSection.addEventListener('mouseleave', () => {
@@ -160,6 +193,11 @@ function initHeroSlider() {
         if (activeFill) {
             activeFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
             activeFill.style.width = '100%';
+        }
+        const activeIndFill = heroSection.querySelector('.hero-slide.active .hero-indicator-fill');
+        if (activeIndFill) {
+            activeIndFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
+            activeIndFill.style.width = '100%';
         }
         resetTimer();
     });
@@ -187,12 +225,28 @@ function initHeroSlider() {
         }
     }, { passive: true });
 
-    // Initial trigger for slide 1 progress fill
+    // Initial trigger for slide 1 progress fill and top-row indicator
     const firstFill = document.querySelector('.showcase-nav-item[data-slide="1"] .showcase-nav-fill');
-    if (firstFill) {
+    const firstIndFill = document.querySelector('#hero-slide-1 .hero-indicator-fill');
+    if (firstFill || firstIndFill) {
         setTimeout(() => {
-            firstFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
-            firstFill.style.width = '100%';
+            const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (firstFill) {
+                if (!isReducedMotion) {
+                    firstFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
+                    firstFill.style.width = '100%';
+                } else {
+                    firstFill.style.width = '100%';
+                }
+            }
+            if (firstIndFill) {
+                if (!isReducedMotion) {
+                    firstIndFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
+                    firstIndFill.style.width = '100%';
+                } else {
+                    firstIndFill.style.width = '100%';
+                }
+            }
         }, 50);
     }
 
