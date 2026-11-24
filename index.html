@@ -195,16 +195,19 @@
     <!-- 3. CATEGORY FILTER STRIP (Sofas, Beds, Coffee Tables, T-Poy, Recliners, Dining Tables) -->
     <section class="category-nav-bar" id="collections">
         <div class="container-xxl">
-            <h2 class="category-nav-title">Gallery & Commissions</h2>
-            <ul class="category-filter-list">
-                <li><button class="category-filter-btn active" data-filter="all">All Masterpieces</button></li>
-                <li><button class="category-filter-btn" data-filter="sofas">Sofas & Sectionals</button></li>
-                <li><button class="category-filter-btn" data-filter="beds">Master Beds</button></li>
-                <li><button class="category-filter-btn" data-filter="coffee_tables">Coffee Tables</button></li>
-                <li><button class="category-filter-btn" data-filter="tpoy">T-Poy (Tea Poy)</button></li>
-                <li><button class="category-filter-btn" data-filter="recliners">Luxury Recliners</button></li>
-                <li><button class="category-filter-btn" data-filter="chairs">Chairs</button></li>
-                <li><button class="category-filter-btn" data-filter="dining">Dining Tables</button></li>
+            <div class="category-header-wrap">
+                <span class="category-eyebrow">Atelier Collection</span>
+                <h2 class="category-nav-title">Gallery & Commissions</h2>
+            </div>
+            <ul class="category-filter-list" role="tablist" aria-label="Furniture Categories">
+                <li><button class="category-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Masterpieces</button></li>
+                <li><button class="category-filter-btn" data-filter="sofas" role="tab" aria-selected="false">Sofas & Sectionals</button></li>
+                <li><button class="category-filter-btn" data-filter="beds" role="tab" aria-selected="false">Master Beds</button></li>
+                <li><button class="category-filter-btn" data-filter="coffee_tables" role="tab" aria-selected="false">Coffee Tables</button></li>
+                <li><button class="category-filter-btn" data-filter="tpoy" role="tab" aria-selected="false">Artisanal T-Poy</button></li>
+                <li><button class="category-filter-btn" data-filter="recliners" role="tab" aria-selected="false">Luxury Recliners</button></li>
+                <li><button class="category-filter-btn" data-filter="chairs" role="tab" aria-selected="false">Chairs</button></li>
+                <li><button class="category-filter-btn" data-filter="dining" role="tab" aria-selected="false">Dining Tables</button></li>
             </ul>
         </div>
     </section>

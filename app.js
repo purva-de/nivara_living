@@ -237,6 +237,11 @@ function renderGallery(filterCategory) {
             ? allFurniturePieces 
             : allFurniturePieces.filter(item => item.category === filterCategory);
 
+        const countBadge = document.getElementById('filter-results-count');
+        if (countBadge) {
+            countBadge.innerText = `${filtered.length} Masterpiece${filtered.length === 1 ? '' : 's'}`;
+        }
+
         filtered.forEach((item, index) => {
             const card = document.createElement('div');
             card.className = 'furniture-card col-span-4';
