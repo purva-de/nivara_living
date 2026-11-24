@@ -15,7 +15,6 @@
         injectHeaderTools();
         injectSearchModalDOM();
         injectWishlistDrawerDOM();
-        injectCompareModalDOM();
         injectAdvancedFilterBar();
         bindCardActions();
         bindKeyboardShortcuts();
@@ -473,7 +472,6 @@
             overlay.className = 'card-action-overlay';
 
             const isWish = wishlist.includes(id);
-            const isComp = compareList.includes(id);
 
             overlay.innerHTML = `
                 <button class="card-action-icon-btn ${isWish ? 'active' : ''}" data-wish-id="${id}" title="Save to Wishlist" aria-label="Save to Wishlist">
@@ -625,6 +623,7 @@
         });
 
         attachCardOverlayButtons();
+        if (window.observeCards) window.observeCards();
     }
 
     /**
@@ -643,7 +642,6 @@
             if (e.key === 'Escape') {
                 closeSearchModal();
                 closeWishlistDrawer();
-                closeCompareModal();
             }
         });
     }

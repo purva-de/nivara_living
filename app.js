@@ -3,9 +3,11 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
+    initMobileMenu();
     initHeroSlider();
     initGallery();
     initSelectedCarousel();
+    initScrollReveals();
 });
 
 // 1. Header scroll effect
@@ -20,6 +22,33 @@ function initHeaderScroll() {
             header.classList.remove('scrolled');
         }
     }, { passive: true });
+}
+
+// Mobile Menu Drawer & Hamburger Morph
+function initMobileMenu() {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const header = document.getElementById('masthead');
+    if (!toggle || !header) return;
+
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        header.classList.toggle('mobile-open');
+        document.body.style.overflow = header.classList.contains('mobile-open') ? 'hidden' : '';
+    });
+
+    header.querySelectorAll('.header-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            header.classList.remove('mobile-open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && header.classList.contains('mobile-open')) {
+            header.classList.remove('mobile-open');
+            document.body.style.overflow = '';
+        }
+    });
 }
 
 // 2. Hero Slider (5 Slides with auto-advance and circular next button)
@@ -89,39 +118,48 @@ async function initGallery() {
 function renderGallery(filterCategory) {
     const grid = document.getElementById('gallery-grid');
     if (!grid) return;
-    grid.innerHTML = '';
 
-    const filtered = filterCategory === 'all' 
-        ? allFurniturePieces 
-        : allFurniturePieces.filter(item => item.category === filterCategory);
+    grid.style.opacity = '0.35';
+    grid.style.transform = 'translateY(10px)';
+    grid.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
 
-    filtered.forEach((item, index) => {
-        const card = document.createElement('div');
-        // Asymmetrical Shepel layout: alternating heights and offset padding
-        const isOffset = index % 3 === 1;
-        card.className = 'furniture-card col-span-4';
-        card.setAttribute('data-id', item.id);
+    setTimeout(() => {
+        grid.innerHTML = '';
 
-        card.innerHTML = `
-            <div class="change-img-hover">
-                <div class="img-normal">
-                    <img src="${item.img_normal}" alt="${item.name}" loading="lazy">
+        const filtered = filterCategory === 'all' 
+            ? allFurniturePieces 
+            : allFurniturePieces.filter(item => item.category === filterCategory);
+
+        filtered.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'furniture-card col-span-4';
+            card.setAttribute('data-id', item.id);
+
+            card.innerHTML = `
+                <div class="change-img-hover">
+                    <div class="img-normal">
+                        <img src="${item.img_normal}" alt="${item.name}" loading="lazy">
+                    </div>
+                    <div class="img-hover">
+                        <img src="${item.img_hover}" alt="${item.name} Detail" loading="lazy">
+                    </div>
                 </div>
-                <div class="img-hover">
-                    <img src="${item.img_hover}" alt="${item.name} Detail" loading="lazy">
+                <div class="furniture-card-info">
+                    <h3 class="furniture-card-title">${item.name}</h3>
+                    <span class="furniture-card-category">${item.category_label}</span>
                 </div>
-            </div>
-            <div class="furniture-card-info">
-                <h3 class="furniture-card-title">${item.name}</h3>
-                <span class="furniture-card-category">${item.category_label}</span>
-            </div>
-        `;
+            `;
 
-        // Open modal on click
-        card.addEventListener('click', () => openSpecModal(item));
+            // Open modal on click
+            card.addEventListener('click', () => openSpecModal(item));
 
-        grid.appendChild(card);
-    });
+            grid.appendChild(card);
+        });
+
+        grid.style.opacity = '1';
+        grid.style.transform = 'translateY(0)';
+        observeCards();
+    }, 180);
 }
 
 // 4. Product Specification Modal
@@ -192,3 +230,58 @@ function initSelectedCarousel() {
 
     window.addEventListener('resize', updateCarousel);
 }
+
+// 6. Scroll Triggered Reveals for Sections
+function initScrollReveals() {
+    const revealEls = document.querySelectorAll('.reveal-on-scroll');
+    if (!revealEls.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+        revealEls.forEach(el => el.classList.add('revealed'));
+        return;
+    }
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.12
+    });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+}
+
+// Staggered reveal for gallery product cards
+function observeCards() {
+    const cards = document.querySelectorAll('.furniture-card:not(.revealed)');
+    if (!cards.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+        cards.forEach(c => c.classList.add('revealed'));
+        return;
+    }
+
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, idx) => {
+            if (entry.isIntersecting) {
+                const staggerDelay = (idx % 3) * 90;
+                setTimeout(() => {
+                    entry.target.classList.add('revealed');
+                }, staggerDelay);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: '0px 0px -30px 0px',
+        threshold: 0.08
+    });
+
+    cards.forEach(card => cardObserver.observe(card));
+}
+
+window.observeCards = observeCards;

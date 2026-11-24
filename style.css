@@ -153,7 +153,7 @@ button {
     font-weight: 500;
     position: relative;
     padding-bottom: 4px;
-    transition: color 0.4s ease;
+    transition: color 0.35s ease;
 }
 
 .header-menu li a::after {
@@ -161,14 +161,17 @@ button {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 1px;
     background-color: #FFFFFF;
-    transition: width 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease;
 }
 
 .header-menu li a:hover::after {
-    width: 100%;
+    transform: scaleX(1);
+    transform-origin: left center;
 }
 
 .site-header.scrolled .header-menu li a {
@@ -226,11 +229,14 @@ button {
 .hamburger {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    justify-content: center;
+    gap: 6px;
     cursor: pointer;
     background: none;
     border: none;
-    padding: 6px;
+    padding: 8px;
+    z-index: 1001;
+    position: relative;
 }
 
 .hamburger span {
@@ -238,19 +244,84 @@ button {
     width: 24px;
     height: 1.5px;
     background-color: #FFFFFF;
-    transition: background-color 0.4s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, background-color 0.35s ease;
 }
 
 .site-header.scrolled .hamburger span {
     background-color: var(--shepel-dark);
 }
 
+/* Morph to X when mobile open */
+.site-header.mobile-open .hamburger span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+    background-color: #FFFFFF !important;
+}
+
+.site-header.mobile-open .hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.site-header.mobile-open .hamburger span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+    background-color: #FFFFFF !important;
+}
+
 @media (max-width: 992px) {
-    .header-menu, .header-phone {
-        display: none;
-    }
     .hamburger {
         display: flex;
+    }
+
+    .site-header .header-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(18, 22, 26, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-16px);
+        transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+        z-index: 1000;
+    }
+
+    .site-header.mobile-open .header-nav {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .site-header .header-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .site-header .header-menu li a {
+        font-family: var(--font-serif);
+        font-size: 24px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #FFFFFF !important;
+        font-weight: 300;
+    }
+
+    .site-header .header-menu li a::after {
+        background-color: var(--shepel-gold) !important;
+    }
+
+    .header-phone {
+        display: none;
     }
 }
 
@@ -282,12 +353,15 @@ button {
     background-position: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.2s;
+    transform: scale(1.0);
+    transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.4s, transform 8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
 }
 
 .hero-slide.active {
     opacity: 1;
     visibility: visible;
+    transform: scale(1.042);
 }
 
 .hero-slide::after {
@@ -317,6 +391,14 @@ button {
     font-size: 18px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(-12px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.hero-slide.active .hero-top-row {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-gallery-badge {
@@ -341,12 +423,28 @@ button {
     text-transform: uppercase;
     font-weight: 300;
     letter-spacing: 0.02em;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.hero-slide.active .hero-headline {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-actions-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+}
+
+.hero-slide.active .hero-actions-row {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .btn-shepel-primary {
@@ -482,6 +580,19 @@ button {
 .furniture-card {
     cursor: pointer;
     grid-column: span 1;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.furniture-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.furniture-card.revealed:hover {
+    transform: translateY(-4px);
 }
 
 .furniture-card.col-span-4,
@@ -580,14 +691,28 @@ button {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     line-height: 1.15;
-    border-bottom: 1px solid transparent;
+    position: relative;
     display: inline-block;
-    transition: border-color 0.4s ease, transform 0.4s ease;
+    padding-bottom: 2px;
     font-weight: 500;
 }
 
-.furniture-card:hover .furniture-card-title {
-    border-color: var(--shepel-dark);
+.furniture-card-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--shepel-dark);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.furniture-card:hover .furniture-card-title::after {
+    transform: scaleX(1);
+    transform-origin: left center;
 }
 
 .furniture-card-category {
@@ -616,9 +741,12 @@ button {
     position: relative;
     width: 100%;
     overflow: hidden;
+    user-select: none;
 }
 
 .m-scroll .big-title {
+    display: flex;
+    width: max-content;
     font-family: var(--font-serif);
     font-size: clamp(70px, 12vw, 180px);
     font-weight: 300;
@@ -632,13 +760,35 @@ button {
 
 .m-scroll .big-title > div {
     display: flex;
-    animation: scrollText 32s infinite linear;
+    flex-shrink: 0;
+    will-change: transform;
+    animation: scrollText 38s infinite linear;
 }
 
 @keyframes scrollText {
-    from { transform: translateX(0%); }
-    to { transform: translateX(-50%); }
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
 }
+
+/* ==========================================================================
+   SCROLL REVEAL & LUXURY ENTRANCE SYSTEM
+   ========================================================================== */
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
 
 /* ==========================================================================
    6. ARTISANS & CRAFTSMANSHIP (Component-4)
@@ -699,6 +849,11 @@ button {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.artisans-video-wrap:hover img {
+    transform: scale(1.04);
 }
 
 .btn-arrow {
@@ -816,6 +971,44 @@ button {
 .carousel-slide-item {
     flex: 0 0 calc((100% - 56px) / 3);
     min-width: calc((100% - 56px) / 3);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-slide-item:hover {
+    transform: translateY(-4px);
+}
+
+.carousel-slide-item .change-img-hover img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-slide-item:hover .change-img-hover img {
+    transform: scale(1.04);
+}
+
+.carousel-slide-item .furniture-card-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.carousel-slide-item .furniture-card-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--shepel-dark);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-slide-item:hover .furniture-card-title::after {
+    transform: scaleX(1);
+    transform-origin: left center;
 }
 
 @media (max-width: 992px) {
@@ -1165,4 +1358,85 @@ button {
 
 .modal-whatsapp-btn:hover {
     background-color: #1EBE5D;
+}
+
+/* ==========================================================================
+   12. FLOATING WHATSAPP ATELIER INQUIRY BUTTON
+   ========================================================================== */
+
+.floating-wa-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9990;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #FFFFFF !important;
+    padding: 12px 20px 12px 16px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.35);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    animation: waBreathing 3.6s ease-in-out infinite;
+}
+
+.floating-wa-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 36px rgba(37, 211, 102, 0.55);
+    color: #FFFFFF !important;
+}
+
+@keyframes waBreathing {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 28px rgba(37, 211, 102, 0.3);
+    }
+    50% {
+        transform: scale(1.035);
+        box-shadow: 0 12px 36px rgba(37, 211, 102, 0.55);
+    }
+}
+
+@media (max-width: 640px) {
+    .floating-wa-btn {
+        padding: 12px;
+        border-radius: 50%;
+        bottom: 20px;
+        left: 20px;
+    }
+    .floating-wa-text {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   13. SMOOTH SCROLLING & ACCESSIBILITY (PREFERS-REDUCED-MOTION)
+   ========================================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .hero-slide {
+        transform: none !important;
+    }
+    .m-scroll .big-title > div {
+        animation: none !important;
+    }
+    .floating-wa-btn {
+        animation: none !important;
+    }
 }

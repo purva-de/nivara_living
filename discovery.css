@@ -355,24 +355,12 @@
 
 /* 4. Product Comparison Matrix Modal */
 .compare-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(30, 35, 40, 0.85);
-    backdrop-filter: blur(10px);
-    z-index: 10025;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    opacity: 0;
-    transition: opacity 0.25s ease;
+    display: none !important;
 }
 
 .compare-modal-overlay.active {
-    display: flex;
+    display: none !important;
+}
     opacity: 1;
 }
 
