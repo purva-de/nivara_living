@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 5. Selected Masterpieces Carousel (Continuous Left-to-Right Sliding with Pause on Hover)
+// 5. Selected Masterpieces Carousel (Continuous Right-to-Left Sliding with Pause on Hover)
 function initSelectedCarousel() {
     const track = document.getElementById('carousel-track');
     const container = document.querySelector('.carousel-track-container');
@@ -332,15 +332,15 @@ function initSelectedCarousel() {
     });
 
     let halfWidth = track.scrollWidth / 2;
-    let currentPos = -halfWidth;
-    const speed = 0.85; // Continuous gliding speed in pixels per frame (Left-to-Right direction)
+    let currentPos = 0;
+    const speed = 0.85; // Continuous gliding speed in pixels per frame (Right-to-Left direction)
     let isPaused = false;
     let isTransitioning = false;
 
     function updateHalfWidth() {
         halfWidth = track.scrollWidth / 2;
-        if (halfWidth > 0 && currentPos > 0) {
-            currentPos = -halfWidth;
+        if (halfWidth > 0 && Math.abs(currentPos) >= halfWidth) {
+            currentPos = 0;
         }
     }
 
@@ -348,9 +348,9 @@ function initSelectedCarousel() {
 
     function tick() {
         if (!isPaused && !isTransitioning && halfWidth > 0) {
-            currentPos += speed; // Moves from left to right (positive direction)
-            if (currentPos >= 0) {
-                currentPos = -halfWidth;
+            currentPos -= speed; // Moves from right to left (negative direction)
+            if (currentPos <= -halfWidth) {
+                currentPos = 0;
             }
             track.style.transform = `translate3d(${currentPos}px, 0, 0)`;
         }
@@ -376,10 +376,10 @@ function initSelectedCarousel() {
 
         currentPos += (direction * step);
 
-        if (currentPos >= 0) {
-            currentPos = -halfWidth + (currentPos % halfWidth);
-        } else if (currentPos <= -halfWidth) {
-            currentPos = (currentPos % halfWidth);
+        if (currentPos <= -halfWidth) {
+            currentPos = 0 + (currentPos + halfWidth);
+        } else if (currentPos > 0) {
+            currentPos = -halfWidth + currentPos;
         }
 
         track.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
@@ -394,14 +394,14 @@ function initSelectedCarousel() {
     if (nextBtn) {
         nextBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            nudge(1); // Nudge towards right
+            nudge(-1); // Nudge forward in flow direction (towards left)
         });
     }
 
     if (prevBtn) {
         prevBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            nudge(-1); // Nudge towards left
+            nudge(1); // Nudge backward (towards right)
         });
     }
 
