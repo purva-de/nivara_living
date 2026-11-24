@@ -76,6 +76,13 @@ function initHeroSlider() {
         const outgoing = document.getElementById(`hero-slide-${currentSlide}`);
         const incoming = document.getElementById(`hero-slide-${n}`);
 
+        // Clean up any lingering states from rapid transitions
+        slides.forEach(s => {
+            if (s !== outgoing && s !== incoming) {
+                s.classList.remove('active', 'was-active');
+            }
+        });
+
         if (outgoing) {
             outgoing.classList.remove('active');
             outgoing.classList.add('was-active');
