@@ -70,36 +70,6 @@
     "dimensions": "3-Seater Crescent: 240cm x 105cm x 78cm."
   },
   {
-    "id": "dining-calacatta",
-    "name": "CALACATTA MONOLITH",
-    "category": "dining",
-    "category_label": "Dining Table",
-    "img_normal": "catalog_images/dining_monolith.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/002-Shepel-Furniture-Roosevelt-Dining-Table.jpg",
-    "specs": "Bookmatched Italian Calacatta marble slab with curved bullnose profile, dual solid fluted teak wood pedestal bases with internal steel reinforcement.",
-    "dimensions": "260cm x 115cm x 76cm (Custom 6, 8, 10 or 12-seater sizing)."
-  },
-  {
-    "id": "bed-fluted-master",
-    "name": "AURELIA FLUTED",
-    "category": "beds",
-    "category_label": "Master Bed",
-    "img_normal": "catalog_images/bed_master.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/03/001-Shepel-Furniture-Elena-Bed.jpg",
-    "specs": "Floor-to-ceiling vertical fluted velvet headboard with brushed gold trim, heavy-duty pneumatic hydraulic storage lift with seasoned hardwood slats.",
-    "dimensions": "King Master (220cm x 230cm x 220cm headboard height)."
-  },
-  {
-    "id": "coffee-travertine-dual",
-    "name": "SOLIS NESTED",
-    "category": "coffee_tables",
-    "category_label": "Coffee Table Set",
-    "img_normal": "catalog_images/coffee_table.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/02/003-Shepel-Furniture-Soho-Side-Table.jpg",
-    "specs": "Pair of dual nesting tables: honed natural Italian beige travertine with cylindrical fluted oak base, paired with smoked walnut accent table with brass inlay rim.",
-    "dimensions": "Travertine: 110cm dia x 42cm; Walnut: 75cm dia x 48cm."
-  },
-  {
     "id": "recliner-cognac-motorized",
     "name": "HAVEN MOTORIZED",
     "category": "recliners",
@@ -128,16 +98,6 @@
     "img_hover": "catalog_images/vivian_recliner_detail.jpg",
     "specs": "Dual-motor whisper-quiet actuator mechanism with concealed lateral touch controls, premium butter-soft warm ivory Italian top-grain leather with tailored grid stitching, and multi-density memory foam core.",
     "dimensions": "96cm x 102cm x 104cm (Fully extended recline 174cm)."
-  },
-  {
-    "id": "tpoy-sculptural-teak",
-    "name": "ZENO SCULPTURAL",
-    "category": "tpoy",
-    "category_label": "Artisanal T-Poy",
-    "img_normal": "catalog_images/tpoy_accent.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/004-Shepel-Furniture-Alba-Console.jpg",
-    "specs": "Hand-lathed solid Burma Teak wood hourglass pedestal with natural grain flow, fitted with brushed champagne brass rim tray top.",
-    "dimensions": "52cm diameter x 56cm height."
   },
   {
     "id": "almeda-chair",
@@ -190,26 +150,6 @@
     "dimensions": "3-Seater: 245cm x 100cm x 82cm."
   },
   {
-    "id": "roosevelt-dining",
-    "name": "ROOSEVELT",
-    "category": "dining",
-    "category_label": "Dining Table",
-    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/01/001-Shepel-Furniture-Roosevelt-Dining-Table.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/002-Shepel-Furniture-Roosevelt-Dining-Table.jpg",
-    "specs": "Solid seasoned teak wood top with sculpted bevel, brushed champagne brass base.",
-    "dimensions": "240cm x 110cm x 76cm (Custom 6, 8, 10 or 12-seater seating)."
-  },
-  {
-    "id": "sail-bed",
-    "name": "SAIL WINGBACK",
-    "category": "beds",
-    "category_label": "Upholstered Bed",
-    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/03/002-Shepel-Furniture-Sail-Bed.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/03/001-Shepel-Furniture-Sail-Bed.jpg",
-    "specs": "Wingback architectural headboard, hand-tufted Italian linen fabric, reinforced hardwood foundation.",
-    "dimensions": "King Master (215cm x 225cm x 145cm)."
-  },
-  {
     "id": "taurus-modular",
     "name": "TAURUS",
     "category": "sofas",
@@ -218,26 +158,6 @@
     "img_hover": "catalog_images/page_5.jpg",
     "specs": "Versatile modular seating configuration, pocket spring core with feather topper, textured weave upholstery.",
     "dimensions": "Modular pieces configurable up to 360cm."
-  },
-  {
-    "id": "soho-table",
-    "name": "SOHO FLUTED",
-    "category": "coffee_tables",
-    "category_label": "Coffee Table",
-    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/02/002-Shepel-Furniture-Soho-Side-Table.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/02/003-Shepel-Furniture-Soho-Side-Table.jpg",
-    "specs": "Natural honed Italian Carrara marble insert, fluted smoked oak exterior, soft-close concealed drawer.",
-    "dimensions": "110cm x 110cm x 42cm (Custom dual nesting available)."
-  },
-  {
-    "id": "dot-tpoy",
-    "name": "DOT PEDESTAL",
-    "category": "tpoy",
-    "category_label": "Pedestal T-Poy",
-    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/01/002-Shepel-Furniture-Dot-Chest.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/003-Shepel-Furniture-Dot-Chest.jpg",
-    "specs": "Turned solid wood monolithic accent tea-poy with recessed top brass tray.",
-    "dimensions": "48cm diameter x 54cm height."
   },
   {
     "id": "cruz-recliner",
@@ -268,26 +188,6 @@
     "img_hover": "catalog_images/page_7.jpg",
     "specs": "Dramatic crescent organic curve, continuous backrest with internal steel and sal wood structure, luxury cream bouclé.",
     "dimensions": "Curved Arc: 290cm x 125cm x 80cm."
-  },
-  {
-    "id": "miro-dining",
-    "name": "MIRO",
-    "category": "dining",
-    "category_label": "Dining Table",
-    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/01/004-Shepel-Furniture-Miro-Dining-Table.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/002-Shepel-Furniture-Miro-Dining-Table.jpg",
-    "specs": "Bookmatched monolithic Statuario marble top, dual cylindrical fluted oak pedestals with internal steel reinforcement.",
-    "dimensions": "260cm x 120cm x 76cm."
-  },
-  {
-    "id": "core-bed",
-    "name": "V08 CORE",
-    "category": "beds",
-    "category_label": "Platform Bed",
-    "img_normal": "https://shepelfurniture.com/wp-content/uploads/2024/03/001-Shepel-Furniture-Core-Bed.jpg",
-    "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/03/002-Shepel-Furniture-Core-Bed.jpg",
-    "specs": "Minimalist low-profile platform bed with floating nightstands and integrated LED backlighting, brushed oak and bouclé.",
-    "dimensions": "Custom King Platform (230cm x 240cm x 110cm)."
   },
   {
     "id": "steven-recliner",

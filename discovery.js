@@ -85,11 +85,11 @@
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
-                    <input type="text" id="search-input-field" class="search-master-input" placeholder="Search bespoke sofas, dining tables, teak, bouclé..." autocomplete="off">
+                    <input type="text" id="search-input-field" class="search-master-input" placeholder="Search bespoke sofas, sectionals, recliners, chairs..." autocomplete="off">
                     <button class="search-close-btn" id="search-close-btn" aria-label="Close Search">&times;</button>
                 </div>
                 <div class="search-results-tray" id="search-results-tray">
-                    <p style="text-align: center; color: var(--shepel-muted); font-size: 13px; margin: 24px 0;">Start typing to search all 30 handcrafted masterpieces...</p>
+                    <p style="text-align: center; color: var(--shepel-muted); font-size: 13px; margin: 24px 0;">Start typing to search all handcrafted masterpieces...</p>
                 </div>
             </div>
         `;
@@ -530,15 +530,12 @@
                     <option value="boucle">Textured Bouclé</option>
                     <option value="velvet">Royal Velvet</option>
                     <option value="leather">Italian Aniline Leather</option>
-                    <option value="teak">Burma Teak / Sal Wood</option>
-                    <option value="marble">Italian Calacatta Marble</option>
                 </select>
 
                 <select id="filter-room" class="filter-select-dropdown" aria-label="Filter by Room Type">
                     <option value="all">All Living Spaces</option>
                     <option value="living">Living Room Lounge</option>
-                    <option value="dining">Dining & Banquets</option>
-                    <option value="bedroom">Master Bedroom Suite</option>
+                    <option value="study">Private Study & Den</option>
                 </select>
 
                 <select id="filter-sort" class="filter-select-dropdown" aria-label="Sort Collection">
@@ -546,7 +543,7 @@
                     <option value="name-asc">Name (A — Z)</option>
                 </select>
             </div>
-            <span class="filter-count-badge" id="filter-results-count">30 Masterpieces</span>
+            <span class="filter-count-badge" id="filter-results-count">20 Masterpieces</span>
         `;
 
         container.appendChild(filterBar);
@@ -576,9 +573,8 @@
 
         if (room !== 'all') {
             filtered = filtered.filter(p => {
-                if (room === 'living') return ['sofas', 'coffee_tables', 'tpoy', 'recliners', 'chairs'].includes(p.category);
-                if (room === 'dining') return p.category === 'dining' || p.category === 'chairs';
-                if (room === 'bedroom') return p.category === 'beds';
+                if (room === 'living') return ['sofas', 'recliners', 'chairs'].includes(p.category);
+                if (room === 'study') return ['recliners', 'chairs'].includes(p.category);
                 return true;
             });
         }
