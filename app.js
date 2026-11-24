@@ -309,38 +309,105 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 5. Selected Products Horizontal Carousel (Shepel Component-3)
-let carouselIndex = 0;
-
+// 5. Selected Masterpieces Carousel (Continuous Left-to-Right Sliding with Pause on Hover)
 function initSelectedCarousel() {
     const track = document.getElementById('carousel-track');
+    const container = document.querySelector('.carousel-track-container');
     const prevBtn = document.getElementById('carousel-prev');
     const nextBtn = document.getElementById('carousel-next');
 
-    if (!track || !prevBtn || !nextBtn) return;
+    if (!track) return;
 
-    function updateCarousel() {
-        const item = track.querySelector('.carousel-slide-item');
-        if (!item) return;
-        const itemWidth = item.offsetWidth + 28; // width + gap
-        const maxIndex = Math.max(0, track.children.length - 3);
-        carouselIndex = Math.min(Math.max(0, carouselIndex), maxIndex);
-        track.style.transform = `translateX(-${carouselIndex * itemWidth}px)`;
+    // Check prefers-reduced-motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
     }
 
-    nextBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        carouselIndex++;
-        updateCarousel();
+    // Clone original children to create a seamless infinite loop
+    const originalChildren = Array.from(track.children);
+    if (!originalChildren.length) return;
+
+    originalChildren.forEach(child => {
+        track.appendChild(child.cloneNode(true));
     });
 
-    prevBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        carouselIndex--;
-        updateCarousel();
-    });
+    let halfWidth = track.scrollWidth / 2;
+    let currentPos = -halfWidth;
+    const speed = 0.85; // Continuous gliding speed in pixels per frame (Left-to-Right direction)
+    let isPaused = false;
+    let isTransitioning = false;
 
-    window.addEventListener('resize', updateCarousel);
+    function updateHalfWidth() {
+        halfWidth = track.scrollWidth / 2;
+        if (halfWidth > 0 && currentPos > 0) {
+            currentPos = -halfWidth;
+        }
+    }
+
+    track.style.transform = `translate3d(${currentPos}px, 0, 0)`;
+
+    function tick() {
+        if (!isPaused && !isTransitioning && halfWidth > 0) {
+            currentPos += speed; // Moves from left to right (positive direction)
+            if (currentPos >= 0) {
+                currentPos = -halfWidth;
+            }
+            track.style.transform = `translate3d(${currentPos}px, 0, 0)`;
+        }
+        requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+
+    // Pause on hover
+    if (container) {
+        container.addEventListener('mouseenter', () => { isPaused = true; });
+        container.addEventListener('mouseleave', () => { isPaused = false; });
+        container.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
+        container.addEventListener('touchend', () => { isPaused = false; }, { passive: true });
+    }
+
+    // Interactive button controls
+    function nudge(direction) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        const card = track.querySelector('.carousel-slide-item');
+        const step = card ? (card.offsetWidth + 28) : 408;
+
+        currentPos += (direction * step);
+
+        if (currentPos >= 0) {
+            currentPos = -halfWidth + (currentPos % halfWidth);
+        } else if (currentPos <= -halfWidth) {
+            currentPos = (currentPos % halfWidth);
+        }
+
+        track.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+        track.style.transform = `translate3d(${currentPos}px, 0, 0)`;
+
+        setTimeout(() => {
+            track.style.transition = 'none';
+            isTransitioning = false;
+        }, 460);
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nudge(1); // Nudge towards right
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nudge(-1); // Nudge towards left
+        });
+    }
+
+    window.addEventListener('resize', () => {
+        updateHalfWidth();
+    });
 }
 
 // 6. Scroll Triggered Reveals for Sections
