@@ -1361,62 +1361,7 @@ button {
 }
 
 /* ==========================================================================
-   12. FLOATING WHATSAPP ATELIER INQUIRY BUTTON
-   ========================================================================== */
-
-.floating-wa-btn {
-    position: fixed;
-    bottom: 24px;
-    left: 24px;
-    z-index: 9990;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #25D366;
-    color: #FFFFFF !important;
-    padding: 12px 20px 12px 16px;
-    border-radius: 40px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.35);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-    animation: waBreathing 3.6s ease-in-out infinite;
-}
-
-.floating-wa-btn:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 12px 36px rgba(37, 211, 102, 0.55);
-    color: #FFFFFF !important;
-}
-
-@keyframes waBreathing {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 8px 28px rgba(37, 211, 102, 0.3);
-    }
-    50% {
-        transform: scale(1.035);
-        box-shadow: 0 12px 36px rgba(37, 211, 102, 0.55);
-    }
-}
-
-@media (max-width: 640px) {
-    .floating-wa-btn {
-        padding: 12px;
-        border-radius: 50%;
-        bottom: 20px;
-        left: 20px;
-    }
-    .floating-wa-text {
-        display: none;
-    }
-}
-
-/* ==========================================================================
-   13. SMOOTH SCROLLING & ACCESSIBILITY (PREFERS-REDUCED-MOTION)
+   12. SMOOTH SCROLLING & ACCESSIBILITY (PREFERS-REDUCED-MOTION)
    ========================================================================== */
 
 html {
@@ -1434,9 +1379,6 @@ html {
         transform: none !important;
     }
     .m-scroll .big-title > div {
-        animation: none !important;
-    }
-    .floating-wa-btn {
         animation: none !important;
     }
 }
