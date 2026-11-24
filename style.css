@@ -343,9 +343,45 @@ button {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .component-14 {
         height: 560px;
+    }
+    .hero-inner-container {
+        padding-top: 100px;
+        padding-bottom: 76px;
+    }
+    .hero-headline {
+        font-size: clamp(26px, 6.8vw, 40px);
+        line-height: 1.12;
+    }
+    .hero-headline-wrap {
+        margin-bottom: 18px;
+    }
+    .hero-top-row {
+        font-size: 13px;
+    }
+    .hero-gallery-badge {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+    .btn-shepel-primary {
+        padding: 14px 32px;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+    }
+}
+
+@media (max-width: 480px) {
+    .component-14 {
+        height: 520px;
+    }
+    .hero-inner-container {
+        padding-top: 86px;
+        padding-bottom: 70px;
+    }
+    .hero-headline {
+        font-size: clamp(23px, 7.2vw, 32px);
     }
 }
 
@@ -1152,6 +1188,14 @@ button {
     overflow: hidden;
     width: 100%;
     position: relative;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y;
+}
+
+.carousel-track-container:active {
+    cursor: grabbing;
 }
 
 .carousel-track {
@@ -1206,7 +1250,10 @@ button {
     transform-origin: left center;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+    .carousel-track {
+        gap: 20px;
+    }
     .carousel-slide-item {
         flex: 0 0 320px;
         width: 320px;
@@ -1214,11 +1261,26 @@ button {
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
+    .carousel-track {
+        gap: 16px;
+    }
     .carousel-slide-item {
-        flex: 0 0 280px;
-        width: 280px;
-        min-width: 280px;
+        flex: 0 0 min(290px, 80vw);
+        width: min(290px, 80vw);
+        min-width: min(290px, 80vw);
+    }
+    .carousel-header-row {
+        margin-bottom: 24px;
+    }
+    .carousel-title {
+        font-size: clamp(24px, 5.5vw, 36px);
+    }
+    .carousel-nav-btn {
+        padding: 10px 4px;
+    }
+    .carousel-nav-btn svg {
+        width: 38px;
     }
 }
 

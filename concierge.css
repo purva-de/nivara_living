@@ -435,6 +435,29 @@
     background: #D5F3E0;
 }
 
+@media (max-width: 600px) {
+    .concierge-floating-trigger {
+        bottom: 16px;
+        right: 16px;
+        padding: 8px 14px 8px 10px;
+        gap: 8px;
+    }
+    .concierge-trigger-title {
+        font-size: 11px;
+    }
+    .concierge-trigger-subtitle {
+        font-size: 9px;
+    }
+    .concierge-panel {
+        bottom: 74px;
+        right: 12px;
+        left: 12px;
+        width: calc(100vw - 24px);
+        max-width: none;
+        height: min(540px, calc(100vh - 90px));
+    }
+}
+
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
     .concierge-panel,

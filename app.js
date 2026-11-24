@@ -361,10 +361,77 @@ function initSelectedCarousel() {
 
     // Pause on hover
     if (container) {
-        container.addEventListener('mouseenter', () => { isPaused = true; });
-        container.addEventListener('mouseleave', () => { isPaused = false; });
-        container.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
-        container.addEventListener('touchend', () => { isPaused = false; }, { passive: true });
+        container.addEventListener('mouseenter', () => { if (!isDragging) isPaused = true; });
+        container.addEventListener('mouseleave', () => { if (!isDragging) isPaused = false; });
+    }
+
+    // Touch & Mouse Drag for Mobile, Tablet & Desktop
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartPos = 0;
+
+    function handleDragStart(clientX) {
+        isDragging = true;
+        isPaused = true;
+        dragStartX = clientX;
+        dragStartPos = currentPos;
+        track.style.transition = 'none';
+    }
+
+    function handleDragMove(clientX) {
+        if (!isDragging) return;
+        const deltaX = clientX - dragStartX;
+        currentPos = dragStartPos + deltaX;
+
+        // Wrap around boundaries
+        if (currentPos <= -halfWidth) {
+            currentPos += halfWidth;
+            dragStartPos += halfWidth;
+        } else if (currentPos > 0) {
+            currentPos -= halfWidth;
+            dragStartPos -= halfWidth;
+        }
+
+        track.style.transform = `translate3d(${currentPos}px, 0, 0)`;
+    }
+
+    function handleDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        isPaused = false;
+    }
+
+    if (container) {
+        // Touch events for phones & tablets
+        container.addEventListener('touchstart', (e) => {
+            if (e.touches && e.touches.length === 1) {
+                handleDragStart(e.touches[0].clientX);
+            }
+        }, { passive: true });
+
+        container.addEventListener('touchmove', (e) => {
+            if (e.touches && e.touches.length === 1) {
+                handleDragMove(e.touches[0].clientX);
+            }
+        }, { passive: true });
+
+        container.addEventListener('touchend', handleDragEnd, { passive: true });
+        container.addEventListener('touchcancel', handleDragEnd, { passive: true });
+
+        // Mouse drag for desktop & laptops
+        container.addEventListener('mousedown', (e) => {
+            if (e.button === 0) {
+                handleDragStart(e.clientX);
+            }
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                handleDragMove(e.clientX);
+            }
+        });
+
+        window.addEventListener('mouseup', handleDragEnd);
     }
 
     // Interactive button controls
