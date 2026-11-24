@@ -51,41 +51,156 @@ function initMobileMenu() {
     });
 }
 
-// 2. Hero Slider (5 Slides with auto-advance and circular next button)
+// 2. Hero Slider (Architectural Curtain Wipe with Chapter Progress & Hover Pause)
 let currentSlide = 1;
 const totalSlides = 5;
-let slideInterval;
+let slideInterval = null;
+let isHeroHovered = false;
 
 function initHeroSlider() {
+    const heroSection = document.getElementById('hero-slider');
     const slides = document.querySelectorAll('.hero-slide');
-    const counterEl = document.getElementById('curr-slide-num');
+    const navItems = document.querySelectorAll('.showcase-nav-item');
     const nextBtn = document.getElementById('slider-next-btn');
 
-    if (!slides.length) return;
+    if (!slides.length || !heroSection) return;
 
-    function goToSlide(n) {
-        slides.forEach(s => s.classList.remove('active'));
-        currentSlide = n > totalSlides ? 1 : (n < 1 ? totalSlides : n);
-        const target = document.getElementById(`hero-slide-${currentSlide}`);
-        if (target) target.classList.add('active');
+    function goToSlide(targetIdx) {
+        let n = targetIdx;
+        if (n > totalSlides) n = 1;
+        if (n < 1) n = totalSlides;
+        if (n === currentSlide && slides[n - 1].classList.contains('active')) return;
+
+        const outgoing = document.getElementById(`hero-slide-${currentSlide}`);
+        const incoming = document.getElementById(`hero-slide-${n}`);
+
+        if (outgoing) {
+            outgoing.classList.remove('active');
+            outgoing.classList.add('was-active');
+            setTimeout(() => {
+                outgoing.classList.remove('was-active');
+            }, 1250);
+        }
+
+        if (incoming) {
+            incoming.classList.add('active');
+        }
+
+        currentSlide = n;
+
+        // Update Nav items & trigger fresh CSS animation for progress fill
+        navItems.forEach(item => {
+            const slideNum = parseInt(item.getAttribute('data-slide'), 10);
+            const fill = item.querySelector('.showcase-nav-fill');
+            if (slideNum === currentSlide) {
+                item.classList.add('active');
+                if (fill) {
+                    fill.style.transition = 'none';
+                    fill.style.width = '0%';
+                    // Force reflow
+                    void fill.offsetWidth;
+                    fill.style.transition = 'width 5.5s linear';
+                    fill.style.width = '100%';
+                }
+            } else {
+                item.classList.remove('active');
+                if (fill) {
+                    fill.style.transition = 'none';
+                    fill.style.width = '0%';
+                }
+            }
+        });
+
+        // Update counter elements
+        const counterEl = document.getElementById('curr-slide-num');
         if (counterEl) counterEl.innerText = currentSlide;
     }
 
+    function resetTimer() {
+        if (slideInterval) clearInterval(slideInterval);
+        if (!isHeroHovered) {
+            slideInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5500);
+        }
+    }
+
+    // Nav click handlers
+    navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const slideNum = parseInt(item.getAttribute('data-slide'), 10);
+            goToSlide(slideNum);
+            resetTimer();
+        });
+    });
+
+    // Circular next button handler
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
-            clearInterval(slideInterval);
             goToSlide(currentSlide + 1);
-            startAutoAdvance();
+            resetTimer();
         });
     }
 
-    function startAutoAdvance() {
-        slideInterval = setInterval(() => {
-            goToSlide(currentSlide + 1);
-        }, 5000);
+    // Hover pause behavior
+    heroSection.addEventListener('mouseenter', () => {
+        isHeroHovered = true;
+        if (slideInterval) {
+            clearInterval(slideInterval);
+            slideInterval = null;
+        }
+        const activeFill = heroSection.querySelector('.showcase-nav-item.active .showcase-nav-fill');
+        if (activeFill) {
+            const computedWidth = window.getComputedStyle(activeFill).width;
+            activeFill.style.transition = 'none';
+            activeFill.style.width = computedWidth;
+        }
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+        isHeroHovered = false;
+        const activeFill = heroSection.querySelector('.showcase-nav-item.active .showcase-nav-fill');
+        if (activeFill) {
+            activeFill.style.transition = 'width 5.5s linear';
+            activeFill.style.width = '100%';
+        }
+        resetTimer();
+    });
+
+    // Touch Swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    heroSection.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    heroSection.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diffX = touchStartX - touchEndX;
+        if (Math.abs(diffX) > 40) {
+            if (diffX > 0) {
+                // Swiped left -> next
+                goToSlide(currentSlide + 1);
+            } else {
+                // Swiped right -> prev
+                goToSlide(currentSlide - 1);
+            }
+            resetTimer();
+        }
+    }, { passive: true });
+
+    // Initial trigger for slide 1 progress fill
+    const firstFill = document.querySelector('.showcase-nav-item[data-slide="1"] .showcase-nav-fill');
+    if (firstFill) {
+        setTimeout(() => {
+            firstFill.style.transition = 'width 5.5s linear';
+            firstFill.style.width = '100%';
+        }, 50);
     }
 
-    startAutoAdvance();
+    resetTimer();
 }
 
 // 3. Dynamic Curated Gallery with Category Filtering
