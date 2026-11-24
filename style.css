@@ -443,7 +443,7 @@ button {
     }
     .hero-inner-container {
         padding-top: 100px;
-        padding-bottom: 76px;
+        padding-bottom: 52px;
     }
     .hero-headline {
         font-size: clamp(26px, 6.8vw, 40px);
@@ -472,7 +472,7 @@ button {
     }
     .hero-inner-container {
         padding-top: 86px;
-        padding-bottom: 70px;
+        padding-bottom: 44px;
     }
     .hero-headline {
         font-size: clamp(23px, 7.2vw, 32px);
@@ -630,36 +630,9 @@ button {
 }
 
 @media (max-width: 768px) {
+    /* Hide top sliding loading bar 1-----5 (01 ━━━━ 05) on mobile */
     .hero-indicator {
-        gap: 8px;
-        padding: 5px 10px;
-    }
-    .hero-indicator-num {
-        font-size: 11px;
-    }
-    .hero-indicator-track {
-        width: 44px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-top-row {
-        gap: 8px;
-    }
-    .hero-gallery-badge {
-        font-size: 10px !important;
-        padding: 4px 8px !important;
-        letter-spacing: 0.12em !important;
-    }
-    .hero-indicator {
-        gap: 6px !important;
-        padding: 4px 8px !important;
-    }
-    .hero-indicator-num {
-        font-size: 10px !important;
-    }
-    .hero-indicator-track {
-        width: 32px !important;
+        display: none !important;
     }
 }
 
@@ -816,17 +789,10 @@ button {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    /* Hide bottom 01 02 03 04 05 chapter navigation on mobile */
     .hero-showcase-nav {
-        left: 16px;
-        bottom: 20px;
-        gap: 12px;
-    }
-    .showcase-nav-num {
-        font-size: 10px;
-    }
-    .showcase-nav-bar {
-        width: 24px;
+        display: none !important;
     }
 }
 
