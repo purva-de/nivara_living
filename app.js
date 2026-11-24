@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initMobileMenu();
     initHeroSlider();
+    initHeroScrollParallax();
     initGallery();
     initSelectedCarousel();
     initScrollReveals();
@@ -78,12 +79,14 @@ function initHeroSlider() {
         if (outgoing) {
             outgoing.classList.remove('active');
             outgoing.classList.add('was-active');
+            outgoing.style.transform = '';
             setTimeout(() => {
                 outgoing.classList.remove('was-active');
-            }, 850);
+            }, 950);
         }
 
         if (incoming) {
+            incoming.style.transform = '';
             incoming.classList.add('active');
         }
 
@@ -194,6 +197,49 @@ function initHeroSlider() {
     }
 
     resetTimer();
+}
+
+// 2b. Hero Parallax Scroll Effect on Page Scroll
+function initHeroScrollParallax() {
+    const hero = document.getElementById('hero-slider');
+    const scrollCue = document.getElementById('hero-scroll-cue');
+    if (!hero) return;
+
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                const heroHeight = hero.offsetHeight;
+
+                if (scrollY <= heroHeight + 60) {
+                    const activeSlide = hero.querySelector('.hero-slide.active');
+                    const innerContainer = hero.querySelector('.hero-inner-container');
+                    const progressNav = hero.querySelector('.hero-showcase-nav');
+
+                    if (activeSlide) {
+                        activeSlide.style.backgroundPositionY = `calc(50% + ${scrollY * 0.32}px)`;
+                    }
+
+                    if (innerContainer) {
+                        innerContainer.style.transform = `translate3d(0, ${scrollY * 0.18}px, 0)`;
+                        innerContainer.style.opacity = Math.max(0, 1 - (scrollY / (heroHeight * 0.72))).toString();
+                    }
+
+                    if (progressNav) {
+                        progressNav.style.transform = `translate3d(0, ${scrollY * 0.12}px, 0)`;
+                    }
+
+                    if (scrollCue) {
+                        scrollCue.style.opacity = scrollY > 40 ? '0' : '0.85';
+                    }
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 }
 
 // 3. Dynamic Curated Gallery with Category Filtering

@@ -396,31 +396,28 @@ button {
     opacity: 0;
     visibility: hidden;
     z-index: 1;
-    clip-path: inset(0 0 0 100%);
-    transform: scale(1.05);
-    transition: clip-path 0.85s cubic-bezier(0.77, 0, 0.175, 1), transform 6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease 0.85s, visibility 0.85s;
-    will-change: clip-path, transform;
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.95s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.4s ease, visibility 0.95s;
+    will-change: transform, opacity;
 }
 
-/* Incoming active slide: vertical curtain wipe from right to left */
+/* Incoming active slide: smooth continuous horizontal scrolling reel */
 .hero-slide.active {
     opacity: 1;
     visibility: visible;
     z-index: 3;
-    clip-path: inset(0 0 0 0%);
-    transform: scale(1.0);
-    transition: clip-path 0.85s cubic-bezier(0.77, 0, 0.175, 1), transform 6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.95s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.35s ease, visibility 0s;
 }
 
-/* Outgoing slide: stays underneath, subtly scales back for architectural depth */
+/* Outgoing slide: smoothly scrolls off to the left in parallax */
 .hero-slide.was-active {
-    opacity: 1;
+    opacity: 0.85;
     visibility: visible;
     z-index: 2;
-    clip-path: inset(0 0 0 0%);
-    transform: scale(0.985);
-    filter: brightness(0.92);
-    transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1), filter 0.85s ease, opacity 0.25s ease 0.85s;
+    transform: translate3d(-35%, 0, 0);
+    filter: brightness(0.72);
+    transition: transform 0.95s cubic-bezier(0.65, 0, 0.35, 1), filter 0.95s ease, opacity 0.4s ease 0.55s;
 }
 
 .hero-slide::after {
@@ -641,6 +638,80 @@ button {
     }
 }
 
+/* Luxury Animated Scroll Cue */
+.hero-scroll-cue {
+    position: absolute;
+    bottom: 32px;
+    right: 48px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+    opacity: 0.85;
+    transition: opacity 0.4s ease;
+}
+
+.hero-scroll-cue-text {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+}
+
+.hero-scroll-cue-track {
+    width: 1.5px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.22);
+    position: relative;
+    overflow: hidden;
+    border-radius: 1px;
+}
+
+.hero-scroll-cue-dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: var(--shepel-gold);
+    border-radius: 1px;
+    animation: heroScrollDrop 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes heroScrollDrop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(280%);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-scroll-cue {
+        right: 24px;
+        bottom: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-scroll-cue {
+        display: none;
+    }
+}
+
 /* Prefers-reduced-motion fallback */
 @media (prefers-reduced-motion: reduce) {
     .hero-slide,
@@ -649,6 +720,9 @@ button {
         clip-path: none !important;
         transform: none !important;
         transition: opacity 0.4s ease !important;
+    }
+    .hero-scroll-cue-dot {
+        animation: none !important;
     }
     .hero-line {
         transform: none !important;
