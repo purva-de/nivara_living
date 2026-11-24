@@ -424,7 +424,7 @@ button {
     transform: translateY(0);
 }
 
-.hero-gallery-badge {
+.hero-slide .hero-gallery-badge {
     opacity: 0.85;
     font-family: var(--font-sans);
     font-size: 13px;
@@ -434,6 +434,7 @@ button {
     background: rgba(18, 22, 26, 0.35);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    display: inline-block;
 }
 
 .hero-counter {
@@ -1060,6 +1061,17 @@ button {
 
 .about-section {
     padding: 120px 0;
+}
+
+.about-tag {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    color: var(--shepel-gold);
+    margin-bottom: 20px;
+    display: inline-block;
 }
 
 .about-grid {
