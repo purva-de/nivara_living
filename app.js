@@ -253,46 +253,15 @@ function initHeroSlider() {
     resetTimer();
 }
 
-// 2b. Hero Parallax Scroll Effect on Page Scroll
+// 2b. Hero Scroll Cue Fade (Hero section remains crisp, solid & unaffected)
 function initHeroScrollParallax() {
-    const hero = document.getElementById('hero-slider');
     const scrollCue = document.getElementById('hero-scroll-cue');
-    if (!hero) return;
-
-    let ticking = false;
+    if (!scrollCue) return;
 
     window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const scrollY = window.scrollY;
-                const heroHeight = hero.offsetHeight;
-
-                if (scrollY <= heroHeight + 60) {
-                    const activeSlide = hero.querySelector('.hero-slide.active');
-                    const innerContainer = hero.querySelector('.hero-inner-container');
-                    const progressNav = hero.querySelector('.hero-showcase-nav');
-
-                    if (activeSlide) {
-                        activeSlide.style.backgroundPositionY = `calc(50% + ${scrollY * 0.32}px)`;
-                    }
-
-                    if (innerContainer) {
-                        innerContainer.style.transform = `translate3d(0, ${scrollY * 0.18}px, 0)`;
-                        innerContainer.style.opacity = Math.max(0, 1 - (scrollY / (heroHeight * 0.72))).toString();
-                    }
-
-                    if (progressNav) {
-                        progressNav.style.transform = `translate3d(0, ${scrollY * 0.12}px, 0)`;
-                    }
-
-                    if (scrollCue) {
-                        scrollCue.style.opacity = scrollY > 40 ? '0' : '0.85';
-                    }
-                }
-                ticking = false;
-            });
-            ticking = true;
-        }
+        const scrollY = window.scrollY;
+        // Fade out scroll cue smoothly on scroll without affecting hero elements
+        scrollCue.style.opacity = scrollY > 30 ? '0' : '0.85';
     }, { passive: true });
 }
 
