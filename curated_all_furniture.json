@@ -1,15 +1,5 @@
 [
   {
-    "id": "anton-sectional",
-    "name": "ANTON",
-    "category": "sofas",
-    "category_label": "Sectional Sofa",
-    "img_normal": "catalog_images/page_2.jpg",
-    "img_hover": "catalog_images/page_3.jpg",
-    "specs": "Seasoned Sal Wood internal frame, high-resilience 40-density foam with memory down layer, luxury stain-resistant bouclé.",
-    "dimensions": "Custom lengths up to 340cm, bespoke depth & orientation."
-  },
-  {
     "id": "antalia-sofa",
     "name": "ANTALIA",
     "category": "sofas",
@@ -140,26 +130,6 @@
     "dimensions": "86cm x 90cm x 102cm."
   },
   {
-    "id": "torrie-chesterfield",
-    "name": "TORRIE",
-    "category": "sofas",
-    "category_label": "Chesterfield Sofa",
-    "img_normal": "catalog_images/page_3.jpg",
-    "img_hover": "catalog_images/page_4.jpg",
-    "specs": "Deep diamond hand-tufted backrest, solid teak turned bun feet, premium velvet with high rub count (60,000+ Martindale).",
-    "dimensions": "3-Seater: 245cm x 100cm x 82cm."
-  },
-  {
-    "id": "taurus-modular",
-    "name": "TAURUS",
-    "category": "sofas",
-    "category_label": "Modular L-Shape",
-    "img_normal": "catalog_images/page_4.jpg",
-    "img_hover": "catalog_images/page_5.jpg",
-    "specs": "Versatile modular seating configuration, pocket spring core with feather topper, textured weave upholstery.",
-    "dimensions": "Modular pieces configurable up to 360cm."
-  },
-  {
     "id": "cruz-recliner",
     "name": "CRUZ LOUNGE",
     "category": "recliners",
@@ -168,26 +138,6 @@
     "img_hover": "https://shepelfurniture.com/wp-content/uploads/2024/01/001-Shepel-Furniture-Cruz-Accent-Chair.jpg",
     "specs": "Sculpted ergonomic shell with top-grain saddle leather and high-density memory foam core.",
     "dimensions": "95cm x 102cm x 105cm."
-  },
-  {
-    "id": "capro-sofa",
-    "name": "CAPRO",
-    "category": "sofas",
-    "category_label": "Lounge Sofa",
-    "img_normal": "catalog_images/page_5.jpg",
-    "img_hover": "catalog_images/page_6.jpg",
-    "specs": "Low profile Scandinavian silhouette, solid Burma teak wood plinth base, stain-resistant textured fabric.",
-    "dimensions": "3-Seater: 235cm x 95cm x 75cm."
-  },
-  {
-    "id": "forte-curved",
-    "name": "FORTE",
-    "category": "sofas",
-    "category_label": "Curved Modern Sofa",
-    "img_normal": "catalog_images/page_6.jpg",
-    "img_hover": "catalog_images/page_7.jpg",
-    "specs": "Dramatic crescent organic curve, continuous backrest with internal steel and sal wood structure, luxury cream bouclé.",
-    "dimensions": "Curved Arc: 290cm x 125cm x 80cm."
   },
   {
     "id": "steven-recliner",

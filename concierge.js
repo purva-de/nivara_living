@@ -15,7 +15,7 @@
         'Recommend an architectural curved sofa',
         'Show me motorized luxury recliners',
         'What fabrics are best for easy maintenance?',
-        'Pair a coffee table with the Calacatta dining table',
+        'Show me handcrafted designer accent chairs',
         'Tell me about Burma Teak plinths & Sal wood',
         'Book a showroom consultation at Creaticity'
     ];
@@ -247,12 +247,12 @@
 
         // 1. Curved or organic sofas
         if (q.includes('curved') || q.includes('organic') || q.includes('arc') || q.includes('sculptural sofa')) {
-            matchedItems = furnitureCatalog.filter(p => ['berlin-sofa', 'arturo-sofa', 'sierra-sofa', 'forte-curved'].includes(p.id));
+            matchedItems = furnitureCatalog.filter(p => ['berlin-sofa', 'arturo-sofa', 'sierra-sofa'].includes(p.id));
             responseText = `For organic, architectural curves, Nivaraa crafts stunning monolithic arcs. The <strong>Berlin</strong> features a cocooning silhouette with contoured armrests, the <strong>Sierra</strong> makes a bold statement with its crescent arc and chrome sphere feet, and the <strong>Arturo</strong> offers a grand curved sectional chaise:`;
         }
         // 2. Sectional or modular
         else if (q.includes('sectional') || q.includes('modular') || q.includes('l-shape') || q.includes('corner')) {
-            matchedItems = furnitureCatalog.filter(p => ['anton-sectional', 'arturo-sofa', 'taurus-modular'].includes(p.id));
+            matchedItems = furnitureCatalog.filter(p => ['arturo-sofa', 'miranda-sofa', 'antalia-sofa'].includes(p.id));
             responseText = `Our modular sectionals are built on seasoned Sal wood framing and high-resilience 40-density foam with memory down toppers. Here are our flagship sectionals:`;
         }
         // 3. Sofas in general
@@ -262,8 +262,8 @@
         }
         // 4. Dining tables
         else if (q.includes('dining') || q.includes('marble') || q.includes('calacatta') || q.includes('table')) {
-            matchedItems = furnitureCatalog.filter(p => p.category === 'dining');
-            responseText = `Our architectural dining tables pair bookmatched natural Italian Calacatta marble slabs with fluted Burma Teak pedestal plinths:`;
+            matchedItems = furnitureCatalog.filter(p => p.category === 'sofas');
+            responseText = `At Nivaraa Living, our core atelier specialization is bespoke seating — couture sofas, luxury motorized recliners, and designer accent chairs. Custom dining and occasional pieces are available upon bespoke consultation:`;
         }
         // 5. Recliners
         else if (q.includes('recliner') || q.includes('motorized') || q.includes('cinema') || q.includes('lounge chair')) {
@@ -277,13 +277,13 @@
         }
         // 7. Master Beds
         else if (q.includes('bed') || q.includes('bedroom') || q.includes('headboard')) {
-            matchedItems = furnitureCatalog.filter(p => p.category === 'beds');
-            responseText = `Our master beds feature architectural fluted velvet headboards, hydraulic storage lifts, and seasoned hardwood slat platforms:`;
+            matchedItems = furnitureCatalog.filter(p => p.category === 'sofas');
+            responseText = `Our atelier is dedicated to bespoke living and lounge seating: handcrafted sofas, motorized recliners, and accent chairs. Bedroom upholstery is tailored on special architectural commission:`;
         }
         // 8. Coffee Tables & T-Poy
         else if (q.includes('coffee') || q.includes('tpoy') || q.includes('t-poy') || q.includes('side table')) {
-            matchedItems = furnitureCatalog.filter(p => p.category === 'coffee_tables' || p.category === 'tpoy');
-            responseText = `Pair your seating with our honed Italian beige travertine and smoked European walnut nesting tables or solid Burma Teak sculptural T-Poys:`;
+            matchedItems = furnitureCatalog.filter(p => p.category === 'chairs');
+            responseText = `Our collection currently focuses on seating couture: handcrafted sofas, motorized recliners, and designer chairs. Complementary occasional pieces can be customized during private consultations:`;
         }
         // 9. Materials & Fabrics advice
         else if (q.includes('fabric') || q.includes('material') || q.includes('leather') || q.includes('boucle') || q.includes('pet') || q.includes('wood') || q.includes('teak')) {
@@ -295,7 +295,7 @@
                 • <strong>Ergonomic Core:</strong> 40-density high-resilience foam layered with genuine memory down for cloud-like sinking comfort.<br><br>
                 You can explore these material specifications in our atelier gallery or visit our showroom to feel the physical swatches.
             `;
-            matchedItems = furnitureCatalog.filter(p => ['anton-sectional', 'antalia-sofa'].includes(p.id));
+            matchedItems = furnitureCatalog.filter(p => ['phantom-sofa', 'antalia-sofa'].includes(p.id));
         }
         // 10. Showroom & appointment inquiry
         else if (q.includes('showroom') || q.includes('visit') || q.includes('address') || q.includes('location') || q.includes('hours') || q.includes('pune') || q.includes('creaticity')) {

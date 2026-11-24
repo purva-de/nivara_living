@@ -213,7 +213,7 @@ async function initGallery() {
 
     // Filter buttons
     document.querySelectorAll('.category-filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             document.querySelectorAll('.category-filter-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             const category = this.getAttribute('data-filter');
@@ -233,8 +233,8 @@ function renderGallery(filterCategory) {
     setTimeout(() => {
         grid.innerHTML = '';
 
-        const filtered = filterCategory === 'all' 
-            ? allFurniturePieces 
+        const filtered = filterCategory === 'all'
+            ? allFurniturePieces
             : allFurniturePieces.filter(item => item.category === filterCategory);
 
         const countBadge = document.getElementById('filter-results-count');

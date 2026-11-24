@@ -125,7 +125,7 @@
     function performLiveSearch(term) {
         const tray = document.getElementById('search-results-tray');
         if (!term) {
-            tray.innerHTML = `<p style="text-align: center; color: var(--shepel-muted); font-size: 13px; margin: 24px 0;">Start typing to search all 30 handcrafted masterpieces...</p>`;
+            tray.innerHTML = `<p style="text-align: center; color: var(--shepel-muted); font-size: 13px; margin: 24px 0;">Start typing to search all 15 handcrafted masterpieces...</p>`;
             return;
         }
 
@@ -543,7 +543,7 @@
                     <option value="name-asc">Name (A — Z)</option>
                 </select>
             </div>
-            <span class="filter-count-badge" id="filter-results-count">20 Masterpieces</span>
+            <span class="filter-count-badge" id="filter-results-count">15 Masterpieces</span>
         `;
 
         container.appendChild(filterBar);
