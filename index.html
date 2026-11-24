@@ -577,36 +577,84 @@
         </div>
     </footer>
 
-    <!-- 11. BESPOKE SPECIFICATION MODAL -->
-    <div class="spec-modal-overlay" id="spec-modal">
-        <div class="spec-modal-box">
-            <button class="modal-close-btn" id="modal-close">&times;</button>
-            <div class="spec-modal-grid">
-                <div class="spec-modal-img-col">
-                    <img src="" id="modal-img" alt="Bespoke Specification">
+    <!-- 11. BESPOKE SPECIFICATION FULL SCREEN ATELIER VIEW -->
+    <div class="spec-modal-overlay" id="spec-modal" role="dialog" aria-modal="true" aria-label="Bespoke Product Details">
+        <div class="spec-fullscreen-wrap">
+            <!-- Fullscreen Top Bar -->
+            <header class="spec-fullscreen-topbar">
+                <div class="spec-topbar-left">
+                    <span class="spec-topbar-eyebrow">Atelier Archive • Pune</span>
+                    <span class="spec-topbar-sep">|</span>
+                    <span class="spec-topbar-model" id="modal-topbar-title">NIVARAA LIVING</span>
                 </div>
-                <div class="spec-modal-content-col">
-                    <span class="spec-modal-tag" id="modal-tag">Bespoke Collection</span>
-                    <h3 class="spec-modal-title" id="modal-title">PRODUCT NAME</h3>
-                    
-                    <div class="spec-row">
-                        <span class="spec-row-label">Artisanal Materials & Framing</span>
-                        <p class="spec-row-val" id="modal-specs">Internal structure details...</p>
-                    </div>
+                <button class="spec-fullscreen-close" id="modal-close" aria-label="Close atelier view">
+                    <span class="spec-close-label">Close View</span>
+                    <span class="spec-close-icon" aria-hidden="true">&times;</span>
+                </button>
+            </header>
 
-                    <div class="spec-row">
-                        <span class="spec-row-label">Bespoke Dimensions</span>
-                        <p class="spec-row-val" id="modal-dimensions">Custom dimensions...</p>
+            <!-- Fullscreen Content Grid -->
+            <div class="spec-fullscreen-body">
+                <!-- Left: Full Height Product Gallery Column -->
+                <div class="spec-fullscreen-gallery">
+                    <div class="spec-img-display-wrap">
+                        <img src="" id="modal-img" alt="Bespoke Specification Masterpiece">
                     </div>
-
-                    <div class="spec-row">
-                        <span class="spec-row-label">Customization Options</span>
-                        <p class="spec-row-val">500+ fabric swatches, Italian aniline leather, customizable seat firmness, and wood stain choices.</p>
+                    <div class="spec-view-toggles" id="spec-view-toggles">
+                        <button class="spec-view-btn active" id="view-normal-btn" type="button">
+                            <span class="view-btn-dot"></span>
+                            <span>Main Perspective</span>
+                        </button>
+                        <button class="spec-view-btn" id="view-detail-btn" type="button">
+                            <span class="view-btn-dot"></span>
+                            <span>Artisanal Detail</span>
+                        </button>
                     </div>
+                </div>
 
-                    <a href="#" class="modal-whatsapp-btn" id="modal-whatsapp-link" target="_blank">
-                        <span>Inquire on WhatsApp</span>
-                    </a>
+                <!-- Right: Editorial Specification Column -->
+                <div class="spec-fullscreen-details">
+                    <div class="spec-details-inner">
+                        <div class="spec-details-header">
+                            <span class="spec-modal-tag" id="modal-tag">Bespoke Collection</span>
+                            <h2 class="spec-modal-title" id="modal-title">PRODUCT NAME</h2>
+                            <div class="spec-title-divider"></div>
+                        </div>
+
+                        <div class="spec-rows-container">
+                            <div class="spec-row">
+                                <span class="spec-row-label">Artisanal Materials & Framing</span>
+                                <p class="spec-row-val" id="modal-specs">Internal structure details...</p>
+                            </div>
+
+                            <div class="spec-row">
+                                <span class="spec-row-label">Bespoke Dimensions</span>
+                                <p class="spec-row-val" id="modal-dimensions">Custom dimensions...</p>
+                            </div>
+
+                            <div class="spec-row">
+                                <span class="spec-row-label">Customization Options</span>
+                                <p class="spec-row-val">500+ premium upholstery swatches, Italian top-grain & aniline leather, custom seat cushion densities, and seasoned timber stain finishes.</p>
+                            </div>
+
+                            <div class="spec-row">
+                                <span class="spec-row-label">Pune Workshop Guild</span>
+                                <p class="spec-row-val">Handcrafted on commission in Pune, Maharashtra. Custom sizing engineered to your floor plans with White Glove delivery.</p>
+                            </div>
+                        </div>
+
+                        <div class="spec-fullscreen-actions">
+                            <a href="#" class="spec-whatsapp-btn" id="modal-whatsapp-link" target="_blank" rel="noopener">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.074-2.115-.512-1.815-.75-2.984-2.593-3.076-2.714-.089-.121-.734-.976-.734-1.861 0-.885.464-1.32.629-1.501.165-.181.36-.226.48-.226.121 0 .241.002.345.007.111.005.259-.042.404.309.15.362.511 1.246.557 1.336.045.09.076.196.015.317-.06.121-.09.196-.181.302-.09.106-.19.237-.271.317-.09.091-.185.19-.08.371.106.181.47 1.776 1.008 1.255.694.618 1.278.809 1.459.9.181.09.286.075.392-.045.105-.121.451-.527.572-.708.12-.181.241-.151.405-.09.166.06 1.054.497 1.235.587.181.09.301.136.346.211.045.075.045.437-.099.842z"/>
+                                </svg>
+                                <span>Consult with Artisan on WhatsApp</span>
+                            </a>
+                            <button type="button" class="spec-back-btn" id="modal-back-btn">
+                                <span>Return to Gallery</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

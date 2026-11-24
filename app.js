@@ -351,39 +351,85 @@ function renderGallery(filterCategory) {
     }, 180);
 }
 
-// 4. Product Specification Modal
+// 4. Product Specification Full-Screen Atelier Showcase
 function openSpecModal(item) {
     window.currentActivePiece = item;
     const modal = document.getElementById('spec-modal');
     if (!modal) return;
 
-    document.getElementById('modal-img').src = item.img_normal;
+    const modalImg = document.getElementById('modal-img');
+    const topbarTitle = document.getElementById('modal-topbar-title');
+    const normalBtn = document.getElementById('view-normal-btn');
+    const detailBtn = document.getElementById('view-detail-btn');
+
+    if (modalImg) modalImg.src = item.img_normal;
+    if (topbarTitle) topbarTitle.innerText = item.name;
     document.getElementById('modal-tag').innerText = item.category_label;
     document.getElementById('modal-title').innerText = item.name;
     document.getElementById('modal-specs').innerText = item.specs;
     document.getElementById('modal-dimensions').innerText = item.dimensions;
 
+    // Setup perspective toggle buttons
+    if (normalBtn && detailBtn) {
+        normalBtn.classList.add('active');
+        detailBtn.classList.remove('active');
+
+        normalBtn.onclick = (e) => {
+            e.stopPropagation();
+            normalBtn.classList.add('active');
+            detailBtn.classList.remove('active');
+            if (modalImg) {
+                modalImg.style.opacity = '0.3';
+                setTimeout(() => {
+                    modalImg.src = item.img_normal;
+                    modalImg.style.opacity = '1';
+                }, 120);
+            }
+        };
+
+        detailBtn.onclick = (e) => {
+            e.stopPropagation();
+            detailBtn.classList.add('active');
+            normalBtn.classList.remove('active');
+            if (modalImg) {
+                modalImg.style.opacity = '0.3';
+                setTimeout(() => {
+                    modalImg.src = item.img_hover || item.img_normal;
+                    modalImg.style.opacity = '1';
+                }, 120);
+            }
+        };
+    }
+
     const whatsappText = encodeURIComponent(`Hello Nivaraa Living, I am interested in customizing the ${item.name} (${item.category_label}). Please share details and showroom consultation slots.`);
     document.getElementById('modal-whatsapp-link').href = `https://wa.me/919146189933?text=${whatsappText}`;
 
+    // Lock page background scrolling during full-screen atelier view
+    document.body.style.overflow = 'hidden';
     modal.classList.add('active');
 }
 
 function closeSpecModal() {
     const modal = document.getElementById('spec-modal');
     if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
 }
 
 // Modal listeners
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('spec-modal');
     const closeBtn = document.getElementById('modal-close');
+    const backBtn = document.getElementById('modal-back-btn');
+
     if (closeBtn) closeBtn.addEventListener('click', closeSpecModal);
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeSpecModal();
-        });
-    }
+    if (backBtn) backBtn.addEventListener('click', closeSpecModal);
+
+    // Escape key listener to close full screen
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeSpecModal();
+        }
+    });
 });
 
 // 5. Selected Masterpieces Carousel (Continuous Right-to-Left Sliding with Pause on Hover)
