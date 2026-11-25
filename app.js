@@ -656,9 +656,27 @@ function observeCards() {
 
 window.observeCards = observeCards;
 
-// 7. About Atelier Image Interactive 3D Perspective Tilt
+// 7. About Atelier Interactive 3D Tilt & Video Playback
 function initAboutImage3DTilt() {
     const frame = document.getElementById('about-img-frame');
+    const animVideo = document.querySelector('.about-anim-video');
+
+    if (animVideo) {
+        animVideo.play().catch(() => {});
+        if ('IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animVideo.play().catch(() => {});
+                    } else {
+                        animVideo.pause();
+                    }
+                });
+            }, { threshold: 0.1 });
+            videoObserver.observe(animVideo);
+        }
+    }
+
     if (!frame) return;
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -670,8 +688,8 @@ function initAboutImage3DTilt() {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = ((y - centerY) / centerY) * -6;
-        const rotateY = ((x - centerX) / centerX) * 6;
+        const rotateX = ((y - centerY) / centerY) * -5;
+        const rotateY = ((x - centerX) / centerX) * 5;
 
         frame.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
     });

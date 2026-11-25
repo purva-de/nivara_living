@@ -1461,9 +1461,9 @@ button {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1.15fr 1.05fr 1.2fr;
+    grid-template-columns: 1.1fr 1.2fr 1.15fr;
     gap: 48px;
-    align-items: flex-start;
+    align-items: center;
 }
 
 /* --- Left Column: Manifesto & Philosophy --- */
@@ -1659,41 +1659,23 @@ button {
     position: relative;
     overflow: hidden;
     border-radius: 4px;
-    background-color: var(--shepel-dark);
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
-    aspect-ratio: 4 / 5;
+    background-color: #F8F4EE;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+    aspect-ratio: 16 / 10;
+    border: 1px solid rgba(43, 47, 50, 0.08);
 }
 
-.about-parallax-img {
+.about-anim-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    background-color: #F8F4EE;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-img-frame:hover .about-anim-video {
     transform: scale(1.02);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
-    animation: atelierAmbientFloat 10s ease-in-out infinite alternate;
-    will-change: transform;
-}
-
-.about-img-frame:hover .about-parallax-img {
-    transform: scale(1.08);
-}
-
-.about-img-overlay-gradient {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(18, 22, 26, 0.15) 0%, rgba(18, 22, 26, 0) 40%, rgba(18, 22, 26, 0.4) 100%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-@keyframes atelierAmbientFloat {
-    0% {
-        transform: scale(1.02) translateY(0);
-    }
-    100% {
-        transform: scale(1.06) translateY(-6px);
-    }
 }
 
 /* Glass Glare Sweep */
@@ -2070,12 +2052,13 @@ button {
 
 /* Reduced Motion Fallback */
 @media (prefers-reduced-motion: reduce) {
-    .about-parallax-img {
-        animation: none !important;
-        transform: none !important;
-    }
-    .about-img-curtain {
+    .about-anim-video {
         display: none !important;
+    }
+    .about-img-inner {
+        background-image: url('assets/furniture-animation-poster.png') !important;
+        background-size: cover !important;
+        background-position: center !important;
     }
     .about-img-glare {
         display: none !important;
