@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initGallery();
     initSelectedCarousel();
     initScrollReveals();
+    initAboutImage3DTilt();
 });
 
 // 1. Header scroll effect
@@ -654,3 +655,28 @@ function observeCards() {
 }
 
 window.observeCards = observeCards;
+
+// 7. About Atelier Image Interactive 3D Perspective Tilt
+function initAboutImage3DTilt() {
+    const frame = document.getElementById('about-img-frame');
+    if (!frame) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    frame.addEventListener('mousemove', (e) => {
+        const rect = frame.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -6;
+        const rotateY = ((x - centerX) / centerX) * 6;
+
+        frame.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    frame.addEventListener('mouseleave', () => {
+        frame.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+}
