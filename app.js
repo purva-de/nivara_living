@@ -392,23 +392,25 @@ function createCardMediaHTML(item) {
             `<img class="turntable-360-frame ${i === 0 ? 'active' : ''}" data-frame="${i}" src="${src}" alt="${item.name} Angle ${i * 90}°" loading="lazy">`
         ).join('');
 
+        const badgeText = item.category === 'recliners' ? '360° SWIVEL' : '360° VIEW';
+
         return `
-            <div class="change-img-hover recliner-360-box" data-360-id="${item.id}">
+            <div class="change-img-hover recliner-360-box furniture-360-box" data-360-id="${item.id}" role="region" aria-label="${item.name} 360 degree turntable view">
                 <div class="img-normal">
                     <img src="${item.img_normal}" alt="${item.name}" loading="lazy">
                 </div>
                 <div class="turntable-360-viewport" aria-label="360 degree turntable view">
                     ${frames}
                 </div>
-                <div class="recliner-360-badge" title="Hover or drag to rotate 360°">
+                <div class="recliner-360-badge furniture-360-badge" title="Hover or drag horizontally to inspect 360°">
                     <svg class="spin-360-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
                     </svg>
-                    <span class="badge-360-text">360° VIEW</span>
+                    <span class="badge-360-text">${badgeText}</span>
                     <span class="badge-360-angle" style="display: none;">0°</span>
                 </div>
-                <div class="recliner-360-track">
-                    <div class="recliner-360-thumb" style="width: 25%;"></div>
+                <div class="recliner-360-track furniture-360-track">
+                    <div class="recliner-360-thumb furniture-360-thumb" style="width: 25%;"></div>
                 </div>
             </div>
         `;
@@ -428,10 +430,10 @@ function createCardMediaHTML(item) {
 window.createCardMediaHTML = createCardMediaHTML;
 
 /**
- * Initializes interactive 360 hover and scrubbing across recliner cards
+ * Initializes interactive 360 hover and scrubbing across all furniture cards
  */
 function init360ReclinerViewers() {
-    const boxes = document.querySelectorAll('.recliner-360-box');
+    const boxes = document.querySelectorAll('.recliner-360-box, .furniture-360-box');
     boxes.forEach(box => {
         if (box.dataset.has360Bound === 'true') return;
         box.dataset.has360Bound = 'true';
@@ -527,6 +529,7 @@ function init360ReclinerViewers() {
     });
 }
 window.init360ReclinerViewers = init360ReclinerViewers;
+window.init360TurntableViewers = init360ReclinerViewers;
 
 // 4. Product Specification Full-Screen Atelier Showcase
 function openSpecModal(item) {
@@ -596,6 +599,10 @@ function openSpecModal(item) {
         if (btn360) {
             if (item.images_360 && item.images_360.length > 0) {
                 btn360.style.display = 'inline-flex';
+                const labelSpan = btn360.querySelector('span:last-child');
+                if (labelSpan) {
+                    labelSpan.textContent = item.category === 'recliners' ? '360° Swivel' : '360° View';
+                }
                 btn360.onclick = (e) => {
                     e.stopPropagation();
                     normalBtn.classList.remove('active');

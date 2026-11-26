@@ -1834,10 +1834,11 @@ body.intro-active {
 }
 
 /* ==========================================================================
-   RECLINER 360° INTERACTIVE TURNTABLE HOVER VIEWER
+   FURNITURE & RECLINER 360° INTERACTIVE TURNTABLE HOVER VIEWER
    ========================================================================== */
 
-.recliner-360-box {
+.recliner-360-box,
+.furniture-360-box {
     position: relative;
     cursor: ew-resize;
     user-select: none;
@@ -1859,12 +1860,14 @@ body.intro-active {
     transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
 }
 
-.recliner-360-box.is-360-active .turntable-360-viewport {
+.recliner-360-box.is-360-active .turntable-360-viewport,
+.furniture-360-box.is-360-active .turntable-360-viewport {
     opacity: 1;
     visibility: visible;
 }
 
-.recliner-360-box.is-360-active .img-hover {
+.recliner-360-box.is-360-active .img-hover,
+.furniture-360-box.is-360-active .img-hover {
     opacity: 0 !important;
 }
 
@@ -1886,7 +1889,8 @@ body.intro-active {
 }
 
 /* Badge Indicator */
-.recliner-360-badge {
+.recliner-360-badge,
+.furniture-360-badge {
     position: absolute;
     top: 12px;
     right: 12px;
@@ -1910,7 +1914,9 @@ body.intro-active {
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.recliner-360-box.is-360-active .recliner-360-badge {
+.recliner-360-box.is-360-active .recliner-360-badge,
+.furniture-360-box.is-360-active .furniture-360-badge,
+.furniture-360-box.is-360-active .recliner-360-badge {
     background: rgba(18, 22, 26, 0.92);
     border-color: var(--shepel-gold);
     box-shadow: 0 4px 16px rgba(197, 154, 63, 0.3);
@@ -1922,13 +1928,23 @@ body.intro-active {
     transition: transform 0.4s ease;
 }
 
-.recliner-360-box.is-360-active .spin-360-icon {
+.recliner-360-box.is-360-active .spin-360-icon,
+.furniture-360-box.is-360-active .spin-360-icon {
     animation: rotateCompass 3s linear infinite;
 }
 
 @keyframes rotateCompass {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spin-360-icon {
+        animation: none !important;
+    }
+    .turntable-360-frame {
+        transition: none !important;
+    }
 }
 
 .badge-360-angle {
@@ -1939,7 +1955,8 @@ body.intro-active {
 }
 
 /* Bottom Progress Scrub Track */
-.recliner-360-track {
+.recliner-360-track,
+.furniture-360-track {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1951,11 +1968,14 @@ body.intro-active {
     transition: opacity 0.3s ease;
 }
 
-.recliner-360-box.is-360-active .recliner-360-track {
+.recliner-360-box.is-360-active .recliner-360-track,
+.furniture-360-box.is-360-active .furniture-360-track,
+.furniture-360-box.is-360-active .recliner-360-track {
     opacity: 1;
 }
 
-.recliner-360-thumb {
+.recliner-360-thumb,
+.furniture-360-thumb {
     height: 100%;
     background: linear-gradient(90deg, var(--shepel-gold), #DFC17B);
     box-shadow: 0 0 6px rgba(197, 154, 63, 0.6);
@@ -1963,7 +1983,8 @@ body.intro-active {
 }
 
 @media (max-width: 768px) {
-    .recliner-360-badge {
+    .recliner-360-badge,
+    .furniture-360-badge {
         top: 8px;
         right: 8px;
         padding: 3px 8px;

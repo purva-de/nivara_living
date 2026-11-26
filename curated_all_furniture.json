@@ -7,7 +7,13 @@
     "img_normal": "catalog_images/antalia_sofa.jpg",
     "img_hover": "catalog_images/antalia_sofa_detail.jpg",
     "specs": "Architectural dual-tone silhouette with sculptured cappuccino leatherette outer frame, artisanal braided edge stitch trim, soft cream oatmeal bouclé cushions, and sleek dark stiletto legs.",
-    "dimensions": "3-Seater: 230cm x 95cm x 88cm; 2-Seater: 175cm x 95cm x 88cm."
+    "dimensions": "3-Seater: 230cm x 95cm x 88cm; 2-Seater: 175cm x 95cm x 88cm.",
+    "images_360": [
+      "catalog_images/antalia_sofa.jpg",
+      "catalog_images/antalia_sofa_detail.jpg",
+      "catalog_images/antalia_2seater.jpg",
+      "catalog_images/antalia_360_4.jpg"
+    ]
   },
   {
     "id": "phantom-sofa",
@@ -17,7 +23,13 @@
     "img_normal": "catalog_images/phantom_sofa.jpg",
     "img_hover": "catalog_images/phantom_sofa_detail.jpg",
     "specs": "Deep emerald teal textured chenille-bouclé upholstery, precision tailored track arms, pocket spring core with feather topper, and royal elephant motif accent cushions.",
-    "dimensions": "3-Seater: 225cm x 96cm x 85cm."
+    "dimensions": "3-Seater: 225cm x 96cm x 85cm.",
+    "images_360": [
+      "catalog_images/phantom_sofa.jpg",
+      "catalog_images/phantom_sofa_detail.jpg",
+      "catalog_images/phantom_360_3.jpg",
+      "catalog_images/phantom_360_4.jpg"
+    ]
   },
   {
     "id": "miranda-sofa",
@@ -27,7 +39,13 @@
     "img_normal": "catalog_images/miranda_sofa.jpg",
     "img_hover": "catalog_images/miranda_sofa_detail.jpg",
     "specs": "Warm ivory textured weave over an architectural solid Burma teak wood plinth base, split pillow-top ergonomic backrest, and dual-tone blush-rose throw cushions.",
-    "dimensions": "3-Seater: 235cm x 98cm x 86cm."
+    "dimensions": "3-Seater: 235cm x 98cm x 86cm.",
+    "images_360": [
+      "catalog_images/miranda_sofa.jpg",
+      "catalog_images/miranda_sofa_detail.jpg",
+      "catalog_images/miranda_360_3.jpg",
+      "catalog_images/miranda_360_4.jpg"
+    ]
   },
   {
     "id": "berlin-sofa",
@@ -37,7 +55,13 @@
     "img_normal": "catalog_images/berlin_sofa.jpg",
     "img_hover": "catalog_images/berlin_sofa_detail.jpg",
     "specs": "Organic rounded cocoon silhouette in cozy heather oatmeal bouclé, contoured sloping armrests, and circular button-tufted caramel velvet bolster cushions.",
-    "dimensions": "3-Seater: 220cm x 94cm x 82cm."
+    "dimensions": "3-Seater: 220cm x 94cm x 82cm.",
+    "images_360": [
+      "catalog_images/berlin_sofa.jpg",
+      "catalog_images/berlin_sofa_detail.jpg",
+      "catalog_images/berlin_360_3.jpg",
+      "catalog_images/berlin_360_4.jpg"
+    ]
   },
   {
     "id": "arturo-sofa",
@@ -47,7 +71,13 @@
     "img_normal": "catalog_images/arturo_sofa.jpg",
     "img_hover": "catalog_images/arturo_sofa_detail.jpg",
     "specs": "Grand architectural curved sectional with extended rounded daybed chaise, upholstered in cream bouclé with low-profile continuous curved back and spherical accent ball.",
-    "dimensions": "Sectional Arc: 330cm x 165cm chaise x 78cm."
+    "dimensions": "Sectional Arc: 330cm x 165cm chaise x 78cm.",
+    "images_360": [
+      "catalog_images/arturo_sofa.jpg",
+      "catalog_images/arturo_sofa_detail.jpg",
+      "catalog_images/arturo_360_3.jpg",
+      "catalog_images/arturo_360_4.jpg"
+    ]
   },
   {
     "id": "sierra-sofa",
@@ -57,7 +87,13 @@
     "img_normal": "catalog_images/sierra_sofa.jpg",
     "img_hover": "catalog_images/sierra_sofa_detail.jpg",
     "specs": "Dramatic crescent monolithic arc in off-white heavy bouclé weave, deep bench seat cushion, and sculptural polished chrome sphere ball feet.",
-    "dimensions": "3-Seater Crescent: 240cm x 105cm x 78cm."
+    "dimensions": "3-Seater Crescent: 240cm x 105cm x 78cm.",
+    "images_360": [
+      "catalog_images/sierra_sofa.jpg",
+      "catalog_images/sierra_sofa_detail.jpg",
+      "catalog_images/sierra_360_3.jpg",
+      "catalog_images/sierra_360_4.jpg"
+    ]
   },
   {
     "id": "avian-2r-motorized",
@@ -99,7 +135,13 @@
     "img_normal": "catalog_images/almeda_chair.jpg",
     "img_hover": "catalog_images/almeda_chair_detail.jpg",
     "specs": "Sculptural mid-century silhouette upholstered in textured off-white boucle, sculptured solid teak legs with distinctive curved front jointing, and matching suede lumbar cushion with buckle strap.",
-    "dimensions": "82cm x 88cm x 78cm (Seat height 42cm)."
+    "dimensions": "82cm x 88cm x 78cm (Seat height 42cm).",
+    "images_360": [
+      "catalog_images/almeda_360_1.jpg",
+      "catalog_images/almeda_chair_detail.jpg",
+      "catalog_images/almeda_upright.jpg",
+      "catalog_images/almeda_360_4.jpg"
+    ]
   },
   {
     "id": "munro-chair",
@@ -109,7 +151,13 @@
     "img_normal": "catalog_images/munro_chair.jpg",
     "img_hover": "catalog_images/munro_chair_detail.jpg",
     "specs": "Organic wrap-around barrel cocoon silhouette upholstered in rich terracotta boucle fabric, 360-degree silent swivel plinth, and plush spherical bouclé accent pillow.",
-    "dimensions": "88cm x 86cm x 76cm."
+    "dimensions": "88cm x 86cm x 76cm.",
+    "images_360": [
+      "catalog_images/munro_chair.jpg",
+      "catalog_images/munro_chair_detail.jpg",
+      "catalog_images/munro_upright.jpg",
+      "catalog_images/munro_360_4.jpg"
+    ]
   },
   {
     "id": "ria-sleeper-chair",
@@ -119,7 +167,13 @@
     "img_normal": "catalog_images/ria_sleeper_chair.jpg",
     "img_hover": "catalog_images/ria_sleeper_chair_detail.jpg",
     "specs": "Curved barrel low-profile lounge chair upholstered in buttery caramel velvet, tapered kiln-dried hardwood legs, high-resilience memory foam cushioning, and textured woven lumbar cushion.",
-    "dimensions": "84cm x 85cm x 75cm."
+    "dimensions": "84cm x 85cm x 75cm.",
+    "images_360": [
+      "catalog_images/ria_360_1.jpg",
+      "catalog_images/ria_sleeper_chair_detail.jpg",
+      "catalog_images/ria_upright.jpg",
+      "catalog_images/ria_360_4.jpg"
+    ]
   },
   {
     "id": "roma-designer-chair",
@@ -129,6 +183,12 @@
     "img_normal": "catalog_images/roma_designer_chair.jpg",
     "img_hover": "catalog_images/roma_designer_chair_detail.jpg",
     "specs": "Architectural high-back wingback armchair upholstered in slate blue textured tweed weave with tailored welted seams, contrast mustard yellow lumbar pillow, and matte black steel stiletto legs.",
-    "dimensions": "86cm x 90cm x 102cm."
+    "dimensions": "86cm x 90cm x 102cm.",
+    "images_360": [
+      "catalog_images/roma_designer_chair.jpg",
+      "catalog_images/roma_designer_chair_detail.jpg",
+      "catalog_images/roma_upright.jpg",
+      "catalog_images/roma_360_4.jpg"
+    ]
   }
 ]
