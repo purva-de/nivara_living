@@ -2516,7 +2516,7 @@ body.intro-active {
     font-size: clamp(14px, 1.8vw, 21px);
     font-weight: 400;
     letter-spacing: 0.06em;
-    color: #FFFFFF;
+    color: var(--shepel-gold, #C59A3F);
     text-transform: uppercase;
     line-height: 1.2;
     margin-bottom: 12px;
@@ -2725,12 +2725,13 @@ body.intro-active {
     }
 
     .launching-soon-title {
-        font-size: clamp(20px, 5.5vw, 26px);
+        font-size: clamp(12px, 3.2vw, 15px);
         margin-bottom: 8px;
+        color: var(--shepel-gold, #C59A3F);
     }
 
     .launching-soon-subtitle {
-        font-size: 13px;
+        font-size: 9.5px;
         line-height: 1.45;
     }
 
