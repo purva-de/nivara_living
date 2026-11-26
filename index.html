@@ -454,17 +454,47 @@
                     </div>
 
                     <div class="carousel-slide-item">
-                        <div class="change-img-hover">
+                        <div class="change-img-hover recliner-360-box" data-360-id="avian-2r-motorized">
                             <div class="img-normal"><img src="catalog_images/avian_recliner.jpg" alt="Avian 2R Motorised Recliner"></div>
-                            <div class="img-hover"><img src="catalog_images/avian_recliner_detail.jpg" alt="Avian Detail"></div>
+                            <div class="turntable-360-viewport" aria-label="360 degree turntable view">
+                                <img class="turntable-360-frame active" data-frame="0" src="catalog_images/avian_360_1.jpg" alt="Avian 0° Front" loading="lazy">
+                                <img class="turntable-360-frame" data-frame="1" src="catalog_images/avian_360_2.jpg" alt="Avian 90° Side" loading="lazy">
+                                <img class="turntable-360-frame" data-frame="2" src="catalog_images/avian_360_3.jpg" alt="Avian 180° Back" loading="lazy">
+                                <img class="turntable-360-frame" data-frame="3" src="catalog_images/avian_360_4.jpg" alt="Avian 270° Other Side" loading="lazy">
+                            </div>
+                            <div class="recliner-360-badge" title="Hover or drag to rotate 360°">
+                                <svg class="spin-360-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                                </svg>
+                                <span class="badge-360-text">360° VIEW</span>
+                                <span class="badge-360-angle" style="display: none;">0°</span>
+                            </div>
+                            <div class="recliner-360-track">
+                                <div class="recliner-360-thumb" style="width: 25%;"></div>
+                            </div>
                         </div>
                         <h3 class="furniture-card-title">AVIAN 2R MOTORISED</h3>
                     </div>
 
                     <div class="carousel-slide-item">
-                        <div class="change-img-hover">
+                        <div class="change-img-hover recliner-360-box" data-360-id="vivian-motorized">
                             <div class="img-normal"><img src="catalog_images/vivian_recliner.jpg" alt="Vivian Motorised Recliner"></div>
-                            <div class="img-hover"><img src="catalog_images/vivian_recliner_detail.jpg" alt="Vivian Detail"></div>
+                            <div class="turntable-360-viewport" aria-label="360 degree turntable view">
+                                <img class="turntable-360-frame active" data-frame="0" src="catalog_images/vivian_360_1.jpg" alt="Vivian 0° Front" loading="lazy">
+                                <img class="turntable-360-frame" data-frame="1" src="catalog_images/vivian_360_2.jpg" alt="Vivian 90° Side" loading="lazy">
+                                <img class="turntable-360-frame" data-frame="2" src="catalog_images/vivian_360_3.jpg" alt="Vivian 180° Back" loading="lazy">
+                                <img class="turntable-360-frame" data-frame="3" src="catalog_images/vivian_360_4.jpg" alt="Vivian 270° Other Side" loading="lazy">
+                            </div>
+                            <div class="recliner-360-badge" title="Hover or drag to rotate 360°">
+                                <svg class="spin-360-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                                </svg>
+                                <span class="badge-360-text">360° VIEW</span>
+                                <span class="badge-360-angle" style="display: none;">0°</span>
+                            </div>
+                            <div class="recliner-360-track">
+                                <div class="recliner-360-thumb" style="width: 25%;"></div>
+                            </div>
                         </div>
                         <h3 class="furniture-card-title">VIVIAN MOTORISED</h3>
                     </div>
@@ -710,6 +740,10 @@
                         <button class="spec-view-btn" id="view-detail-btn" type="button">
                             <span class="view-btn-dot"></span>
                             <span>Artisanal Detail</span>
+                        </button>
+                        <button class="spec-view-btn" id="view-360-btn" type="button" style="display: none;">
+                            <span class="view-btn-dot"></span>
+                            <span>360° Swivel</span>
                         </button>
                     </div>
                 </div>

@@ -67,7 +67,13 @@
     "img_normal": "catalog_images/avian_recliner.jpg",
     "img_hover": "catalog_images/avian_recliner_detail.jpg",
     "specs": "Whisper-quiet dual-motor German actuator with 360° smooth swivel base, circular brushed metallic touch sensor controls, bespoke sage green textured linen-bouclé weave, and motorized articulated footrest.",
-    "dimensions": "92cm x 98cm x 108cm (Fully extended recline 172cm)."
+    "dimensions": "92cm x 98cm x 108cm (Fully extended recline 172cm).",
+    "images_360": [
+      "catalog_images/avian_360_1.jpg",
+      "catalog_images/avian_360_2.jpg",
+      "catalog_images/avian_360_3.jpg",
+      "catalog_images/avian_360_4.jpg"
+    ]
   },
   {
     "id": "vivian-motorized",
@@ -77,7 +83,13 @@
     "img_normal": "catalog_images/vivian_recliner.jpg",
     "img_hover": "catalog_images/vivian_recliner_detail.jpg",
     "specs": "Dual-motor whisper-quiet actuator mechanism with concealed lateral touch controls, premium butter-soft warm ivory Italian top-grain leather with tailored grid stitching, and multi-density memory foam core.",
-    "dimensions": "96cm x 102cm x 104cm (Fully extended recline 174cm)."
+    "dimensions": "96cm x 102cm x 104cm (Fully extended recline 174cm).",
+    "images_360": [
+      "catalog_images/vivian_360_1.jpg",
+      "catalog_images/vivian_360_2.jpg",
+      "catalog_images/vivian_360_3.jpg",
+      "catalog_images/vivian_360_4.jpg"
+    ]
   },
   {
     "id": "almeda-chair",

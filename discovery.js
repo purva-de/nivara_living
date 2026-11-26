@@ -637,6 +637,7 @@
             card.setAttribute('data-id', item.id);
 
             card.innerHTML = `
+                ${window.createCardMediaHTML ? window.createCardMediaHTML(item) : `
                 <div class="change-img-hover">
                     <div class="img-normal">
                         <img src="${item.img_normal}" alt="${item.name}" loading="lazy">
@@ -645,6 +646,7 @@
                         <img src="${item.img_hover}" alt="${item.name} Detail" loading="lazy">
                     </div>
                 </div>
+                `}
                 <div class="furniture-card-info">
                     <h3 class="furniture-card-title">${item.name}</h3>
                     <span class="furniture-card-category">${item.category_label}</span>
@@ -659,6 +661,7 @@
         });
 
         attachCardOverlayButtons();
+        if (window.init360ReclinerViewers) window.init360ReclinerViewers();
         if (window.observeCards) window.observeCards();
     }
 

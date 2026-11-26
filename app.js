@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSelectedCarousel();
     initScrollReveals();
     initAboutImage3DTilt();
+    init360ReclinerViewers();
 });
 
 // 1. Header scroll effect
@@ -362,14 +363,7 @@ function renderGallery(filterCategory) {
             card.setAttribute('data-id', item.id);
 
             card.innerHTML = `
-                <div class="change-img-hover">
-                    <div class="img-normal">
-                        <img src="${item.img_normal}" alt="${item.name}" loading="lazy">
-                    </div>
-                    <div class="img-hover">
-                        <img src="${item.img_hover}" alt="${item.name} Detail" loading="lazy">
-                    </div>
-                </div>
+                ${createCardMediaHTML(item)}
                 <div class="furniture-card-info">
                     <h3 class="furniture-card-title">${item.name}</h3>
                     <span class="furniture-card-category">${item.category_label}</span>
@@ -385,8 +379,154 @@ function renderGallery(filterCategory) {
         grid.style.opacity = '1';
         grid.style.transform = 'translateY(0)';
         observeCards();
+        init360ReclinerViewers();
     }, 180);
 }
+
+/**
+ * Generates the media HTML for cards, injecting the 360 interactive turntable for recliners
+ */
+function createCardMediaHTML(item) {
+    if (item.images_360 && item.images_360.length > 0) {
+        const frames = item.images_360.map((src, i) => 
+            `<img class="turntable-360-frame ${i === 0 ? 'active' : ''}" data-frame="${i}" src="${src}" alt="${item.name} Angle ${i * 90}°" loading="lazy">`
+        ).join('');
+
+        return `
+            <div class="change-img-hover recliner-360-box" data-360-id="${item.id}">
+                <div class="img-normal">
+                    <img src="${item.img_normal}" alt="${item.name}" loading="lazy">
+                </div>
+                <div class="turntable-360-viewport" aria-label="360 degree turntable view">
+                    ${frames}
+                </div>
+                <div class="recliner-360-badge" title="Hover or drag to rotate 360°">
+                    <svg class="spin-360-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                    </svg>
+                    <span class="badge-360-text">360° VIEW</span>
+                    <span class="badge-360-angle" style="display: none;">0°</span>
+                </div>
+                <div class="recliner-360-track">
+                    <div class="recliner-360-thumb" style="width: 25%;"></div>
+                </div>
+            </div>
+        `;
+    }
+
+    return `
+        <div class="change-img-hover">
+            <div class="img-normal">
+                <img src="${item.img_normal}" alt="${item.name}" loading="lazy">
+            </div>
+            <div class="img-hover">
+                <img src="${item.img_hover || item.img_normal}" alt="${item.name} Detail" loading="lazy">
+            </div>
+        </div>
+    `;
+}
+window.createCardMediaHTML = createCardMediaHTML;
+
+/**
+ * Initializes interactive 360 hover and scrubbing across recliner cards
+ */
+function init360ReclinerViewers() {
+    const boxes = document.querySelectorAll('.recliner-360-box');
+    boxes.forEach(box => {
+        if (box.dataset.has360Bound === 'true') return;
+        box.dataset.has360Bound = 'true';
+
+        const frames = box.querySelectorAll('.turntable-360-frame');
+        const badgeAngle = box.querySelector('.badge-360-angle');
+        const thumb = box.querySelector('.recliner-360-thumb');
+        const numFrames = frames.length;
+        if (numFrames === 0) return;
+
+        let currentFrame = 0;
+        let autoSpinInterval = null;
+
+        function setFrame(index) {
+            index = ((index % numFrames) + numFrames) % numFrames;
+            if (index === currentFrame) return;
+            frames[currentFrame]?.classList.remove('active');
+            frames[index]?.classList.add('active');
+            currentFrame = index;
+
+            const angle = Math.round((currentFrame / numFrames) * 360);
+            if (badgeAngle) {
+                badgeAngle.innerText = `${angle}°`;
+                badgeAngle.style.display = 'inline-block';
+            }
+            if (thumb) {
+                const pct = ((currentFrame + 1) / numFrames) * 100;
+                thumb.style.width = `${pct}%`;
+            }
+        }
+
+        function startAutoSpin() {
+            stopAutoSpin();
+            autoSpinInterval = setInterval(() => {
+                setFrame(currentFrame + 1);
+            }, 380);
+        }
+
+        function stopAutoSpin() {
+            if (autoSpinInterval) {
+                clearInterval(autoSpinInterval);
+                autoSpinInterval = null;
+            }
+        }
+
+        // Mouse Enter: activate 360 viewport & start smooth swivel
+        box.addEventListener('mouseenter', () => {
+            box.classList.add('is-360-active');
+            if (badgeAngle) badgeAngle.style.display = 'inline-block';
+            startAutoSpin();
+        });
+
+        // Mouse Move: scrub 360 angle directly with cursor position
+        box.addEventListener('mousemove', (e) => {
+            stopAutoSpin();
+            const rect = box.getBoundingClientRect();
+            const relX = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+            const progress = relX / rect.width;
+            const targetFrame = Math.min(numFrames - 1, Math.floor(progress * numFrames));
+            setFrame(targetFrame);
+        });
+
+        // Mouse Leave: reset gracefully
+        box.addEventListener('mouseleave', () => {
+            stopAutoSpin();
+            box.classList.remove('is-360-active');
+            if (badgeAngle) badgeAngle.style.display = 'none';
+            setFrame(0);
+        });
+
+        // Touch support for mobile devices
+        box.addEventListener('touchstart', () => {
+            stopAutoSpin();
+            box.classList.add('is-360-active');
+            if (badgeAngle) badgeAngle.style.display = 'inline-block';
+        }, { passive: true });
+
+        box.addEventListener('touchmove', (e) => {
+            if (!e.touches[0]) return;
+            const rect = box.getBoundingClientRect();
+            const touchX = Math.max(0, Math.min(e.touches[0].clientX - rect.left, rect.width));
+            const progress = touchX / rect.width;
+            const targetFrame = Math.min(numFrames - 1, Math.floor(progress * numFrames));
+            setFrame(targetFrame);
+        }, { passive: true });
+
+        box.addEventListener('touchend', () => {
+            setTimeout(() => {
+                box.classList.remove('is-360-active');
+                if (badgeAngle) badgeAngle.style.display = 'none';
+            }, 1000);
+        });
+    });
+}
+window.init360ReclinerViewers = init360ReclinerViewers;
 
 // 4. Product Specification Full-Screen Atelier Showcase
 function openSpecModal(item) {
@@ -398,6 +538,7 @@ function openSpecModal(item) {
     const topbarTitle = document.getElementById('modal-topbar-title');
     const normalBtn = document.getElementById('view-normal-btn');
     const detailBtn = document.getElementById('view-detail-btn');
+    const btn360 = document.getElementById('view-360-btn');
 
     if (modalImg) modalImg.src = item.img_normal;
     if (topbarTitle) topbarTitle.innerText = item.name;
@@ -406,15 +547,28 @@ function openSpecModal(item) {
     document.getElementById('modal-specs').innerText = item.specs;
     document.getElementById('modal-dimensions').innerText = item.dimensions;
 
+    const displayWrap = modalImg ? modalImg.closest('.spec-img-display-wrap') : null;
+    function resetModalScrub() {
+        if (displayWrap) {
+            displayWrap.style.cursor = 'default';
+            displayWrap.onmousemove = null;
+            displayWrap.ontouchmove = null;
+        }
+    }
+    resetModalScrub();
+
     // Setup perspective toggle buttons
     if (normalBtn && detailBtn) {
         normalBtn.classList.add('active');
         detailBtn.classList.remove('active');
+        if (btn360) btn360.classList.remove('active');
 
         normalBtn.onclick = (e) => {
             e.stopPropagation();
+            resetModalScrub();
             normalBtn.classList.add('active');
             detailBtn.classList.remove('active');
+            if (btn360) btn360.classList.remove('active');
             if (modalImg) {
                 modalImg.style.opacity = '0.3';
                 setTimeout(() => {
@@ -426,8 +580,10 @@ function openSpecModal(item) {
 
         detailBtn.onclick = (e) => {
             e.stopPropagation();
+            resetModalScrub();
             detailBtn.classList.add('active');
             normalBtn.classList.remove('active');
+            if (btn360) btn360.classList.remove('active');
             if (modalImg) {
                 modalImg.style.opacity = '0.3';
                 setTimeout(() => {
@@ -436,6 +592,38 @@ function openSpecModal(item) {
                 }, 120);
             }
         };
+
+        if (btn360) {
+            if (item.images_360 && item.images_360.length > 0) {
+                btn360.style.display = 'inline-flex';
+                btn360.onclick = (e) => {
+                    e.stopPropagation();
+                    normalBtn.classList.remove('active');
+                    detailBtn.classList.remove('active');
+                    btn360.classList.add('active');
+                    if (modalImg) {
+                        modalImg.src = item.images_360[0];
+                    }
+                    if (displayWrap) {
+                        displayWrap.style.cursor = 'ew-resize';
+                        displayWrap.title = 'Drag or move mouse horizontally to rotate 360°';
+                        const handleScrub = (clientX) => {
+                            const rect = displayWrap.getBoundingClientRect();
+                            const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+                            const pct = x / rect.width;
+                            const idx = Math.min(item.images_360.length - 1, Math.floor(pct * item.images_360.length));
+                            if (modalImg) modalImg.src = item.images_360[idx];
+                        };
+                        displayWrap.onmousemove = (ev) => handleScrub(ev.clientX);
+                        displayWrap.ontouchmove = (ev) => {
+                            if (ev.touches[0]) handleScrub(ev.touches[0].clientX);
+                        };
+                    }
+                };
+            } else {
+                btn360.style.display = 'none';
+            }
+        }
     }
 
     const whatsappText = encodeURIComponent(`Hello Nivaraa Living, I am interested in customizing the ${item.name} (${item.category_label}). Please share details and showroom consultation slots.`);
