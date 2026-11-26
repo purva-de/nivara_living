@@ -16,8 +16,36 @@
     <link rel="stylesheet" href="discovery.css">
     <link rel="stylesheet" href="booking.css">
     <link rel="icon" type="image/png" href="logo_transparent.png">
+    
+    <!-- Immediate session check to prevent any intro flash on return visits -->
+    <script>
+        (function() {
+            try {
+                if (sessionStorage.getItem('nivaraa_intro_seen') === '1' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    document.documentElement.classList.add('intro-bypassed');
+                }
+            } catch (e) {}
+        })();
+    </script>
 </head>
 <body>
+
+    <!-- 0. ATELIER BRAND INTRO OVERLAY (Ivory & Gold Elegance - 1.2s Duration) -->
+    <aside id="site-intro" class="site-intro" role="status" aria-label="Nivaraa Living Atelier Experience">
+        <div class="site-intro-inner">
+            <div class="site-intro-brand">
+                <div class="site-intro-emblem-wrap">
+                    <img src="logo_transparent.png" alt="Nivaraa Living Emblem" class="site-intro-emblem" width="52" height="52">
+                </div>
+                <h1 class="site-intro-title">NIVARAA LIVING</h1>
+                <p class="site-intro-tag">PUNE ATELIER • BESPOKE FURNITURE</p>
+            </div>
+            <div class="site-intro-line-wrap" aria-hidden="true">
+                <span class="site-intro-line"></span>
+            </div>
+        </div>
+        <button type="button" class="site-intro-skip" id="site-intro-skip" aria-label="Skip introduction">Skip</button>
+    </aside>
 
     <!-- 1. FIXED MASTHEAD HEADER (Shepel Style) -->
     <header id="masthead" class="site-header">

@@ -70,6 +70,277 @@ button {
 }
 
 /* ==========================================================================
+   0. ATELIER BRAND INTRO OVERLAY (Ivory & Gold Elegance - 1.2s Duration)
+   ========================================================================== */
+
+html.intro-bypassed #site-intro {
+    display: none !important;
+}
+
+body.intro-active {
+    overflow: hidden;
+}
+
+.site-intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 45%, #FCFAF7 0%, #F5F1E8 100%);
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.site-intro.intro-hiding {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(1.015);
+}
+
+.site-intro.intro-removed {
+    display: none !important;
+}
+
+.site-intro-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 24px;
+    width: 100%;
+    max-width: 560px;
+    position: relative;
+    pointer-events: none;
+}
+
+/* Nivaraa logo appearing softly */
+.site-intro-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: introLogoReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.site-intro-emblem-wrap {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.site-intro-emblem {
+    height: 52px;
+    width: auto;
+    filter: drop-shadow(0 4px 12px rgba(197, 154, 63, 0.18));
+}
+
+.site-intro-title {
+    font-family: var(--font-serif);
+    font-size: clamp(22px, 4.2vw, 32px);
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--shepel-dark);
+    margin: 0 0 8px 0;
+    line-height: 1.15;
+}
+
+.site-intro-tag {
+    font-family: var(--font-sans);
+    font-size: clamp(9px, 1.3vw, 11px);
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--shepel-gold);
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Thin gold line drawing across the screen */
+.site-intro-line-wrap {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.site-intro-line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(197, 154, 63, 0.3) 15%,
+        var(--shepel-gold) 50%,
+        var(--shepel-gold-light) 65%,
+        rgba(197, 154, 63, 0.3) 85%,
+        transparent 100%
+    );
+    transform: scaleX(0);
+    transform-origin: center;
+    animation: introGoldLineDraw 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.28s forwards;
+    position: relative;
+}
+
+.site-intro-line::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #FFFFFF, var(--shepel-gold-light), transparent);
+    filter: blur(1px);
+    opacity: 0;
+    animation: introLineGleam 0.7s ease 0.45s forwards;
+}
+
+/* Subtle, unobtrusive Skip button in top-right */
+.site-intro-skip {
+    position: absolute;
+    top: calc(env(safe-area-inset-top, 16px) + 16px);
+    right: calc(env(safe-area-inset-right, 24px) + 24px);
+    background: transparent;
+    border: 1px solid rgba(43, 47, 50, 0.14);
+    color: var(--shepel-muted);
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0;
+    animation: introSkipFade 0.4s ease 0.5s forwards;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.site-intro-skip:hover {
+    color: var(--shepel-dark);
+    border-color: var(--shepel-dark);
+    background: rgba(255, 255, 255, 0.65);
+}
+
+/* Intro Keyframe Animations */
+@keyframes introLogoReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(14px) scale(0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes introGoldLineDraw {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes introLineGleam {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    50% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(450px);
+    }
+}
+
+@keyframes introSkipFade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.65;
+    }
+}
+
+/* Device Compatibility: Mobile & Tablet */
+@media (max-width: 768px) {
+    .site-intro-inner {
+        padding: 0 16px;
+        max-width: 90vw;
+    }
+    .site-intro-emblem {
+        height: 42px;
+    }
+    .site-intro-emblem-wrap {
+        margin-bottom: 12px;
+    }
+    .site-intro-title {
+        letter-spacing: 0.18em;
+        margin-bottom: 6px;
+    }
+    .site-intro-tag {
+        letter-spacing: 0.24em;
+        font-size: 9.5px;
+    }
+    .site-intro-line-wrap {
+        max-width: 80vw;
+        margin-top: 18px;
+    }
+    .site-intro-skip {
+        top: calc(env(safe-area-inset-top, 12px) + 12px);
+        right: calc(env(safe-area-inset-right, 16px) + 16px);
+        padding: 5px 12px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-intro-emblem {
+        height: 36px;
+    }
+    .site-intro-line-wrap {
+        max-width: 82vw;
+    }
+    .site-intro-tag {
+        letter-spacing: 0.18em;
+        font-size: 8.5px;
+    }
+}
+
+/* Prefers-reduced-motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .site-intro {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
    1. FIXED HEADER (Transparent -> Solid on Scroll)
    ========================================================================== */
 

@@ -3,6 +3,7 @@
 // Controls: Top Hero Slider, Category Filters, Dual-Image Hover, Spec Drawer, Carousel
 
 document.addEventListener('DOMContentLoaded', () => {
+    initSiteIntro();
     initHeaderScroll();
     initMobileMenu();
     initHeroSlider();
@@ -698,3 +699,75 @@ function initAboutImage3DTilt() {
         frame.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
     });
 }
+
+// 0. Atelier Brand Opening Intro Transition (Ivory & Gold — 1.25s)
+function initSiteIntro() {
+    const intro = document.getElementById('site-intro');
+    if (!intro) return;
+
+    // Check if user already saw the intro in this session or prefers reduced motion
+    const alreadySeen = (function() {
+        try {
+            return sessionStorage.getItem('nivaraa_intro_seen') === '1';
+        } catch (e) {
+            return false;
+        }
+    })();
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (alreadySeen || prefersReducedMotion) {
+        intro.classList.add('intro-removed');
+        document.body.classList.remove('intro-active');
+        return;
+    }
+
+    // Mark active for initial appearance
+    document.body.classList.add('intro-active');
+
+    let dismissed = false;
+
+    function dismissIntro() {
+        if (dismissed) return;
+        dismissed = true;
+
+        try {
+            sessionStorage.setItem('nivaraa_intro_seen', '1');
+        } catch (e) {}
+
+        intro.classList.add('intro-hiding');
+        document.body.classList.remove('intro-active');
+
+        setTimeout(() => {
+            intro.classList.add('intro-removed');
+            intro.setAttribute('aria-hidden', 'true');
+        }, 420);
+    }
+
+    // Smooth automatic transition at ~1.25s (1250ms)
+    const autoTimer = setTimeout(dismissIntro, 1250);
+
+    // Fast dismiss on click/touch
+    intro.addEventListener('click', () => {
+        clearTimeout(autoTimer);
+        dismissIntro();
+    });
+
+    const skipBtn = document.getElementById('site-intro-skip');
+    if (skipBtn) {
+        skipBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            clearTimeout(autoTimer);
+            dismissIntro();
+        });
+    }
+
+    // Dismiss on Escape key
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !dismissed) {
+            clearTimeout(autoTimer);
+            dismissIntro();
+        }
+    }, { once: true });
+}
+
