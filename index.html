@@ -219,6 +219,12 @@
                                 <stop offset="50%" stop-color="#F2EDE4"/>
                                 <stop offset="100%" stop-color="#CCC2B2"/>
                             </linearGradient>
+                            <radialGradient id="s1-shade-lit" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#FFF9EA"/>
+                                <stop offset="55%" stop-color="#F5DCAB"/>
+                                <stop offset="85%" stop-color="#D9A84F"/>
+                                <stop offset="100%" stop-color="#885E16"/>
+                            </radialGradient>
                         </defs>
                     </svg>
                     <div class="shade-radiant-bloom" aria-hidden="true"></div>
@@ -474,13 +480,13 @@
                         <!-- Architectural horizontal brass spreader bar -->
                         <rect x="40" y="80" width="160" height="7" rx="3.5" fill="url(#s4-bar-grad)"/>
                         <!-- Globe 1 (Left) -->
-                        <circle cx="70" cy="116" r="26" fill="url(#s4-globe-grad)"/>
+                        <circle class="luminaire-globe luminaire-globe-left" cx="70" cy="116" r="26" fill="url(#s4-globe-grad)"/>
                         <ellipse cx="70" cy="116" rx="24" ry="24" stroke="#D1AB4E" stroke-width="1" opacity="0.6"/>
-                        <circle class="luminaire-filament" cx="70" cy="116" r="15" fill="#FFF8E0"/>
+                        <circle class="luminaire-filament" cx="70" cy="116" r="14" fill="#FFF8E0"/>
                         <!-- Globe 2 (Right) -->
-                        <circle cx="170" cy="116" r="26" fill="url(#s4-globe-grad)"/>
+                        <circle class="luminaire-globe luminaire-globe-right" cx="170" cy="116" r="26" fill="url(#s4-globe-grad)"/>
                         <ellipse cx="170" cy="116" rx="24" ry="24" stroke="#D1AB4E" stroke-width="1" opacity="0.6"/>
-                        <circle class="luminaire-filament" cx="170" cy="116" r="15" fill="#FFF8E0"/>
+                        <circle class="luminaire-filament" cx="170" cy="116" r="14" fill="#FFF8E0"/>
                         <defs>
                             <linearGradient id="s4-bar-grad" x1="40" y1="83" x2="200" y2="83" gradientUnits="userSpaceOnUse">
                                 <stop offset="0%" stop-color="#403010"/>
@@ -491,6 +497,12 @@
                                 <stop offset="0%" stop-color="#FFFDF5"/>
                                 <stop offset="65%" stop-color="#F2EDE0"/>
                                 <stop offset="100%" stop-color="#D6CBBA"/>
+                            </radialGradient>
+                            <radialGradient id="s4-globe-lit" cx="42%" cy="40%" r="58%">
+                                <stop offset="0%" stop-color="#FFFBF2"/>
+                                <stop offset="42%" stop-color="#FCE5A8"/>
+                                <stop offset="78%" stop-color="#DEAA3E"/>
+                                <stop offset="100%" stop-color="#8E5E14"/>
                             </radialGradient>
                         </defs>
                     </svg>

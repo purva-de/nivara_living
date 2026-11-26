@@ -964,7 +964,7 @@ body.intro-active {
     background-size: cover;
     background-position: center;
     transform: scale(1.045);
-    filter: brightness(0.88) contrast(1.02);
+    filter: brightness(0.68) contrast(1.12) saturate(0.92);
     transition: transform 7s cubic-bezier(0.25, 1, 0.5, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, filter;
 }
@@ -973,8 +973,9 @@ body.intro-active {
     transform: scale(1.0);
 }
 
+/* When illuminated: Clean, crisp, realistic photographic brightening with ZERO whitecasting */
 .hero-scene.is-lit .hero-scene-backdrop {
-    filter: brightness(1.02) contrast(1.04);
+    filter: brightness(1.0) contrast(1.06) saturate(1.06);
 }
 
 /* --------------------------------------------------------------------------
@@ -995,13 +996,18 @@ body.intro-active {
 .light-ambient-dusk {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 95% 80% at 50% 50%, rgba(14, 18, 22, 0.28) 0%, rgba(14, 18, 22, 0.72) 100%),
-                linear-gradient(180deg, rgba(14, 18, 22, 0.55) 0%, rgba(14, 18, 22, 0.12) 42%, rgba(14, 18, 22, 0.85) 100%);
+    background: radial-gradient(ellipse 90% 75% at 50% 50%, rgba(10, 13, 16, 0.12) 0%, rgba(10, 13, 16, 0.55) 100%),
+                linear-gradient(180deg, rgba(10, 13, 16, 0.4) 0%, transparent 35%, transparent 65%, rgba(10, 13, 16, 0.72) 100%);
     pointer-events: none;
-    transition: opacity 0.85s ease;
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Global Warm Room Wash Layer (Fires when lighting is active) */
+/* When illuminated, dusk overlay seamlessly softens to reveal interior lighting */
+.hero-scene.is-lit .light-ambient-dusk {
+    opacity: 0.15;
+}
+
+/* Global Warm Room Wash Layer (Soft-Light only: Preserves deep contrast & rich blacks) */
 .light-room-wash {
     position: absolute;
     inset: 0;
@@ -1016,38 +1022,38 @@ body.intro-active {
 }
 
 .light-room-sofa {
-    background: radial-gradient(circle 900px at 74% 56%, rgba(255, 220, 135, 0.52) 0%, rgba(230, 175, 75, 0.24) 45%, transparent 75%);
+    background: radial-gradient(circle 520px at 75% 58%, rgba(245, 185, 75, 0.28) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
 }
 
 .light-room-recliner {
-    background: radial-gradient(circle 850px at 68% 46%, rgba(255, 225, 145, 0.48) 0%, rgba(225, 170, 70, 0.22) 48%, transparent 75%);
+    background: radial-gradient(circle 480px at 70% 46%, rgba(245, 190, 85, 0.25) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
 }
 
 .light-room-chairs {
-    background: radial-gradient(ellipse 1000px 700px at 66% 50%, rgba(255, 230, 150, 0.48) 0%, rgba(220, 165, 65, 0.2) 50%, transparent 80%);
+    background: radial-gradient(ellipse 550px 420px at 66% 50%, rgba(245, 190, 85, 0.25) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
 }
 
 .light-room-dining {
-    background: radial-gradient(ellipse 950px 750px at 64% 48%, rgba(255, 232, 155, 0.5) 0%, rgba(225, 170, 70, 0.24) 48%, transparent 78%);
+    background: radial-gradient(ellipse 520px 380px at 66% 48%, rgba(245, 190, 85, 0.24) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
 }
 
-/* Directional Conical Light Beams */
+/* Directional Warm Light Beams (Soft-Light: Gentle illumination without milky screen haze) */
 .light-conical-beam {
     position: absolute;
     inset: 0;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: screen;
+    mix-blend-mode: soft-light;
 }
 
 .hero-scene.is-lit .light-conical-beam {
     opacity: 1;
 }
 
-/* Scene 1: Downward Floor Lamp Conical Beam */
+/* Scene 1: Downward Floor Lamp Warm Cast */
 .light-beam-sofa {
-    background: radial-gradient(ellipse 68% 62% at 75% 62%, rgba(255, 236, 185, 0.44) 0%, rgba(240, 192, 105, 0.22) 36%, rgba(197, 154, 63, 0.08) 65%, transparent 85%);
+    background: radial-gradient(ellipse 40% 46% at 76% 52%, rgba(245, 195, 95, 0.22) 0%, rgba(215, 150, 45, 0.06) 45%, transparent 70%);
 }
 
 /* Scene 1: Soft Ceiling Upward Reflection */
@@ -1057,7 +1063,7 @@ body.intro-active {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: screen;
+    mix-blend-mode: soft-light;
 }
 
 .hero-scene.is-lit .light-ceiling-glow {
@@ -1065,13 +1071,13 @@ body.intro-active {
 }
 
 .light-ceiling-sofa {
-    background: radial-gradient(ellipse 45% 26% at 75% 10%, rgba(255, 232, 180, 0.28) 0%, rgba(230, 180, 90, 0.1) 45%, transparent 70%);
+    background: radial-gradient(ellipse 32% 18% at 76% 8%, rgba(245, 200, 110, 0.18) 0%, transparent 65%);
 }
 
 /* Scene 2: Spotlight Conical Beam & Cove Floor Ambient */
 .light-beam-recliner {
-    background: conic-gradient(from 162deg at 70% 3%, transparent 0deg, rgba(255, 236, 190, 0.32) 16deg, rgba(255, 240, 205, 0.45) 32deg, rgba(255, 236, 190, 0.32) 48deg, transparent 65deg);
-    filter: blur(14px);
+    background: conic-gradient(from 166deg at 70% 3%, transparent 0deg, rgba(245, 200, 105, 0.15) 14deg, rgba(255, 215, 125, 0.24) 28deg, rgba(245, 200, 105, 0.15) 42deg, transparent 56deg);
+    filter: blur(10px);
 }
 
 .light-floor-cove {
@@ -1079,11 +1085,11 @@ body.intro-active {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 180px;
+    height: 140px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: screen;
+    mix-blend-mode: soft-light;
 }
 
 .hero-scene.is-lit .light-floor-cove {
@@ -1091,7 +1097,7 @@ body.intro-active {
 }
 
 .light-cove-recliner {
-    background: linear-gradient(0deg, rgba(245, 195, 95, 0.35) 0%, rgba(245, 195, 95, 0.14) 40%, transparent 85%);
+    background: linear-gradient(0deg, rgba(235, 175, 65, 0.16) 0%, rgba(235, 175, 65, 0.04) 35%, transparent 75%);
 }
 
 /* Scene 3: Sconce Dual Fan Grazing (Up & Down) */
@@ -1101,7 +1107,7 @@ body.intro-active {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: screen;
+    mix-blend-mode: soft-light;
 }
 
 .hero-scene.is-lit .light-sconce-fan-up,
@@ -1110,45 +1116,45 @@ body.intro-active {
 }
 
 .light-fan-up-left {
-    right: 42%;
+    right: 48%;
     top: 0;
-    width: 220px;
-    height: 240px;
-    background: conic-gradient(from 335deg at 50% 100%, transparent 0deg, rgba(255, 235, 185, 0.36) 22deg, rgba(255, 235, 185, 0.46) 42deg, rgba(255, 235, 185, 0.36) 62deg, transparent 80deg);
-    filter: blur(12px);
+    width: 160px;
+    height: 180px;
+    background: conic-gradient(from 340deg at 50% 100%, transparent 0deg, rgba(245, 195, 95, 0.18) 18deg, rgba(255, 215, 125, 0.26) 36deg, rgba(245, 195, 95, 0.18) 54deg, transparent 72deg);
+    filter: blur(8px);
 }
 
 .light-fan-down-left {
-    right: 42%;
+    right: 48%;
     top: 240px;
-    width: 260px;
-    height: 400px;
-    background: conic-gradient(from 155deg at 50% 0%, transparent 0deg, rgba(255, 235, 185, 0.34) 24deg, rgba(255, 235, 185, 0.45) 45deg, rgba(255, 235, 185, 0.34) 66deg, transparent 90deg);
-    filter: blur(14px);
+    width: 180px;
+    height: 280px;
+    background: conic-gradient(from 160deg at 50% 0%, transparent 0deg, rgba(245, 195, 95, 0.16) 20deg, rgba(255, 215, 125, 0.24) 40deg, rgba(245, 195, 95, 0.16) 60deg, transparent 78deg);
+    filter: blur(10px);
 }
 
 .light-fan-up-right {
-    right: 12%;
+    right: 16%;
     top: 0;
-    width: 220px;
-    height: 240px;
-    background: conic-gradient(from 335deg at 50% 100%, transparent 0deg, rgba(255, 235, 185, 0.36) 22deg, rgba(255, 235, 185, 0.46) 42deg, rgba(255, 235, 185, 0.36) 62deg, transparent 80deg);
-    filter: blur(12px);
+    width: 160px;
+    height: 180px;
+    background: conic-gradient(from 340deg at 50% 100%, transparent 0deg, rgba(245, 195, 95, 0.18) 18deg, rgba(255, 215, 125, 0.26) 36deg, rgba(245, 195, 95, 0.18) 54deg, transparent 72deg);
+    filter: blur(8px);
 }
 
 .light-fan-down-right {
-    right: 12%;
+    right: 16%;
     top: 240px;
-    width: 260px;
-    height: 400px;
-    background: conic-gradient(from 155deg at 50% 0%, transparent 0deg, rgba(255, 235, 185, 0.34) 24deg, rgba(255, 235, 185, 0.45) 45deg, rgba(255, 235, 185, 0.34) 66deg, transparent 90deg);
-    filter: blur(14px);
+    width: 180px;
+    height: 280px;
+    background: conic-gradient(from 160deg at 50% 0%, transparent 0deg, rgba(245, 195, 95, 0.16) 20deg, rgba(255, 215, 125, 0.24) 40deg, rgba(245, 195, 95, 0.16) 60deg, transparent 78deg);
+    filter: blur(10px);
 }
 
-/* Scene 4: Statement Suspension Downward Beam & Marble Specular Pool */
+/* Scene 4: Statement Suspension Downward Taper & Marble Luster */
 .light-beam-dining {
-    background: conic-gradient(from 150deg at 65% 10%, transparent 0deg, rgba(255, 240, 200, 0.32) 20deg, rgba(255, 245, 215, 0.5) 45deg, rgba(255, 240, 200, 0.32) 70deg, transparent 90deg);
-    filter: blur(16px);
+    background: conic-gradient(from 158deg at 68% 10%, transparent 0deg, rgba(245, 200, 105, 0.14) 16deg, rgba(255, 220, 130, 0.22) 34deg, rgba(245, 200, 105, 0.14) 52deg, transparent 70deg);
+    filter: blur(10px);
 }
 
 .light-marble-pool {
@@ -1157,7 +1163,7 @@ body.intro-active {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: screen;
+    mix-blend-mode: soft-light;
 }
 
 .hero-scene.is-lit .light-marble-pool {
@@ -1165,7 +1171,7 @@ body.intro-active {
 }
 
 .light-pool-dining {
-    background: radial-gradient(ellipse 70% 38% at 65% 64%, rgba(255, 240, 205, 0.46) 0%, rgba(235, 195, 110, 0.22) 42%, transparent 75%);
+    background: radial-gradient(ellipse 42% 22% at 68% 58%, rgba(255, 220, 135, 0.2) 0%, rgba(230, 170, 65, 0.06) 42%, transparent 70%);
 }
 
 /* --------------------------------------------------------------------------
@@ -1209,10 +1215,10 @@ body.intro-active {
 
 .hero-scene.is-lit .luminaire-filament {
     opacity: 1;
-    filter: drop-shadow(0 0 10px #FFF3D6) drop-shadow(0 0 18px #E2BD68);
+    filter: drop-shadow(0 0 8px #FFF3D6) drop-shadow(0 0 16px #E2BD68);
 }
 
-/* Shade & Radiant Blooms */
+/* Shade & Radiant Blooms (Compact, refined ambient halo without screen washout) */
 .shade-radiant-bloom,
 .spotlight-radiant-bloom,
 .sconce-radiant-bloom,
@@ -1241,17 +1247,17 @@ body.intro-active {
 }
 
 .shade-radiant-bloom {
-    width: 360px;
-    height: 360px;
-    top: -100px;
-    left: -115px;
-    background: radial-gradient(circle, rgba(255, 238, 195, 0.85) 0%, rgba(245, 195, 95, 0.45) 30%, rgba(225, 160, 55, 0.15) 60%, transparent 75%);
-    filter: blur(14px);
+    width: 180px;
+    height: 180px;
+    top: -25px;
+    left: -25px;
+    background: radial-gradient(circle, rgba(255, 225, 135, 0.6) 0%, rgba(230, 165, 55, 0.25) 35%, transparent 70%);
+    filter: blur(8px);
 }
 
 .hero-scene-1.is-lit .luminaire-shade-path {
-    fill: #FFF3DA !important;
-    filter: drop-shadow(0 0 20px rgba(255, 220, 140, 0.95)) brightness(1.22);
+    fill: url(#s1-shade-lit) !important;
+    filter: drop-shadow(0 0 16px rgba(235, 180, 75, 0.75));
 }
 
 /* Fixture 2: Ceiling Recessed Spotlight */
@@ -1263,12 +1269,12 @@ body.intro-active {
 }
 
 .spotlight-radiant-bloom {
-    width: 240px;
-    height: 240px;
-    top: -70px;
-    left: -70px;
-    background: radial-gradient(circle, rgba(255, 238, 195, 0.92) 0%, rgba(245, 195, 100, 0.45) 32%, transparent 72%);
-    filter: blur(10px);
+    width: 130px;
+    height: 130px;
+    top: -35px;
+    left: -25px;
+    background: radial-gradient(circle, rgba(255, 225, 135, 0.65) 0%, rgba(230, 165, 55, 0.25) 35%, transparent 70%);
+    filter: blur(8px);
 }
 
 /* Fixture 3: Wall Sconces */
@@ -1287,38 +1293,38 @@ body.intro-active {
 }
 
 .sconce-radiant-bloom {
-    width: 180px;
-    height: 180px;
-    top: -20px;
-    left: -68px;
-    background: radial-gradient(circle, rgba(255, 238, 195, 0.88) 0%, rgba(245, 195, 95, 0.4) 34%, transparent 72%);
-    filter: blur(10px);
+    width: 110px;
+    height: 110px;
+    top: 10px;
+    left: -32px;
+    background: radial-gradient(circle, rgba(255, 225, 135, 0.6) 0%, rgba(230, 165, 55, 0.22) 35%, transparent 70%);
+    filter: blur(6px);
 }
 
 .hero-scene-3.is-lit .sconce-svg {
-    filter: drop-shadow(0 0 16px rgba(255, 220, 130, 0.8));
+    filter: drop-shadow(0 0 12px rgba(235, 180, 75, 0.7));
 }
 
 /* Fixture 4: Statement Suspension Pendant */
 .hero-luminaire-pendant {
-    right: 18%;
+    right: 22%;
     top: 0;
-    width: clamp(160px, 18vw, 240px);
-    height: clamp(130px, 14vw, 190px);
+    width: clamp(150px, 16vw, 210px);
+    height: clamp(120px, 13vw, 165px);
 }
 
 .pendant-radiant-bloom {
-    width: 320px;
-    height: 320px;
-    top: -40px;
-    left: -40px;
-    background: radial-gradient(circle, rgba(255, 240, 205, 0.88) 0%, rgba(245, 198, 105, 0.42) 35%, transparent 75%);
-    filter: blur(14px);
+    width: 180px;
+    height: 180px;
+    top: 25px;
+    left: 20px;
+    background: radial-gradient(circle, rgba(255, 225, 135, 0.58) 0%, rgba(230, 165, 55, 0.24) 38%, transparent 70%);
+    filter: blur(8px);
 }
 
-.hero-scene-4.is-lit .pendant-svg circle[fill="url(#s4-globe-grad)"] {
-    fill: #FFF6DE !important;
-    filter: drop-shadow(0 0 24px rgba(255, 225, 145, 0.95)) brightness(1.24);
+.hero-scene-4.is-lit .pendant-svg circle.luminaire-globe {
+    fill: url(#s4-globe-lit) !important;
+    filter: drop-shadow(0 0 14px rgba(245, 195, 95, 0.8)) drop-shadow(0 0 28px rgba(197, 154, 63, 0.4));
 }
 
 /* Interactive Discovery Touch Beacon */
@@ -1561,6 +1567,7 @@ body.intro-active {
     font-weight: 400;
     letter-spacing: 0.02em;
     margin-bottom: 14px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.65);
 }
 
 .hero-mask-wrap {
@@ -1590,10 +1597,11 @@ body.intro-active {
     font-family: var(--font-sans);
     font-size: 13px;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(255, 255, 255, 0.88);
     font-weight: 300;
     max-width: 480px;
     letter-spacing: 0.02em;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
 }
 
 /* Actions Row */
@@ -1971,10 +1979,24 @@ body.intro-active {
     }
 
     .shade-radiant-bloom {
-        width: 240px;
-        height: 240px;
-        top: -60px;
-        left: -80px;
+        width: 140px;
+        height: 140px;
+        top: -20px;
+        left: -30px;
+    }
+
+    .spotlight-radiant-bloom {
+        width: 100px;
+        height: 100px;
+        top: -25px;
+        left: -15px;
+    }
+
+    .pendant-radiant-bloom {
+        width: 130px;
+        height: 130px;
+        top: 20px;
+        left: 10px;
     }
 
     .hero-luminaire-spotlight {
