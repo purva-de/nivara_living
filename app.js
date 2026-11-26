@@ -91,31 +91,84 @@ function initMobileMenu() {
     });
 }
 
-// 2. Hero Slider (Architectural Curtain Wipe with 2.8s Auto-Advance & Chapter Progress)
-let currentSlide = 1;
-const totalSlides = 5;
-const SLIDE_DURATION = 2800; // 2.8 seconds automatic slide interval
-let slideInterval = null;
-let isHeroHovered = false;
+// 2. Hero Interactive Showroom (4 Scenes with Realistic Interactive Lighting)
+let currentScene = 1;
+const totalScenes = 4;
+const SCENE_DURATION = 6500; // 6.5s generous luxury showroom pacing
+let sceneInterval = null;
+let isHeroInteracting = false;
+
+// Lighting state map for all 4 scenes
+const sceneLightingState = {
+    1: false,
+    2: false,
+    3: false,
+    4: false
+};
+
+// Fixture descriptions for toggling
+const fixtureNames = {
+    1: 'Floor Lamp',
+    2: 'Ambient Spotlight',
+    3: 'Wall Sconces',
+    4: 'Statement Pendant'
+};
 
 function initHeroSlider() {
     const heroSection = document.getElementById('hero-slider');
-    const slides = document.querySelectorAll('.hero-slide');
-    const navItems = document.querySelectorAll('.showcase-nav-item');
+    const scenes = document.querySelectorAll('.hero-scene');
+    const navItems = document.querySelectorAll('.hero-showroom-nav .showcase-nav-item');
+    const prevBtn = document.getElementById('hero-prev-btn');
+    const nextBtn = document.getElementById('hero-next-btn');
 
-    if (!slides.length || !heroSection) return;
+    if (!scenes.length || !heroSection) return;
 
-    function goToSlide(targetIdx) {
+    /**
+     * Toggles or sets the lighting state for a specific scene
+     */
+    function setSceneLighting(sceneIdx, state) {
+        const sceneEl = document.getElementById(`hero-scene-${sceneIdx}`);
+        if (!sceneEl) return;
+
+        const isLit = typeof state === 'boolean' ? state : !sceneLightingState[sceneIdx];
+        sceneLightingState[sceneIdx] = isLit;
+
+        if (isLit) {
+            sceneEl.classList.add('is-lit');
+        } else {
+            sceneEl.classList.remove('is-lit');
+        }
+
+        // Update toggle capsule
+        const toggleBtn = sceneEl.querySelector('.hero-lighting-toggle');
+        if (toggleBtn) {
+            toggleBtn.setAttribute('aria-pressed', isLit ? 'true' : 'false');
+            const statusEl = toggleBtn.querySelector('.toggle-status');
+            if (statusEl) {
+                statusEl.textContent = isLit ? 'Illuminated • 2700K' : 'Tap to Light';
+            }
+        }
+
+        // Update secondary action button
+        const actionBtn = sceneEl.querySelector('.btn-hero-light-action .light-action-text');
+        if (actionBtn) {
+            actionBtn.textContent = isLit ? 'Lights Active' : `Switch ${fixtureNames[sceneIdx] || 'Lighting'}`;
+        }
+    }
+
+    /**
+     * Navigates to a specific showroom scene
+     */
+    function goToScene(targetIdx) {
         let n = targetIdx;
-        if (n > totalSlides) n = 1;
-        if (n < 1) n = totalSlides;
-        if (n === currentSlide && slides[n - 1].classList.contains('active')) return;
+        if (n > totalScenes) n = 1;
+        if (n < 1) n = totalScenes;
+        if (n === currentScene && scenes[n - 1].classList.contains('active')) return;
 
-        const outgoing = document.getElementById(`hero-slide-${currentSlide}`);
-        const incoming = document.getElementById(`hero-slide-${n}`);
+        const outgoing = document.getElementById(`hero-scene-${currentScene}`);
+        const incoming = document.getElementById(`hero-scene-${n}`);
 
-        // Clean up any lingering states from rapid transitions
-        slides.forEach(s => {
+        scenes.forEach(s => {
             if (s !== outgoing && s !== incoming) {
                 s.classList.remove('active', 'was-active');
             }
@@ -124,34 +177,30 @@ function initHeroSlider() {
         if (outgoing) {
             outgoing.classList.remove('active');
             outgoing.classList.add('was-active');
-            outgoing.style.transform = '';
             setTimeout(() => {
                 outgoing.classList.remove('was-active');
-            }, 950);
+            }, 1000);
         }
 
         if (incoming) {
-            incoming.style.transform = '';
             incoming.classList.add('active');
         }
 
-        currentSlide = n;
-
+        currentScene = n;
         const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Update Nav items & trigger fresh CSS animation for progress fill
+        // Update 4-chapter navigation bar
         navItems.forEach(item => {
             const slideNum = parseInt(item.getAttribute('data-slide'), 10);
             const fill = item.querySelector('.showcase-nav-fill');
-            if (slideNum === currentSlide) {
+            if (slideNum === currentScene) {
                 item.classList.add('active');
                 if (fill) {
                     fill.style.transition = 'none';
                     fill.style.width = '0%';
-                    // Force reflow
-                    void fill.offsetWidth;
+                    void fill.offsetWidth; // Force reflow
                     if (!isReducedMotion) {
-                        fill.style.transition = `width ${SLIDE_DURATION}ms linear`;
+                        fill.style.transition = `width ${SCENE_DURATION}ms linear`;
                         fill.style.width = '100%';
                     } else {
                         fill.style.width = '100%';
@@ -165,58 +214,113 @@ function initHeroSlider() {
                 }
             }
         });
-
-        // Update top-row hero indicators: 01 ━━━━━━━━━ 05
-        slides.forEach((slide, idx) => {
-            const indFill = slide.querySelector('.hero-indicator-fill');
-            if (!indFill) return;
-            const slideNum = idx + 1;
-            if (slideNum === currentSlide) {
-                indFill.style.transition = 'none';
-                indFill.style.width = '0%';
-                void indFill.offsetWidth; // Force reflow
-                if (!isReducedMotion) {
-                    indFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
-                    indFill.style.width = '100%';
-                } else {
-                    indFill.style.width = '100%';
-                }
-            } else {
-                indFill.style.transition = 'none';
-                indFill.style.width = '0%';
-            }
-        });
-
-        // Update counter elements if any exist
-        const counterEl = document.getElementById('curr-slide-num');
-        if (counterEl) counterEl.innerText = currentSlide < 10 ? `0${currentSlide}` : currentSlide;
     }
 
     function resetTimer() {
-        if (slideInterval) clearInterval(slideInterval);
-        if (!isHeroHovered) {
-            slideInterval = setInterval(() => {
-                goToSlide(currentSlide + 1);
-            }, SLIDE_DURATION);
+        if (sceneInterval) clearInterval(sceneInterval);
+        if (!isHeroInteracting) {
+            sceneInterval = setInterval(() => {
+                goToScene(currentScene + 1);
+            }, SCENE_DURATION);
         }
     }
 
-    // Nav chapter click handlers
+    // Previous / Next button listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToScene(currentScene - 1);
+            resetTimer();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToScene(currentScene + 1);
+            resetTimer();
+        });
+    }
+
+    // Chapter progress navigation click listeners
     navItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             const slideNum = parseInt(item.getAttribute('data-slide'), 10);
-            goToSlide(slideNum);
+            goToScene(slideNum);
             resetTimer();
         });
     });
 
-    // Hover pause behavior
+    // Wire up interactive lighting in all scenes
+    scenes.forEach((sceneEl, idx) => {
+        const sceneNum = idx + 1;
+        const fixture = sceneEl.querySelector('.hero-luminaire');
+        const toggleBtn = sceneEl.querySelector('.hero-lighting-toggle');
+        const actionBtn = sceneEl.querySelector('.btn-hero-light-action');
+
+        let isLockedByClick = false;
+
+        // Click / Tap on toggle capsule
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                isLockedByClick = !sceneLightingState[sceneNum];
+                setSceneLighting(sceneNum, isLockedByClick);
+            });
+        }
+
+        // Click / Tap on action button
+        if (actionBtn) {
+            actionBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                isLockedByClick = !sceneLightingState[sceneNum];
+                setSceneLighting(sceneNum, isLockedByClick);
+            });
+        }
+
+        // Direct interaction with the fixture (Click & Hover)
+        if (fixture) {
+            // Click / Tap directly on fixture
+            fixture.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                isLockedByClick = !sceneLightingState[sceneNum];
+                setSceneLighting(sceneNum, isLockedByClick);
+            });
+
+            // Keyboard accessibility (Enter or Space)
+            fixture.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    isLockedByClick = !sceneLightingState[sceneNum];
+                    setSceneLighting(sceneNum, isLockedByClick);
+                }
+            });
+
+            // Desktop Hover interaction: preview illumination unless locked
+            fixture.addEventListener('mouseenter', () => {
+                if (!isLockedByClick) {
+                    setSceneLighting(sceneNum, true);
+                }
+            });
+
+            fixture.addEventListener('mouseleave', () => {
+                if (!isLockedByClick) {
+                    setSceneLighting(sceneNum, false);
+                }
+            });
+        }
+    });
+
+    // Pause auto-advance on mouse enter so user can explore scene lighting
     heroSection.addEventListener('mouseenter', () => {
-        isHeroHovered = true;
-        if (slideInterval) {
-            clearInterval(slideInterval);
-            slideInterval = null;
+        isHeroInteracting = true;
+        if (sceneInterval) {
+            clearInterval(sceneInterval);
+            sceneInterval = null;
         }
         const activeFill = heroSection.querySelector('.showcase-nav-item.active .showcase-nav-fill');
         if (activeFill) {
@@ -224,30 +328,20 @@ function initHeroSlider() {
             activeFill.style.transition = 'none';
             activeFill.style.width = computedWidth;
         }
-        const activeIndFill = heroSection.querySelector('.hero-slide.active .hero-indicator-fill');
-        if (activeIndFill) {
-            const computedIndWidth = window.getComputedStyle(activeIndFill).width;
-            activeIndFill.style.transition = 'none';
-            activeIndFill.style.width = computedIndWidth;
-        }
     });
 
+    // Resume auto-advance on mouse leave
     heroSection.addEventListener('mouseleave', () => {
-        isHeroHovered = false;
+        isHeroInteracting = false;
         const activeFill = heroSection.querySelector('.showcase-nav-item.active .showcase-nav-fill');
         if (activeFill) {
-            activeFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
+            activeFill.style.transition = `width ${SCENE_DURATION}ms linear`;
             activeFill.style.width = '100%';
-        }
-        const activeIndFill = heroSection.querySelector('.hero-slide.active .hero-indicator-fill');
-        if (activeIndFill) {
-            activeIndFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
-            activeIndFill.style.width = '100%';
         }
         resetTimer();
     });
 
-    // Touch Swipe support for mobile
+    // Touch Swipe support for smartphones and tablets
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -258,45 +352,47 @@ function initHeroSlider() {
     heroSection.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         const diffX = touchStartX - touchEndX;
-        if (Math.abs(diffX) > 40) {
+        if (Math.abs(diffX) > 45) {
             if (diffX > 0) {
                 // Swiped left -> next
-                goToSlide(currentSlide + 1);
+                goToScene(currentScene + 1);
             } else {
                 // Swiped right -> prev
-                goToSlide(currentSlide - 1);
+                goToScene(currentScene - 1);
             }
             resetTimer();
         }
     }, { passive: true });
 
-    // Initial trigger for slide 1 progress fill and top-row indicator
-    const firstFill = document.querySelector('.showcase-nav-item[data-slide="1"] .showcase-nav-fill');
-    const firstIndFill = document.querySelector('#hero-slide-1 .hero-indicator-fill');
-    if (firstFill || firstIndFill) {
+    // Keyboard Arrow Left/Right Navigation
+    document.addEventListener('keydown', (e) => {
+        if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) return;
+        if (e.key === 'ArrowLeft') {
+            goToScene(currentScene - 1);
+            resetTimer();
+        } else if (e.key === 'ArrowRight') {
+            goToScene(currentScene + 1);
+            resetTimer();
+        }
+    });
+
+    // Start progress bar for first scene
+    const firstFill = document.querySelector('.hero-showroom-nav .showcase-nav-item[data-slide="1"] .showcase-nav-fill');
+    if (firstFill) {
         setTimeout(() => {
             const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (firstFill) {
-                if (!isReducedMotion) {
-                    firstFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
-                    firstFill.style.width = '100%';
-                } else {
-                    firstFill.style.width = '100%';
-                }
-            }
-            if (firstIndFill) {
-                if (!isReducedMotion) {
-                    firstIndFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
-                    firstIndFill.style.width = '100%';
-                } else {
-                    firstIndFill.style.width = '100%';
-                }
+            if (!isReducedMotion) {
+                firstFill.style.transition = `width ${SCENE_DURATION}ms linear`;
+                firstFill.style.width = '100%';
+            } else {
+                firstFill.style.width = '100%';
             }
         }, 50);
     }
 
     resetTimer();
 }
+window.initHeroSlider = initHeroSlider;
 
 // 2b. Hero Scroll Cue Fade (Hero section remains crisp, solid & unaffected)
 function initHeroScrollParallax() {
