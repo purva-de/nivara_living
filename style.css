@@ -568,9 +568,11 @@ body.intro-active {
     }
 
     .header-right {
-        flex: 0 0 44px;
+        flex: 0 0 auto;
         display: flex;
+        align-items: center;
         justify-content: flex-end;
+        gap: 10px;
     }
 
     .site-logo {
@@ -605,6 +607,74 @@ body.intro-active {
     .header-phone {
         display: none;
     }
+}
+
+/* Mobile Wishlist Button (Always accessible in fixed masthead) */
+.mobile-header-wishlist-btn {
+    display: none;
+    position: relative;
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    padding: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-header-wishlist-btn:active {
+    transform: scale(0.9);
+}
+
+.site-header.scrolled .mobile-header-wishlist-btn {
+    color: var(--shepel-dark);
+}
+
+.mobile-wishlist-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    min-width: 15px;
+    height: 15px;
+    padding: 0 4px;
+    border-radius: 10px;
+    background: var(--shepel-gold);
+    color: #12161A;
+    font-size: 9px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 992px) {
+    .mobile-header-wishlist-btn {
+        display: inline-flex;
+    }
+}
+
+.mobile-wishlist-nav-item {
+    width: 100%;
+    background: rgba(197, 154, 63, 0.08) !important;
+    border: 1px solid rgba(197, 154, 63, 0.25) !important;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.mobile-nav-wishlist-pill {
+    background: var(--shepel-gold);
+    color: #12161A;
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 8px;
 }
 
 /* ==========================================================================
@@ -874,14 +944,14 @@ body.intro-active {
     }
 
     .hero-headline {
-        font-size: clamp(18px, 4.8vw, 23px);
+        font-size: clamp(10px, 2.4vw, 12.5px);
         line-height: 1.18;
         letter-spacing: 0.04em;
     }
 
     .hero-headline-wrap {
-        max-width: 330px;
-        margin-bottom: 14px;
+        max-width: 200px;
+        margin-bottom: 10px;
     }
 
     .hero-mask-wrap {
@@ -889,18 +959,18 @@ body.intro-active {
     }
 
     .hero-top-row {
-        font-size: 12px;
+        font-size: 9px;
     }
 
     .hero-gallery-badge {
-        font-size: 9.5px;
-        padding: 4px 10px;
+        font-size: 7.5px;
+        padding: 3px 8px;
     }
 
     .btn-shepel-primary {
-        padding: 10px 22px;
-        font-size: 11px;
-        letter-spacing: 0.1em;
+        padding: 8px 16px;
+        font-size: 8px;
+        letter-spacing: 0.08em;
     }
 }
 
@@ -915,25 +985,25 @@ body.intro-active {
     }
 
     .hero-headline {
-        font-size: clamp(15.5px, 4.3vw, 18.5px);
+        font-size: clamp(8.5px, 2.1vw, 10.5px);
         line-height: 1.2;
         letter-spacing: 0.03em;
     }
 
     .hero-headline-wrap {
-        max-width: 260px;
-        margin-bottom: 10px;
+        max-width: 160px;
+        margin-bottom: 8px;
     }
 
     .btn-shepel-primary {
-        padding: 9px 18px;
-        font-size: 10.5px;
-        letter-spacing: 0.08em;
+        padding: 7px 14px;
+        font-size: 7.5px;
+        letter-spacing: 0.06em;
     }
 
     .hero-gallery-badge {
-        font-size: 9px;
-        padding: 3px 8px;
+        font-size: 7px;
+        padding: 2px 6px;
     }
 }
 
@@ -1016,9 +1086,9 @@ body.intro-active {
 .hero-slide .hero-gallery-badge {
     opacity: 0.85;
     font-family: var(--font-sans);
-    font-size: 13px;
-    letter-spacing: 0.18em;
-    padding: 6px 14px;
+    font-size: 8.5px;
+    letter-spacing: 0.16em;
+    padding: 4px 10px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(18, 22, 26, 0.35);
     backdrop-filter: blur(8px);
@@ -1106,14 +1176,14 @@ body.intro-active {
 }
 
 .hero-headline-wrap {
-    max-width: 840px;
-    margin-bottom: 24px;
+    max-width: 460px;
+    margin-bottom: 18px;
 }
 
 .hero-headline {
     font-family: var(--font-serif);
-    font-size: clamp(36px, 5.8vw, 76px);
-    line-height: 1.08;
+    font-size: clamp(18px, 2.9vw, 38px);
+    line-height: 1.12;
     color: #FFFFFF;
     text-transform: uppercase;
     font-weight: 300;
@@ -1373,12 +1443,12 @@ body.intro-active {
 
 .btn-shepel-primary {
     display: inline-block;
-    padding: 18px 48px;
+    padding: 12px 28px;
     background-color: #FFFFFF;
     color: var(--shepel-dark);
-    font-size: 14px;
+    font-size: 9.5px;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     font-weight: 500;
     border: none;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
@@ -1419,17 +1489,17 @@ body.intro-active {
 
 .category-eyebrow {
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: 8.5px;
     font-weight: 600;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--shepel-gold);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .category-nav-title {
     font-family: var(--font-serif);
-    font-size: clamp(28px, 3.5vw, 42px);
+    font-size: clamp(14px, 1.8vw, 21px);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     margin: 0;
@@ -1439,12 +1509,12 @@ body.intro-active {
 
 @media (max-width: 768px) {
     .category-nav-bar {
-        padding: 32px 0 16px;
-        margin-bottom: 18px;
+        padding: 24px 0 14px;
+        margin-bottom: 16px;
     }
 
     .category-nav-title {
-        font-size: clamp(20px, 5.5vw, 28px);
+        font-size: clamp(11px, 2.8vw, 14px);
         line-height: 1.15;
     }
 
@@ -1670,14 +1740,14 @@ body.intro-active {
     }
 
     .furniture-card-title {
-        font-size: clamp(12.5px, 3.4vw, 15px);
+        font-size: clamp(8.5px, 2.2vw, 10.5px);
         letter-spacing: 0.04em;
         line-height: 1.2;
         padding-bottom: 1px;
     }
 
     .furniture-card-category {
-        font-size: 9.5px;
+        font-size: 7.5px;
         letter-spacing: 0.08em;
         opacity: 0.8;
     }
@@ -1699,12 +1769,12 @@ body.intro-active {
     }
 
     .furniture-card-title {
-        font-size: clamp(11.5px, 3.2vw, 13.5px);
+        font-size: clamp(7.5px, 2vw, 9.5px);
         letter-spacing: 0.03em;
     }
 
     .furniture-card-category {
-        font-size: 9px;
+        font-size: 7px;
         letter-spacing: 0.06em;
     }
 }
@@ -1772,7 +1842,7 @@ body.intro-active {
 
 .furniture-card-title {
     font-family: var(--font-serif);
-    font-size: clamp(19px, 1.6vw, 23px);
+    font-size: clamp(10.5px, 0.9vw, 12.5px);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     line-height: 1.15;
@@ -1833,7 +1903,7 @@ body.intro-active {
     display: flex;
     width: max-content;
     font-family: var(--font-serif);
-    font-size: clamp(70px, 12vw, 180px);
+    font-size: clamp(35px, 6vw, 90px);
     font-weight: 300;
     line-height: 1;
     text-transform: uppercase;
@@ -1907,54 +1977,54 @@ body.intro-active {
 
 @media (max-width: 992px) {
     .artisans-section {
-        padding: 48px 0;
+        padding: 40px 0;
     }
 
     .artisans-grid {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 20px;
     }
 
     .artisans-tag {
-        font-size: 11px;
-        margin-bottom: 10px;
+        font-size: 8px;
+        margin-bottom: 8px;
     }
 
     .artisans-title {
-        font-size: clamp(22px, 5.8vw, 30px);
-        margin-bottom: 14px;
+        font-size: clamp(11px, 2.9vw, 15px);
+        margin-bottom: 10px;
     }
 
     .artisans-body {
-        font-size: 13.5px;
+        font-size: 9.5px;
         line-height: 1.6;
-        margin-bottom: 22px;
+        margin-bottom: 16px;
     }
 }
 
 .artisans-tag {
-    font-size: 13px;
+    font-size: 8.5px;
     text-transform: uppercase;
     letter-spacing: 0.16em;
     color: var(--shepel-gold);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     display: block;
 }
 
 .artisans-title {
     font-family: var(--font-serif);
-    font-size: clamp(36px, 4.5vw, 64px);
-    line-height: 1.1;
+    font-size: clamp(18px, 2.3vw, 32px);
+    line-height: 1.15;
     text-transform: uppercase;
     font-weight: 300;
-    margin-bottom: 30px;
+    margin-bottom: 18px;
 }
 
 .artisans-body {
-    font-size: 16px;
+    font-size: 11px;
     line-height: 1.8;
     color: #B5B9C0;
-    margin-bottom: 36px;
+    margin-bottom: 22px;
 }
 
 .artisans-video-wrap {
@@ -1978,8 +2048,8 @@ body.intro-active {
 .btn-arrow {
     display: inline-flex;
     align-items: center;
-    gap: 16px;
-    font-size: 15px;
+    gap: 12px;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.14em;
     color: #FFFFFF;
@@ -1995,16 +2065,17 @@ body.intro-active {
 }
 
 /* ==========================================================================
-   7. ABOUT SECTION (Pure Minimalist Living Animation - Screen Fit)
+   7. ABOUT SECTION (Pure Minimalist Living Animation - Screen Fit & Seamless)
    ========================================================================== */
 
 .about-section {
     position: relative;
     width: 100%;
-    padding: 48px 0 16px;
-    background-color: var(--shepel-bg);
-    border-top: 1px solid var(--shepel-border);
-    border-bottom: 1px solid var(--shepel-border);
+    padding: 0;
+    margin: 0;
+    background-color: #EFECE6;
+    border-top: none;
+    border-bottom: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2013,9 +2084,9 @@ body.intro-active {
 
 .about-stage-wrapper {
     width: 100%;
-    max-width: 1360px;
-    margin: 0 auto;
-    padding: 0 32px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2024,16 +2095,15 @@ body.intro-active {
 .about-anim-stage {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
     aspect-ratio: 16 / 9;
-    background-color: #F5F3EF;
+    background-color: #EFECE6;
     overflow: hidden;
-    border-radius: 6px;
-    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(43, 47, 50, 0.08);
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    transform: none;
+    perspective: none;
 }
 
 .about-anim-viewport {
@@ -2052,49 +2122,51 @@ body.intro-active {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center top;
     display: block;
-    background-color: #F5F3EF;
+    background-color: #EFECE6;
 }
 
-/* Editorial Top Header in the upper wall area */
+/* Editorial Top Header in the upper wall area - completely transparent, no white bar */
 .about-stage-header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 24%;
+    height: auto;
+    padding: 24px 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
     z-index: 3;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(248, 246, 242, 0.82) 0%, rgba(248, 246, 242, 0.35) 65%, transparent 100%);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 .about-stage-title {
     font-family: var(--font-serif);
-    font-size: clamp(22px, 3.2vw, 36px);
+    font-size: clamp(14px, 2vw, 22px);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 400;
+    letter-spacing: 0.16em;
+    font-weight: 500;
     color: var(--shepel-dark);
     margin: 0;
     text-align: center;
     line-height: 1.1;
     flex: 0 0 auto;
     padding: 0 20px;
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9);
 }
 
 .about-stage-caption {
     font-family: var(--font-sans);
-    font-size: clamp(10.5px, 1.1vw, 12px);
+    font-size: clamp(9px, 0.9vw, 11px);
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9);
 }
 
 .about-caption-left {
@@ -2104,7 +2176,8 @@ body.intro-active {
 }
 
 .about-caption-right {
-    color: var(--shepel-muted);
+    color: var(--shepel-dark);
+    opacity: 0.8;
     text-align: right;
     flex: 1;
 }
@@ -2115,39 +2188,41 @@ body.intro-active {
 
 @media (max-width: 900px) {
     .about-stage-header {
-        padding: 0 20px;
+        padding: 16px 24px;
     }
 
     .about-stage-caption {
-        font-size: 10px;
+        font-size: 8.5px;
         letter-spacing: 0.12em;
     }
 }
 
 @media (max-width: 768px) {
     .about-section {
-        padding: 24px 0 12px;
+        padding: 0;
     }
 
     .about-stage-wrapper {
-        padding: 0 16px;
+        padding: 0;
     }
 
     .about-anim-stage {
-        border-radius: 4px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        border-radius: 0;
+        box-shadow: none;
     }
 
     .about-stage-header {
         flex-direction: column;
         justify-content: center;
         gap: 3px;
-        padding: 0 12px;
+        padding: 12px 14px;
+        background: transparent;
     }
 
     .about-stage-title {
-        font-size: clamp(18px, 5.2vw, 24px);
+        font-size: clamp(12px, 3.5vw, 16px);
         padding: 0;
+        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
     }
 
     .about-caption-left,
@@ -2158,34 +2233,34 @@ body.intro-active {
     .about-mobile-sub {
         display: block;
         font-family: var(--font-sans);
-        font-size: 9.5px;
+        font-size: 7.5px;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         color: var(--shepel-gold);
         font-weight: 600;
+        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
     }
 }
 
 @media (max-width: 480px) {
     .about-section {
-        padding: 16px 0 8px;
+        padding: 0;
     }
 
     .about-stage-wrapper {
-        padding: 0 10px;
+        padding: 0;
     }
 
     .about-anim-stage {
-        border-radius: 3px;
-        border-color: rgba(43, 47, 50, 0.06);
+        border-radius: 0;
     }
 
     .about-stage-title {
-        font-size: 18px;
+        font-size: 13px;
     }
 
     .about-mobile-sub {
-        font-size: 8.5px;
+        font-size: 7px;
         letter-spacing: 0.1em;
     }
 }
@@ -2209,7 +2284,7 @@ body.intro-active {
    ========================================================================== */
 
 .carousel-section {
-    padding: 56px 0 80px;
+    padding: 32px 0 64px;
     background-color: #FFFFFF;
     border-top: 1px solid var(--shepel-border);
     border-bottom: 1px solid var(--shepel-border);
@@ -2217,7 +2292,7 @@ body.intro-active {
 
 @media (max-width: 768px) {
     .carousel-section {
-        padding: 40px 0 60px;
+        padding: 24px 0 44px;
     }
 }
 
@@ -2225,14 +2300,14 @@ body.intro-active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
 }
 
 .carousel-title {
     font-family: var(--font-serif);
-    font-size: 32px;
+    font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     font-weight: 400;
 }
 
@@ -2347,7 +2422,7 @@ body.intro-active {
     }
 
     .carousel-title {
-        font-size: clamp(24px, 5.5vw, 36px);
+        font-size: clamp(13px, 3.5vw, 16px);
     }
 
     .carousel-nav-btn {
@@ -2400,17 +2475,17 @@ body.intro-active {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 16px;
+    padding: 5px 14px;
     border-radius: 32px;
     background: rgba(197, 154, 63, 0.12);
     border: 1px solid rgba(197, 154, 63, 0.4);
     color: var(--shepel-gold);
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: 8.5px;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
 }
 
 .launching-pulse-dot {
@@ -2438,19 +2513,19 @@ body.intro-active {
 
 .launching-soon-title {
     font-family: var(--font-serif);
-    font-size: clamp(28px, 3.2vw, 42px);
+    font-size: clamp(14px, 1.8vw, 21px);
     font-weight: 400;
     letter-spacing: 0.06em;
     color: #FFFFFF;
     text-transform: uppercase;
     line-height: 1.2;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .launching-soon-subtitle {
     font-family: var(--font-sans);
-    font-size: 15px;
-    line-height: 1.65;
+    font-size: 10px;
+    line-height: 1.6;
     color: rgba(255, 255, 255, 0.72);
     font-weight: 300;
     margin: 0;
@@ -2778,7 +2853,7 @@ body.intro-active {
    ========================================================================== */
 
 .showroom-section {
-    padding: 100px 0;
+    padding: 56px 0;
 }
 
 .showroom-grid {
@@ -2800,41 +2875,41 @@ body.intro-active {
     gap: 12px;
     background: #FFFFFF;
     border: 1px solid var(--shepel-border);
-    padding: 10px 18px;
+    padding: 8px 16px;
     border-radius: 30px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
 }
 
 .google-g-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 }
 
 .google-stars {
     color: #F4B400;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .google-rating-text {
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
     color: var(--shepel-dark);
 }
 
 .showroom-title {
     font-family: var(--font-serif);
-    font-size: clamp(32px, 3.5vw, 48px);
+    font-size: clamp(16px, 1.8vw, 24px);
     text-transform: uppercase;
     font-weight: 300;
     line-height: 1.15;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 .showroom-address {
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 11px;
+    line-height: 1.7;
     color: var(--shepel-muted);
-    margin-bottom: 30px;
+    margin-bottom: 22px;
 }
 
 .showroom-actions {

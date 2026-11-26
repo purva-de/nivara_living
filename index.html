@@ -79,6 +79,14 @@
 
                 <!-- Right Nav -->
                 <div class="header-right">
+                    <!-- Mobile Wishlist Button (Always visible on mobile devices) -->
+                    <button type="button" class="mobile-header-wishlist-btn" id="mobile-header-wishlist-btn" aria-label="View Saved Wishlist" title="View Wishlist">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        <span class="tool-badge-count mobile-wishlist-badge" id="mobile-wishlist-badge" style="display: none;">0</span>
+                    </button>
+
                     <nav class="header-nav desktop-only-nav">
                         <ul class="header-menu">
                             <li><a href="reviews.html" class="header-review-btn">★ Review Portal</a></li>
@@ -146,6 +154,14 @@
                             <span class="mobile-item-label">★ Client Review Portal</span>
                             <span class="mobile-item-arrow">→</span>
                         </a>
+                    </li>
+                    <li>
+                        <button type="button" class="mobile-nav-item mobile-wishlist-nav-item" id="mobile-nav-wishlist-btn" aria-label="View Saved Wishlist">
+                            <span class="mobile-item-num">♡</span>
+                            <span class="mobile-item-label">Curated Wishlist</span>
+                            <span class="mobile-nav-wishlist-pill" id="mobile-drawer-wishlist-count">0 items</span>
+                            <span class="mobile-item-arrow">→</span>
+                        </button>
                     </li>
                 </ul>
             </nav>

@@ -18,8 +18,32 @@
         injectAdvancedFilterBar();
         bindCardActions();
         bindKeyboardShortcuts();
+        bindMobileWishlistTriggers();
         updateWishlistBadge();
     });
+
+    function bindMobileWishlistTriggers() {
+        const mobileHeaderWishlist = document.getElementById('mobile-header-wishlist-btn');
+        if (mobileHeaderWishlist) {
+            mobileHeaderWishlist.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openWishlistDrawer();
+            });
+        }
+
+        const mobileNavWishlist = document.getElementById('mobile-nav-wishlist-btn');
+        if (mobileNavWishlist) {
+            mobileNavWishlist.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const drawer = document.getElementById('mobile-nav-drawer');
+                if (drawer) {
+                    drawer.classList.remove('open');
+                    drawer.setAttribute('aria-hidden', 'true');
+                }
+                openWishlistDrawer();
+            });
+        }
+    }
 
     async function initCatalog() {
         if (window.allFurniturePieces && window.allFurniturePieces.length) {
@@ -233,11 +257,27 @@
     }
 
     function updateWishlistBadge() {
-        const badge = document.getElementById('wishlist-badge');
-        if (!badge) return;
-        badge.innerText = wishlist.length;
-        badge.style.display = wishlist.length > 0 ? 'flex' : 'none';
+        const count = wishlist.length;
+        const desktopBadge = document.getElementById('wishlist-badge');
+        if (desktopBadge) {
+            desktopBadge.innerText = count;
+            desktopBadge.style.display = count > 0 ? 'flex' : 'none';
+        }
+
+        const mobileBadge = document.getElementById('mobile-wishlist-badge');
+        if (mobileBadge) {
+            mobileBadge.innerText = count;
+            mobileBadge.style.display = count > 0 ? 'flex' : 'none';
+        }
+
+        const drawerCount = document.getElementById('mobile-drawer-wishlist-count');
+        if (drawerCount) {
+            drawerCount.innerText = `${count} ${count === 1 ? 'item' : 'items'}`;
+        }
     }
+
+    window.openWishlistDrawer = openWishlistDrawer;
+    window.closeWishlistDrawer = closeWishlistDrawer;
 
     function renderWishlistItems() {
         const body = document.getElementById('wishlist-body');
