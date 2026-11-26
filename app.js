@@ -109,9 +109,9 @@ const sceneLightingState = {
 // Fixture descriptions for toggling
 const fixtureNames = {
     1: 'Floor Lamp',
-    2: 'Ambient Spotlight',
-    3: 'Wall Sconces',
-    4: 'Statement Pendant'
+    2: 'Downlight',
+    3: 'Floor Lamp',
+    4: 'Linear Pendant'
 };
 
 function initHeroSlider() {
