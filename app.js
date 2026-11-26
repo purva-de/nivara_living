@@ -28,29 +28,64 @@ function initHeaderScroll() {
     }, { passive: true });
 }
 
-// Mobile Menu Drawer & Hamburger Morph
+// Mobile Menu Drawer & Back Button Control
 function initMobileMenu() {
     const toggle = document.getElementById('mobile-menu-toggle');
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const closeBtn = document.getElementById('mobile-nav-close');
     const header = document.getElementById('masthead');
-    if (!toggle || !header) return;
+    if (!toggle || !drawer) return;
+
+    function openMobileMenu() {
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden', 'false');
+        toggle.setAttribute('aria-expanded', 'true');
+        if (header) header.classList.add('mobile-open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+        if (header) header.classList.remove('mobile-open');
+        document.body.style.overflow = '';
+    }
 
     toggle.addEventListener('click', (e) => {
         e.stopPropagation();
-        header.classList.toggle('mobile-open');
-        document.body.style.overflow = header.classList.contains('mobile-open') ? 'hidden' : '';
+        if (drawer.classList.contains('open')) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
     });
 
-    header.querySelectorAll('.header-nav a').forEach(link => {
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeMobileMenu();
+        });
+    }
+
+    // Close when tapping any link inside mobile drawer
+    drawer.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-            header.classList.remove('mobile-open');
-            document.body.style.overflow = '';
+            closeMobileMenu();
         });
     });
 
+    // Close when tapping outside the inner drawer content
+    drawer.addEventListener('click', (e) => {
+        if (e.target === drawer) {
+            closeMobileMenu();
+        }
+    });
+
+    // Close on Escape key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && header.classList.contains('mobile-open')) {
-            header.classList.remove('mobile-open');
-            document.body.style.overflow = '';
+        if (e.key === 'Escape' && drawer.classList.contains('open')) {
+            closeMobileMenu();
         }
     });
 }
