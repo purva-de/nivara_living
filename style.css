@@ -1458,11 +1458,11 @@ button {
     position: relative;
     width: 100%;
     max-width: 1200px;
-    aspect-ratio: 640 / 500;
-    background-color: #FFFFFF;
+    aspect-ratio: 16 / 9;
+    background-color: #F5F3EF;
     overflow: hidden;
     border-radius: 6px;
-    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.06);
     border: 1px solid rgba(43, 47, 50, 0.08);
     transform-style: preserve-3d;
     perspective: 1000px;
@@ -1483,26 +1483,29 @@ button {
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% * (640 / 500));
+    height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
     display: block;
-    background-color: #FFFFFF;
+    background-color: #F5F3EF;
 }
 
-/* Editorial Top Header in the upper white band (y: 0 to 140px = top 28%) */
+/* Editorial Top Header in the upper wall area */
 .about-stage-header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 28%;
+    height: 24%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 36px;
+    padding: 0 40px;
     z-index: 3;
     pointer-events: none;
+    background: linear-gradient(180deg, rgba(248, 246, 242, 0.82) 0%, rgba(248, 246, 242, 0.35) 65%, transparent 100%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 
 .about-stage-title {
@@ -1615,9 +1618,9 @@ button {
         display: none !important;
     }
     .about-anim-viewport {
-        background-image: url('assets/furniture-animation-poster.png') !important;
+        background-image: url('assets/about-atelier-poster.jpg') !important;
         background-size: cover !important;
-        background-position: center top !important;
+        background-position: center !important;
         background-repeat: no-repeat !important;
     }
 }
