@@ -108,10 +108,10 @@ const sceneLightingState = {
 
 // Fixture descriptions for toggling
 const fixtureNames = {
-    1: 'Floor Lamp',
-    2: 'Downlight',
+    1: 'Lamp',
+    2: 'Spotlight',
     3: 'Floor Lamp',
-    4: 'Linear Pendant'
+    4: 'Pendant'
 };
 
 function initHeroSlider() {
@@ -269,6 +269,19 @@ function initHeroSlider() {
                 isLockedByClick = !sceneLightingState[sceneNum];
                 setSceneLighting(sceneNum, isLockedByClick);
             });
+
+            // Desktop Hover interaction on toggle capsule
+            toggleBtn.addEventListener('mouseenter', () => {
+                if (!isLockedByClick) {
+                    setSceneLighting(sceneNum, true);
+                }
+            });
+
+            toggleBtn.addEventListener('mouseleave', () => {
+                if (!isLockedByClick) {
+                    setSceneLighting(sceneNum, false);
+                }
+            });
         }
 
         // Click / Tap on action button
@@ -278,6 +291,19 @@ function initHeroSlider() {
                 e.stopPropagation();
                 isLockedByClick = !sceneLightingState[sceneNum];
                 setSceneLighting(sceneNum, isLockedByClick);
+            });
+
+            // Desktop Hover interaction on action button
+            actionBtn.addEventListener('mouseenter', () => {
+                if (!isLockedByClick) {
+                    setSceneLighting(sceneNum, true);
+                }
+            });
+
+            actionBtn.addEventListener('mouseleave', () => {
+                if (!isLockedByClick) {
+                    setSceneLighting(sceneNum, false);
+                }
             });
         }
 

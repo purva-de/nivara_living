@@ -1007,7 +1007,7 @@ body.intro-active {
     opacity: 0.15;
 }
 
-/* Global Warm Room Wash Layer (Soft-Light only: Preserves deep contrast & rich blacks) */
+/* Directional Warm Room Wash Layer (Soft-Light only: Preserves deep contrast & rich blacks) */
 .light-room-wash {
     position: absolute;
     inset: 0;
@@ -1022,160 +1022,23 @@ body.intro-active {
 }
 
 .light-room-sofa {
-    background: radial-gradient(circle 520px at 75% 58%, rgba(245, 185, 75, 0.28) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
+    background: radial-gradient(circle 580px at 78% 52%, rgba(245, 185, 75, 0.28) 0%, rgba(210, 140, 40, 0.08) 55%, transparent 75%);
 }
 
 .light-room-recliner {
-    background: radial-gradient(circle 480px at 70% 46%, rgba(245, 190, 85, 0.25) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
+    background: radial-gradient(circle 520px at 64% 48%, rgba(245, 190, 85, 0.26) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
 }
 
 .light-room-chairs {
-    background: radial-gradient(ellipse 550px 420px at 66% 50%, rgba(245, 190, 85, 0.25) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
+    background: radial-gradient(circle 540px at 58% 48%, rgba(245, 190, 85, 0.25) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
 }
 
 .light-room-dining {
-    background: radial-gradient(ellipse 520px 380px at 66% 48%, rgba(245, 190, 85, 0.24) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
-}
-
-/* Directional Warm Light Beams (Soft-Light: Gentle illumination without milky screen haze) */
-.light-conical-beam {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: soft-light;
-}
-
-.hero-scene.is-lit .light-conical-beam {
-    opacity: 1;
-}
-
-/* Scene 1: Downward Floor Lamp Warm Cast */
-.light-beam-sofa {
-    background: radial-gradient(ellipse 40% 46% at 76% 52%, rgba(245, 195, 95, 0.22) 0%, rgba(215, 150, 45, 0.06) 45%, transparent 70%);
-}
-
-/* Scene 1: Soft Ceiling Upward Reflection */
-.light-ceiling-glow {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: soft-light;
-}
-
-.hero-scene.is-lit .light-ceiling-glow {
-    opacity: 1;
-}
-
-.light-ceiling-sofa {
-    background: radial-gradient(ellipse 32% 18% at 76% 8%, rgba(245, 200, 110, 0.18) 0%, transparent 65%);
-}
-
-/* Scene 2: Spotlight Conical Beam & Cove Floor Ambient */
-.light-beam-recliner {
-    background: conic-gradient(from 166deg at 70% 3%, transparent 0deg, rgba(245, 200, 105, 0.15) 14deg, rgba(255, 215, 125, 0.24) 28deg, rgba(245, 200, 105, 0.15) 42deg, transparent 56deg);
-    filter: blur(10px);
-}
-
-.light-floor-cove {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 140px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: soft-light;
-}
-
-.hero-scene.is-lit .light-floor-cove {
-    opacity: 1;
-}
-
-.light-cove-recliner {
-    background: linear-gradient(0deg, rgba(235, 175, 65, 0.16) 0%, rgba(235, 175, 65, 0.04) 35%, transparent 75%);
-}
-
-/* Scene 3: Sconce Dual Fan Grazing (Up & Down) */
-.light-sconce-fan-up,
-.light-sconce-fan-down {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: soft-light;
-}
-
-.hero-scene.is-lit .light-sconce-fan-up,
-.hero-scene.is-lit .light-sconce-fan-down {
-    opacity: 1;
-}
-
-.light-fan-up-left {
-    right: 48%;
-    top: 0;
-    width: 160px;
-    height: 180px;
-    background: conic-gradient(from 340deg at 50% 100%, transparent 0deg, rgba(245, 195, 95, 0.18) 18deg, rgba(255, 215, 125, 0.26) 36deg, rgba(245, 195, 95, 0.18) 54deg, transparent 72deg);
-    filter: blur(8px);
-}
-
-.light-fan-down-left {
-    right: 48%;
-    top: 240px;
-    width: 180px;
-    height: 280px;
-    background: conic-gradient(from 160deg at 50% 0%, transparent 0deg, rgba(245, 195, 95, 0.16) 20deg, rgba(255, 215, 125, 0.24) 40deg, rgba(245, 195, 95, 0.16) 60deg, transparent 78deg);
-    filter: blur(10px);
-}
-
-.light-fan-up-right {
-    right: 16%;
-    top: 0;
-    width: 160px;
-    height: 180px;
-    background: conic-gradient(from 340deg at 50% 100%, transparent 0deg, rgba(245, 195, 95, 0.18) 18deg, rgba(255, 215, 125, 0.26) 36deg, rgba(245, 195, 95, 0.18) 54deg, transparent 72deg);
-    filter: blur(8px);
-}
-
-.light-fan-down-right {
-    right: 16%;
-    top: 240px;
-    width: 180px;
-    height: 280px;
-    background: conic-gradient(from 160deg at 50% 0%, transparent 0deg, rgba(245, 195, 95, 0.16) 20deg, rgba(255, 215, 125, 0.24) 40deg, rgba(245, 195, 95, 0.16) 60deg, transparent 78deg);
-    filter: blur(10px);
-}
-
-/* Scene 4: Statement Suspension Downward Taper & Marble Luster */
-.light-beam-dining {
-    background: conic-gradient(from 158deg at 68% 10%, transparent 0deg, rgba(245, 200, 105, 0.14) 16deg, rgba(255, 220, 130, 0.22) 34deg, rgba(245, 200, 105, 0.14) 52deg, transparent 70deg);
-    filter: blur(10px);
-}
-
-.light-marble-pool {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: soft-light;
-}
-
-.hero-scene.is-lit .light-marble-pool {
-    opacity: 1;
-}
-
-.light-pool-dining {
-    background: radial-gradient(ellipse 42% 22% at 68% 58%, rgba(255, 220, 135, 0.2) 0%, rgba(230, 170, 65, 0.06) 42%, transparent 70%);
+    background: radial-gradient(ellipse 600px 420px at 52% 46%, rgba(245, 190, 85, 0.26) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
 }
 
 /* --------------------------------------------------------------------------
-   Interactive Luminaire Fixtures (Photorealistic Physical & Original In-Photo Fixtures)
+   Interactive Luminaire Fixtures
    -------------------------------------------------------------------------- */
 
 .hero-luminaire {
@@ -1183,7 +1046,7 @@ body.intro-active {
     pointer-events: auto;
     cursor: pointer;
     z-index: 4;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     outline: none;
 }
 
@@ -1202,10 +1065,10 @@ body.intro-active {
    ========================================================================== */
 
 .hero-luminaire-floorlamp {
-    right: 16%;
+    right: 15%;
     bottom: 7%;
-    width: 130px;
-    height: 440px;
+    width: 120px;
+    height: 430px;
 }
 
 .real-floorlamp-rig {
@@ -1228,14 +1091,14 @@ body.intro-active {
     border: 0.5px solid rgba(255, 235, 175, 0.35);
 }
 
-/* Slender brushed brass column with realistic metallic cylindrical specular reflection */
+/* Slender brushed brass column with metallic cylindrical specular reflection */
 .real-floorlamp-stem {
     position: absolute;
     bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
-    height: 350px;
+    height: 345px;
     background: linear-gradient(90deg, #3A2B10 0%, #8A6822 25%, #E5C372 45%, #FFF0C4 55%, #B3862B 75%, #423010 100%);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
 }
@@ -1283,242 +1146,6 @@ body.intro-active {
 
 .hero-scene-1.is-lit .real-floorlamp-shade {
     box-shadow: inset 0 0 16px rgba(255, 220, 130, 0.8), 0 0 20px rgba(245, 195, 95, 0.6);
-}
-
-.shade-radiant-bloom {
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 225, 135, 0.55) 0%, rgba(230, 165, 55, 0.2) 36%, transparent 70%);
-    opacity: 0;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    filter: blur(8px);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-scene-1.is-lit .shade-radiant-bloom {
-    opacity: 1;
-}
-
-/* ==========================================================================
-   SCENE 2: Architectural Flush Ceiling Downlight
-   ========================================================================== */
-
-.hero-luminaire-downlight {
-    right: 28%;
-    top: 0;
-    width: 80px;
-    height: 55px;
-}
-
-.downlight-aperture {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 44px;
-    height: 16px;
-    border-radius: 0 0 22px 22px;
-    background: #14171A;
-    border: 1px solid rgba(212, 171, 76, 0.4);
-    border-top: none;
-    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.downlight-emitter {
-    width: 12px;
-    height: 6px;
-    border-radius: 50%;
-    background: #423620;
-    transition: background 0.5s ease, box-shadow 0.5s ease;
-}
-
-.hero-scene-2.is-lit .downlight-emitter {
-    background: #FFF8E2;
-    box-shadow: 0 0 8px #FFF3D6, 0 0 16px #E5C372;
-}
-
-.downlight-bloom {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 225, 135, 0.6) 0%, rgba(230, 165, 55, 0.2) 35%, transparent 70%);
-    opacity: 0;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    filter: blur(8px);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-scene-2.is-lit .downlight-bloom {
-    opacity: 1;
-}
-
-/* ==========================================================================
-   SCENE 3: Real Architectural Floor Lamp (Integrated with Roma Chair Photograph)
-   ========================================================================== */
-
-.hero-scene-3 .hero-scene-backdrop {
-    background-position: center top !important;
-}
-
-.hero-luminaire-room-lamp {
-    left: 49.5%;
-    top: 29.5%;
-    width: 90px;
-    height: 100px;
-    transform: translate(-50%, -50%);
-}
-
-/* Luminous overlay anchored directly over the real drum lampshade in the photo */
-.photolamp-shade-illumination {
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 72px;
-    height: 52px;
-    border-radius: 4px;
-    background: radial-gradient(ellipse at 50% 50%, rgba(255, 245, 205, 0.95) 0%, rgba(245, 205, 115, 0.7) 48%, rgba(215, 155, 45, 0.25) 85%, transparent 100%);
-    mix-blend-mode: soft-light;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-scene-3.is-lit .photolamp-shade-illumination {
-    opacity: 1;
-}
-
-.photolamp-radiant-bloom {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 225, 135, 0.55) 0%, rgba(230, 165, 55, 0.2) 36%, transparent 70%);
-    opacity: 0;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    filter: blur(8px);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-scene-3.is-lit .photolamp-radiant-bloom {
-    opacity: 1;
-}
-
-/* ==========================================================================
-   SCENE 4: Real Architectural Linear Suspension Pendant (Integrated with Monolith Photo)
-   ========================================================================== */
-
-.hero-scene-4 .hero-scene-backdrop {
-    background-position: center top !important;
-}
-
-.hero-luminaire-linear-pendant {
-    left: 50.5%;
-    top: 25.5%;
-    transform: translate(-50%, -50%);
-    width: clamp(230px, 26vw, 320px);
-    height: 48px;
-}
-
-/* Luminous LED diffuser along the underside of the real linear pendant bar */
-.linear-pendant-diffuser {
-    position: absolute;
-    top: 22px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 96%;
-    height: 4px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, transparent 0%, rgba(255, 230, 160, 0.95) 10%, rgba(255, 245, 215, 1) 50%, rgba(255, 230, 160, 0.95) 90%, transparent 100%);
-    box-shadow: 0 3px 14px rgba(255, 215, 120, 0.9), 0 1px 4px #FFF;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-scene-4.is-lit .linear-pendant-diffuser {
-    opacity: 1;
-}
-
-/* Warm downward architectural radiance onto table */
-.linear-pendant-radiance {
-    position: absolute;
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 104%;
-    height: 80px;
-    background: radial-gradient(ellipse 65% 100% at 50% 0%, rgba(255, 225, 135, 0.45) 0%, rgba(230, 165, 55, 0.15) 50%, transparent 80%);
-    mix-blend-mode: soft-light;
-    opacity: 0;
-    pointer-events: none;
-    filter: blur(6px);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-scene-4.is-lit .linear-pendant-radiance {
-    opacity: 1;
-}
-
-/* Interactive Discovery Touch Beacon */
-.luminaire-interactive-beacon {
-    position: absolute;
-    top: 36%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 32px;
-    height: 32px;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.85;
-    transition: opacity 0.4s ease;
-}
-
-.hero-scene.is-lit .luminaire-interactive-beacon {
-    opacity: 0;
-}
-
-.beacon-pulse-ring {
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: 1.5px solid var(--shepel-gold);
-    animation: beaconPulse 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
-}
-
-.beacon-core-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--shepel-gold);
-    box-shadow: 0 0 8px rgba(197, 154, 63, 0.8);
-}
-
-@keyframes beaconPulse {
-    0% { transform: scale(0.6); opacity: 0.9; }
-    70% { transform: scale(1.6); opacity: 0; }
-    100% { transform: scale(1.6); opacity: 0; }
 }
 
 /* --------------------------------------------------------------------------
@@ -2146,52 +1773,6 @@ body.intro-active {
 
     .real-floorlamp-finial {
         top: 36px;
-    }
-
-    .shade-radiant-bloom {
-        width: 120px;
-        height: 120px;
-        top: 20px;
-    }
-
-    .hero-luminaire-downlight {
-        right: 14%;
-        top: 0;
-        width: 60px;
-        height: 45px;
-    }
-
-    .hero-luminaire-room-lamp {
-        left: 49.5%;
-        top: 29.5%;
-        width: 70px;
-        height: 80px;
-    }
-
-    .photolamp-shade-illumination {
-        width: 55px;
-        height: 40px;
-    }
-
-    .photolamp-radiant-bloom {
-        width: 110px;
-        height: 110px;
-    }
-
-    .hero-luminaire-linear-pendant {
-        left: 50.5%;
-        top: 25.5%;
-        width: clamp(180px, 62vw, 260px);
-        height: 38px;
-    }
-
-    .linear-pendant-diffuser {
-        top: 17px;
-    }
-
-    .linear-pendant-radiance {
-        top: 18px;
-        height: 55px;
     }
 }
 
