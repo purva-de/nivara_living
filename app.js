@@ -255,7 +255,7 @@ function initHeroSlider() {
     // Wire up interactive lighting in all scenes
     scenes.forEach((sceneEl, idx) => {
         const sceneNum = idx + 1;
-        const fixture = sceneEl.querySelector('.hero-luminaire');
+        const fixture = sceneEl.querySelector('.hero-svg-luminaire, .hero-luminaire');
         const toggleBtn = sceneEl.querySelector('.hero-lighting-toggle');
         const actionBtn = sceneEl.querySelector('.btn-hero-light-action');
 

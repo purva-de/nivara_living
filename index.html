@@ -181,24 +181,50 @@
         
         <!-- SCENE 1: SOFA + FLOOR LAMP -->
         <article class="hero-scene hero-scene-1 active" id="hero-scene-1" data-scene="1" aria-label="Scene 1: Living Atelier with Sofa and Floor Lamp">
-            <div class="hero-scene-backdrop" style="background-image: url('catalog_images/antalia_sofa.jpg');" role="img" aria-label="Antalia Luxury Sofa in living setting"></div>
-            
-            <!-- Lighting Simulation Rig -->
-            <div class="hero-lighting-rig">
-                <div class="light-ambient-dusk"></div>
-                <div class="light-room-wash light-room-sofa"></div>
-
-                <!-- Photorealistic Luxury Architectural Floor Lamp -->
-                <div class="hero-luminaire hero-luminaire-floorlamp" id="fixture-scene-1" role="button" tabindex="0" aria-label="Floor lamp. Hover or tap to toggle warm illumination." title="Tap lamp to switch light ON/OFF">
-                    <div class="real-floorlamp-rig" aria-hidden="true">
-                        <div class="real-floorlamp-base"></div>
-                        <div class="real-floorlamp-stem"></div>
-                        <div class="real-floorlamp-finial"></div>
-                        <div class="real-floorlamp-shade">
-                            <div class="shade-inner-warmth"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="hero-scene-backdrop">
+                <svg class="hero-scene-stage" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <defs>
+                        <radialGradient id="s1-shade-warmth" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#FFFDF5" stop-opacity="0.95"/>
+                            <stop offset="45%" stop-color="#FFE08A" stop-opacity="0.85"/>
+                            <stop offset="80%" stop-color="#EAA832" stop-opacity="0.5"/>
+                            <stop offset="100%" stop-color="#9C6208" stop-opacity="0.2"/>
+                        </radialGradient>
+                        <radialGradient id="s1-sofa-glow" cx="82%" cy="48%" r="68%">
+                            <stop offset="0%" stop-color="#FFE294" stop-opacity="0.45"/>
+                            <stop offset="38%" stop-color="#F5B338" stop-opacity="0.18"/>
+                            <stop offset="72%" stop-color="#D48218" stop-opacity="0.05"/>
+                            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+                        </radialGradient>
+                        <linearGradient id="s1-brass-base" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#423010"/>
+                            <stop offset="35%" stop-color="#B88E36"/>
+                            <stop offset="50%" stop-color="#E8CA7C"/>
+                            <stop offset="75%" stop-color="#B88E36"/>
+                            <stop offset="100%" stop-color="#1F1707"/>
+                        </linearGradient>
+                        <linearGradient id="s1-brass-stem" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#543D15"/>
+                            <stop offset="45%" stop-color="#E5C372"/>
+                            <stop offset="55%" stop-color="#FFF0C4"/>
+                            <stop offset="80%" stop-color="#B3862B"/>
+                            <stop offset="100%" stop-color="#423010"/>
+                        </linearGradient>
+                    </defs>
+                    <image class="hero-stage-photo" href="catalog_images/antalia_sofa.jpg" width="1024" height="1024" />
+                    <!-- Standing Floor Lamp Fixture -->
+                    <g class="hero-svg-luminaire" id="fixture-scene-1" role="button" tabindex="0" aria-label="Floor lamp. Hover or tap to toggle warm illumination." title="Tap lamp to switch light ON/OFF">
+                        <ellipse cx="850" cy="880" rx="45" ry="8" fill="url(#s1-brass-base)" />
+                        <line x1="850" y1="460" x2="850" y2="880" stroke="url(#s1-brass-stem)" stroke-width="4.5" />
+                        <rect x="844" y="380" width="12" height="10" rx="2" fill="#E2BD68" />
+                        <rect x="805" y="390" width="90" height="70" rx="4" fill="#EDE6DC" stroke="#C59A3F" stroke-width="1.5" />
+                    </g>
+                    <!-- Illumination Layer -->
+                    <g class="hero-stage-lights" aria-hidden="true">
+                        <polygon points="850,460 320,880 960,880" fill="url(#s1-sofa-glow)" style="mix-blend-mode: soft-light;" />
+                        <rect x="805" y="390" width="90" height="70" rx="4" fill="url(#s1-shade-warmth)" />
+                    </g>
+                </svg>
             </div>
 
             <!-- Scene Editorial Content -->
@@ -247,12 +273,34 @@
 
         <!-- SCENE 2: RECLINER + AMBIENT LIGHTING -->
         <article class="hero-scene hero-scene-2" id="hero-scene-2" data-scene="2" aria-label="Scene 2: Lounge Ergonomics with Recliner and Ambient Lighting">
-            <div class="hero-scene-backdrop" style="background-image: url('catalog_images/avian_recliner.jpg');" role="img" aria-label="Avian 2R Motorised Recliner in private lounge setting"></div>
-            
-            <!-- Lighting Simulation Rig -->
-            <div class="hero-lighting-rig">
-                <div class="light-ambient-dusk"></div>
-                <div class="light-room-wash light-room-recliner"></div>
+            <div class="hero-scene-backdrop">
+                <svg class="hero-scene-stage" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <defs>
+                        <radialGradient id="s2-spotlight-beam" cx="50%" cy="0%" r="100%">
+                            <stop offset="0%" stop-color="#FFE8A0" stop-opacity="0.55"/>
+                            <stop offset="35%" stop-color="#F5B842" stop-opacity="0.22"/>
+                            <stop offset="70%" stop-color="#D4881E" stop-opacity="0.06"/>
+                            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+                        </radialGradient>
+                        <radialGradient id="s2-floor-glow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#FFD478" stop-opacity="0.30"/>
+                            <stop offset="50%" stop-color="#F5A82E" stop-opacity="0.10"/>
+                            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <image class="hero-stage-photo" href="catalog_images/avian_recliner.jpg" width="1024" height="1024" />
+                    <!-- Ceiling Downlight Fixture -->
+                    <g class="hero-svg-luminaire" id="fixture-scene-2" role="button" tabindex="0" aria-label="Ceiling downlight. Hover or tap to toggle ambient lighting." title="Tap downlight to switch ambient glow ON/OFF">
+                        <rect x="500" y="44" width="40" height="12" rx="6" fill="#1C1E22" stroke="rgba(212,171,76,0.6)" stroke-width="1.5" />
+                        <ellipse cx="520" cy="50" rx="9" ry="4" class="s2-emitter-idle" fill="#3D3220" />
+                    </g>
+                    <!-- Illumination Layer -->
+                    <g class="hero-stage-lights" aria-hidden="true">
+                        <polygon points="505,53 535,53 840,860 200,860" fill="url(#s2-spotlight-beam)" style="mix-blend-mode: soft-light;" />
+                        <ellipse cx="520" cy="850" rx="340" ry="80" fill="url(#s2-floor-glow)" style="mix-blend-mode: soft-light;" />
+                        <ellipse cx="520" cy="50" rx="9" ry="4" fill="#FFF9EA" />
+                    </g>
+                </svg>
             </div>
 
             <!-- Scene Editorial Content -->
@@ -301,12 +349,32 @@
 
         <!-- SCENE 3: ACCENT CHAIRS + ARCHITECTURAL LIGHTING -->
         <article class="hero-scene hero-scene-3" id="hero-scene-3" data-scene="3" aria-label="Scene 3: Couture Seating with Accent Chairs and Wall Sconces">
-            <div class="hero-scene-backdrop" style="background-image: url('catalog_images/roma_designer_chair.jpg');" role="img" aria-label="Roma Designer Wing Chair with architectural lighting"></div>
-            
-            <!-- Lighting Simulation Rig -->
-            <div class="hero-lighting-rig">
-                <div class="light-ambient-dusk"></div>
-                <div class="light-room-wash light-room-chairs"></div>
+            <div class="hero-scene-backdrop">
+                <svg class="hero-scene-stage" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <defs>
+                        <radialGradient id="s3-shade-warmth" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#FFFDF5" stop-opacity="0.95"/>
+                            <stop offset="45%" stop-color="#FFE08A" stop-opacity="0.85"/>
+                            <stop offset="80%" stop-color="#EAA832" stop-opacity="0.5"/>
+                            <stop offset="100%" stop-color="#9C6208" stop-opacity="0.2"/>
+                        </radialGradient>
+                        <radialGradient id="s3-room-wash" cx="20%" cy="40%" r="65%">
+                            <stop offset="0%" stop-color="#FFE294" stop-opacity="0.48"/>
+                            <stop offset="35%" stop-color="#F5B338" stop-opacity="0.20"/>
+                            <stop offset="65%" stop-color="#D48218" stop-opacity="0.06"/>
+                            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <image class="hero-stage-photo" href="catalog_images/roma_designer_chair.jpg" width="1024" height="1024" />
+                    <!-- Interactive Hotspot on the Real Table Lamp -->
+                    <rect class="hero-svg-luminaire" id="fixture-scene-3" x="110" y="335" width="85" height="190" fill="transparent" role="button" tabindex="0" aria-label="Atelier table lamp. Hover or tap to toggle warm illumination." title="Tap lamp to switch lighting ON/OFF" />
+                    <!-- Illumination Layer (Locked directly over the photo's lamp and room) -->
+                    <g class="hero-stage-lights" aria-hidden="true">
+                        <circle cx="200" cy="420" r="500" fill="url(#s3-room-wash)" style="mix-blend-mode: soft-light;" />
+                        <polygon points="120,420 185,420 250,560 60,560" fill="url(#s3-room-wash)" style="mix-blend-mode: soft-light;" />
+                        <rect x="122" y="346" width="62" height="73" rx="3" fill="url(#s3-shade-warmth)" style="mix-blend-mode: screen;" />
+                    </g>
+                </svg>
             </div>
 
             <!-- Scene Editorial Content -->
@@ -355,12 +423,34 @@
 
         <!-- SCENE 4: STATEMENT DINING MONOLITH + STATEMENT LIGHTING -->
         <article class="hero-scene hero-scene-4" id="hero-scene-4" data-scene="4" aria-label="Scene 4: Atelier Dining Monolith with Statement Pendant Lighting">
-            <div class="hero-scene-backdrop" style="background-image: url('catalog_images/dining_monolith.jpg');" role="img" aria-label="Calacatta Marble Dining Table in architectural atelier"></div>
-            
-            <!-- Lighting Simulation Rig -->
-            <div class="hero-lighting-rig">
-                <div class="light-ambient-dusk"></div>
-                <div class="light-room-wash light-room-dining"></div>
+            <div class="hero-scene-backdrop">
+                <svg class="hero-scene-stage" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="s4-led-core" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#FFD478" stop-opacity="0.85"/>
+                            <stop offset="15%" stop-color="#FFF8E8" stop-opacity="1"/>
+                            <stop offset="85%" stop-color="#FFF8E8" stop-opacity="1"/>
+                            <stop offset="100%" stop-color="#FFD478" stop-opacity="0.85"/>
+                        </linearGradient>
+                        <radialGradient id="s4-table-fan" cx="50%" cy="0%" r="90%">
+                            <stop offset="0%" stop-color="#FFDE8A" stop-opacity="0.45"/>
+                            <stop offset="40%" stop-color="#F5B842" stop-opacity="0.20"/>
+                            <stop offset="75%" stop-color="#D4881E" stop-opacity="0.06"/>
+                            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <image class="hero-stage-photo" href="catalog_images/dining_monolith.jpg" width="1024" height="1024" />
+                    <!-- Interactive Hotspot on the Real Pendant -->
+                    <rect class="hero-svg-luminaire" id="fixture-scene-4" x="350" y="235" width="375" height="75" fill="transparent" role="button" tabindex="0" aria-label="Architectural linear suspension pendant. Hover or tap to toggle atelier luminaire." title="Tap pendant to switch statement luminaire ON/OFF" />
+                    <!-- Illumination Layer (Locked directly on the photo's linear pendant & dining table) -->
+                    <g class="hero-stage-lights" aria-hidden="true">
+                        <polygon points="360,250 710,302 850,750 200,750" fill="url(#s4-table-fan)" style="mix-blend-mode: soft-light;" />
+                        <ellipse cx="530" cy="630" rx="320" ry="70" fill="url(#s4-table-fan)" style="mix-blend-mode: soft-light;" />
+                        <!-- LED line on pendant -->
+                        <line x1="365" y1="250" x2="705" y2="302" stroke="#FFEEC2" stroke-width="4.5" stroke-linecap="round" />
+                        <line x1="365" y1="250" x2="705" y2="302" stroke="url(#s4-led-core)" stroke-width="3" stroke-linecap="round" />
+                    </g>
+                </svg>
             </div>
 
             <!-- Scene Editorial Content -->

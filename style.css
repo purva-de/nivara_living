@@ -961,191 +961,61 @@ body.intro-active {
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+.hero-scene-stage {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.hero-stage-photo {
     transform: scale(1.045);
     filter: brightness(0.68) contrast(1.12) saturate(0.92);
     transition: transform 7s cubic-bezier(0.25, 1, 0.5, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center center;
     will-change: transform, filter;
 }
 
-.hero-scene.active .hero-scene-backdrop {
+.hero-scene.active .hero-stage-photo {
     transform: scale(1.0);
 }
 
 /* When illuminated: Clean, crisp, realistic photographic brightening with ZERO whitecasting */
-.hero-scene.is-lit .hero-scene-backdrop {
-    filter: brightness(1.0) contrast(1.06) saturate(1.06);
+.hero-scene.is-lit .hero-stage-photo {
+    filter: brightness(1.02) contrast(1.06) saturate(1.08);
 }
 
-/* --------------------------------------------------------------------------
-   Lighting Simulation Rig (Layered Ambient, Directional & Specular Glow)
-   -------------------------------------------------------------------------- */
-
-.hero-lighting-rig {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 2;
-}
-
-/* Default Ambient Dusk Atmosphere */
-.light-ambient-dusk {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 90% 75% at 50% 50%, rgba(10, 13, 16, 0.12) 0%, rgba(10, 13, 16, 0.55) 100%),
-                linear-gradient(180deg, rgba(10, 13, 16, 0.4) 0%, transparent 35%, transparent 65%, rgba(10, 13, 16, 0.72) 100%);
-    pointer-events: none;
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* When illuminated, dusk overlay seamlessly softens to reveal interior lighting */
-.hero-scene.is-lit .light-ambient-dusk {
-    opacity: 0.15;
-}
-
-/* Directional Warm Room Wash Layer (Soft-Light only: Preserves deep contrast & rich blacks) */
-.light-room-wash {
-    position: absolute;
-    inset: 0;
+/* Lighting simulation layer in exact image coordinate space */
+.hero-stage-lights {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: soft-light;
 }
 
-.hero-scene.is-lit .light-room-wash {
+.hero-scene.is-lit .hero-stage-lights {
     opacity: 1;
 }
 
-.light-room-sofa {
-    background: radial-gradient(circle 580px at 78% 52%, rgba(245, 185, 75, 0.28) 0%, rgba(210, 140, 40, 0.08) 55%, transparent 75%);
-}
-
-.light-room-recliner {
-    background: radial-gradient(circle 520px at 64% 48%, rgba(245, 190, 85, 0.26) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
-}
-
-.light-room-chairs {
-    background: radial-gradient(circle 540px at 58% 48%, rgba(245, 190, 85, 0.25) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
-}
-
-.light-room-dining {
-    background: radial-gradient(ellipse 600px 420px at 52% 46%, rgba(245, 190, 85, 0.26) 0%, rgba(210, 140, 40, 0.08) 50%, transparent 75%);
-}
-
-/* --------------------------------------------------------------------------
-   Interactive Luminaire Fixtures
-   -------------------------------------------------------------------------- */
-
-.hero-luminaire {
-    position: absolute;
-    pointer-events: auto;
+/* Interactive SVG Luminaire Hotspots and Fixtures */
+.hero-svg-luminaire {
     cursor: pointer;
-    z-index: 4;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: auto;
     outline: none;
+    transition: filter 0.35s ease;
 }
 
-.hero-luminaire:hover {
-    transform: scale(1.02);
+.hero-svg-luminaire:hover {
+    filter: drop-shadow(0 0 12px rgba(245, 195, 95, 0.65));
 }
 
-.hero-luminaire:focus-visible {
+.hero-svg-luminaire:focus-visible {
     outline: 2px solid var(--shepel-gold);
     outline-offset: 4px;
-    border-radius: 8px;
-}
-
-/* ==========================================================================
-   SCENE 1: Photorealistic Luxury Architectural Floor Lamp
-   ========================================================================== */
-
-.hero-luminaire-floorlamp {
-    right: 15%;
-    bottom: 7%;
-    width: 120px;
-    height: 430px;
-}
-
-.real-floorlamp-rig {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-/* Heavy solid lathe-turned brass base with realistic contact shadow on the floor */
-.real-floorlamp-base {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90px;
-    height: 12px;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at 50% 30%, #E8CA7C 0%, #B88E36 45%, #423010 85%, #1F1707 100%);
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.85), 0 4px 10px rgba(0, 0, 0, 0.6);
-    border: 0.5px solid rgba(255, 235, 175, 0.35);
-}
-
-/* Slender brushed brass column with metallic cylindrical specular reflection */
-.real-floorlamp-stem {
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 345px;
-    background: linear-gradient(90deg, #3A2B10 0%, #8A6822 25%, #E5C372 45%, #FFF0C4 55%, #B3862B 75%, #423010 100%);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
-}
-
-/* Brass collar & finial */
-.real-floorlamp-finial {
-    position: absolute;
-    top: 48px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 12px;
-    height: 8px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, #4A3814 0%, #D4AB4C 50%, #30230A 100%);
-}
-
-/* Authentic textured linen drum lampshade */
-.real-floorlamp-shade {
-    position: absolute;
-    top: 54px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 105px;
-    height: 80px;
-    border-radius: 4px;
-    background: linear-gradient(180deg, #E6DDD0 0%, #F4EFE6 50%, #D6CDC0 100%);
-    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 6px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.4);
-    border-top: 1.5px solid #C59A3F;
-    border-bottom: 1.5px solid #C59A3F;
-    overflow: hidden;
-    transition: background 0.6s ease, box-shadow 0.6s ease;
-}
-
-.shade-inner-warmth {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    background: radial-gradient(ellipse 90px 70px at 50% 50%, #FFF5DB 0%, #F5DEAE 50%, #D4A74E 80%, #90661A 100%);
-    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-scene-1.is-lit .shade-inner-warmth {
-    opacity: 1;
-}
-
-.hero-scene-1.is-lit .real-floorlamp-shade {
-    box-shadow: inset 0 0 16px rgba(255, 220, 130, 0.8), 0 0 20px rgba(245, 195, 95, 0.6);
 }
 
 /* --------------------------------------------------------------------------
@@ -1612,13 +1482,6 @@ body.intro-active {
         max-width: 440px;
     }
 
-    .hero-luminaire-floorlamp {
-        right: 12%;
-        bottom: 8%;
-        width: 110px;
-        height: 350px;
-    }
-
     .hero-showroom-nav {
         left: 32px;
         bottom: 24px;
@@ -1747,33 +1610,6 @@ body.intro-active {
     .hero-scroll-cue {
         display: none;
     }
-
-    /* Reposition Luminaires on mobile so they don't block center text */
-    .hero-luminaire-floorlamp {
-        right: 4%;
-        bottom: 5%;
-        width: 90px;
-        height: 300px;
-    }
-
-    .real-floorlamp-base {
-        width: 65px;
-        height: 10px;
-    }
-
-    .real-floorlamp-stem {
-        height: 230px;
-    }
-
-    .real-floorlamp-shade {
-        width: 75px;
-        height: 60px;
-        top: 40px;
-    }
-
-    .real-floorlamp-finial {
-        top: 36px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -1792,13 +1628,6 @@ body.intro-active {
 
     .hero-headline {
         font-size: clamp(14px, 4.6vw, 18.5px);
-    }
-
-    .hero-luminaire-floorlamp {
-        right: 4%;
-        bottom: 5%;
-        width: 68px;
-        height: 230px;
     }
 }
 
