@@ -341,6 +341,204 @@ function initHeroSlider() {
         }
     });
 
+    // ----------------------------------------------------------------------
+    // Interactive Product Hotspots (Touch & Click Support)
+    // ----------------------------------------------------------------------
+    const allHotspots = heroSection.querySelectorAll('.hero-hotspot');
+    allHotspots.forEach(hotspot => {
+        const trigger = hotspot.querySelector('.hotspot-trigger');
+        if (trigger) {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const isActive = hotspot.classList.contains('active');
+                
+                // Close all other hotspots
+                allHotspots.forEach(h => {
+                    if (h !== hotspot) {
+                        h.classList.remove('active');
+                        const otherBtn = h.querySelector('.hotspot-trigger');
+                        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                if (isActive) {
+                    hotspot.classList.remove('active');
+                    trigger.setAttribute('aria-expanded', 'false');
+                } else {
+                    hotspot.classList.add('active');
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+        }
+    });
+
+    // Close any open hotspot when clicking outside or pressing Escape
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.hero-hotspot')) {
+            allHotspots.forEach(h => {
+                h.classList.remove('active');
+                const btn = h.querySelector('.hotspot-trigger');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            allHotspots.forEach(h => {
+                h.classList.remove('active');
+                const btn = h.querySelector('.hotspot-trigger');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+
+    // ----------------------------------------------------------------------
+    // Scene 02: Chair 3D Angle Perspective Switcher
+    // ----------------------------------------------------------------------
+    const chairBasePhoto = document.getElementById('chair-photo-base');
+    const angleBtns = heroSection.querySelectorAll('.angle-btn');
+    angleBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const targetSrc = btn.getAttribute('data-angle-src');
+            if (!targetSrc || !chairBasePhoto) return;
+
+            angleBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            chairBasePhoto.style.transition = 'opacity 0.25s ease';
+            chairBasePhoto.style.opacity = '0.35';
+            setTimeout(() => {
+                chairBasePhoto.setAttribute('href', targetSrc);
+                chairBasePhoto.style.opacity = '1';
+            }, 250);
+        });
+    });
+
+    // ----------------------------------------------------------------------
+    // Scene 03: Recliner Articulation Simulator
+    // ----------------------------------------------------------------------
+    const reclinerBasePhoto = document.getElementById('recliner-photo-base');
+    const reclineBtns = heroSection.querySelectorAll('.recline-pill-btn');
+    reclineBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const targetSrc = btn.getAttribute('data-recline-src');
+            if (!targetSrc || !reclinerBasePhoto) return;
+
+            reclineBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            reclinerBasePhoto.style.transition = 'opacity 0.25s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+            reclinerBasePhoto.style.opacity = '0.4';
+            setTimeout(() => {
+                reclinerBasePhoto.setAttribute('href', targetSrc);
+                reclinerBasePhoto.style.opacity = '1';
+            }, 250);
+        });
+    });
+
+    // Hover-to-recline preview for Scene 3 (Upright -> Lounge)
+    const scene3 = document.getElementById('hero-scene-3');
+    if (scene3 && reclinerBasePhoto) {
+        let defaultSrc = 'catalog_images/avian_recliner.jpg';
+        scene3.addEventListener('mouseenter', () => {
+            const activeBtn = scene3.querySelector('.recline-pill-btn.active');
+            if (activeBtn && activeBtn.getAttribute('data-recline-pos') === '0') {
+                reclinerBasePhoto.style.opacity = '0.5';
+                setTimeout(() => {
+                    reclinerBasePhoto.setAttribute('href', 'catalog_images/avian_360_1.jpg');
+                    reclinerBasePhoto.style.opacity = '1';
+                }, 200);
+            }
+        });
+        scene3.addEventListener('mouseleave', () => {
+            const activeBtn = scene3.querySelector('.recline-pill-btn.active');
+            const target = activeBtn ? activeBtn.getAttribute('data-recline-src') : defaultSrc;
+            reclinerBasePhoto.style.opacity = '0.5';
+            setTimeout(() => {
+                reclinerBasePhoto.setAttribute('href', target);
+                reclinerBasePhoto.style.opacity = '1';
+            }, 200);
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // Interactive CTA Category Filter Linkage
+    // ----------------------------------------------------------------------
+    const ctaButtons = heroSection.querySelectorAll('.btn-shepel-primary[data-filter-target]');
+    ctaButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const cat = btn.getAttribute('data-filter-target');
+            if (cat) {
+                const targetFilterBtn = document.querySelector(`.category-filter-btn[data-filter="${cat}"]`);
+                if (targetFilterBtn) {
+                    targetFilterBtn.click();
+                }
+            }
+        });
+    });
+
+    // ----------------------------------------------------------------------
+    // Smooth Interactive Mouse Parallax (Multi-Plane Layering)
+    // ----------------------------------------------------------------------
+    let mouseTargetX = 0;
+    let mouseTargetY = 0;
+    let mouseCurrentX = 0;
+    let mouseCurrentY = 0;
+    let isParallaxRunning = false;
+
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!isReducedMotion) {
+        heroSection.addEventListener('mousemove', (e) => {
+            const rect = heroSection.getBoundingClientRect();
+            // Normalized offset from center: -1 to 1
+            mouseTargetX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+            mouseTargetY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+
+            if (!isParallaxRunning) {
+                isParallaxRunning = true;
+                requestAnimationFrame(updateParallax);
+            }
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            mouseTargetX = 0;
+            mouseTargetY = 0;
+        });
+
+        function updateParallax() {
+            // Smooth lerp interpolation (factor 0.06 for elegant luxury feel)
+            mouseCurrentX += (mouseTargetX - mouseCurrentX) * 0.06;
+            mouseCurrentY += (mouseTargetY - mouseCurrentY) * 0.06;
+
+            const activeScene = heroSection.querySelector('.hero-scene.active');
+            if (activeScene) {
+                const backdrop = activeScene.querySelector('.hero-scene-backdrop');
+                const hotspots = activeScene.querySelector('.hero-hotspots-layer');
+
+                if (backdrop) {
+                    backdrop.style.transform = `translate3d(${mouseCurrentX * -10}px, ${mouseCurrentY * -7}px, 0)`;
+                }
+                if (hotspots) {
+                    hotspots.style.transform = `translate3d(${mouseCurrentX * 6}px, ${mouseCurrentY * 4}px, 0)`;
+                }
+            }
+
+            // Continue animation if still moving towards target
+            if (Math.abs(mouseTargetX - mouseCurrentX) > 0.001 || Math.abs(mouseTargetY - mouseCurrentY) > 0.001) {
+                requestAnimationFrame(updateParallax);
+            } else {
+                isParallaxRunning = false;
+            }
+        }
+    }
+
     // Pause auto-advance on mouse enter so user can explore scene lighting
     heroSection.addEventListener('mouseenter', () => {
         isHeroInteracting = true;

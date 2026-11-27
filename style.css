@@ -901,7 +901,7 @@ body.intro-active {
 .hero-showroom-section {
     position: relative;
     width: 100%;
-    height: 880px;
+    height: clamp(700px, 94vh, 960px);
     background-color: #0E1216;
     overflow: hidden;
     user-select: none;
@@ -964,6 +964,9 @@ body.intro-active {
     overflow: hidden;
     z-index: 1;
     pointer-events: auto;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-scene-stage {
@@ -974,15 +977,15 @@ body.intro-active {
 }
 
 .hero-stage-photo {
-    transform: scale(1.045);
+    transform: scale(1.05) translate3d(0, 0, 0);
     filter: brightness(0.68) contrast(1.12) saturate(0.92);
-    transition: transform 7s cubic-bezier(0.25, 1, 0.5, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 7s cubic-bezier(0.25, 1, 0.5, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
     transform-origin: center center;
-    will-change: transform, filter;
+    will-change: transform, filter, opacity;
 }
 
 .hero-scene.active .hero-stage-photo {
-    transform: scale(1.0);
+    transform: scale(1.0) translate3d(0, 0, 0);
 }
 
 /* When illuminated: Clean, crisp, realistic photographic brightening with ZERO whitecasting */
@@ -1016,6 +1019,254 @@ body.intro-active {
 .hero-svg-luminaire:focus-visible {
     outline: 2px solid var(--shepel-gold);
     outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Interactive Hotspots Layer & Popover Cards
+   -------------------------------------------------------------------------- */
+
+.hero-hotspots-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.hero-hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+    z-index: 6;
+}
+
+.hotspot-trigger {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+
+.hotspot-core-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--shepel-gold);
+    box-shadow: 0 0 10px var(--shepel-gold), 0 0 20px rgba(197, 154, 63, 0.6);
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.hotspot-pulse-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1.5px solid var(--shepel-gold);
+    opacity: 0.8;
+    animation: hotspotPulse 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+@keyframes hotspotPulse {
+    0% { transform: scale(0.6); opacity: 0.9; }
+    60% { transform: scale(1.6); opacity: 0; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+.hotspot-trigger:hover .hotspot-core-dot,
+.hero-hotspot.active .hotspot-core-dot {
+    transform: scale(1.4);
+    background-color: #FFF2D1;
+}
+
+.hotspot-popover {
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    width: 230px;
+    padding: 14px 16px;
+    background: rgba(14, 18, 22, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(197, 154, 63, 0.4);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(197, 154, 63, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+    z-index: 10;
+}
+
+.hotspot-popover::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(197, 154, 63, 0.4) transparent transparent transparent;
+}
+
+.hero-hotspot:hover .hotspot-popover,
+.hero-hotspot.active .hotspot-popover,
+.hotspot-trigger:focus-visible + .hotspot-popover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.hotspot-tag {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--shepel-gold);
+    margin-bottom: 4px;
+}
+
+.hotspot-title {
+    font-family: var(--font-serif);
+    font-size: 13px;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+    line-height: 1.25;
+}
+
+.hotspot-text {
+    font-family: var(--font-sans);
+    font-size: 10.5px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Angle & Recline Interactive Controls
+   -------------------------------------------------------------------------- */
+
+.hero-angle-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 4px;
+    background: rgba(14, 18, 22, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    pointer-events: auto;
+}
+
+.angle-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: var(--font-sans);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.angle-btn:hover {
+    color: #FFFFFF;
+}
+
+.angle-btn.active {
+    background: rgba(197, 154, 63, 0.25);
+    color: var(--shepel-gold);
+    border-color: rgba(197, 154, 63, 0.5);
+}
+
+.hero-recline-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    background: rgba(14, 18, 22, 0.68);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(197, 154, 63, 0.35);
+    pointer-events: auto;
+}
+
+.recline-control-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-sans);
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.recline-motor-indicator {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--shepel-gold);
+    box-shadow: 0 0 6px var(--shepel-gold);
+    animation: motorPulse 1.8s ease infinite;
+}
+
+@keyframes motorPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.recline-pills-wrap {
+    display: inline-flex;
+    gap: 3px;
+}
+
+.recline-pill-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-sans);
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 4px 9px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.recline-pill-btn:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.recline-pill-btn.active {
+    background: var(--shepel-gold);
+    color: #0E1216;
+    border-color: var(--shepel-gold);
+    font-weight: 700;
+    box-shadow: 0 2px 10px rgba(197, 154, 63, 0.4);
 }
 
 /* --------------------------------------------------------------------------
@@ -1395,6 +1646,13 @@ body.intro-active {
     color: #FFFFFF;
 }
 
+.showcase-nav-sep {
+    color: rgba(255, 255, 255, 0.35);
+    font-family: var(--font-sans);
+    font-size: 10px;
+    margin: 0 1px;
+}
+
 .showcase-nav-bar {
     width: 36px;
     height: 1.5px;
@@ -1599,7 +1857,8 @@ body.intro-active {
         gap: 12px;
     }
 
-    .showcase-nav-label {
+    .showcase-nav-label,
+    .showcase-nav-sep {
         display: none; /* Compact scene numbers on mobile */
     }
 
@@ -1610,11 +1869,44 @@ body.intro-active {
     .hero-scroll-cue {
         display: none;
     }
+
+    .hero-angle-control,
+    .hero-recline-control {
+        padding: 2px 6px;
+        gap: 3px;
+    }
+
+    .angle-btn {
+        font-size: 8px;
+        padding: 4px 7px;
+    }
+
+    .recline-control-label {
+        font-size: 7.5px;
+    }
+
+    .recline-pill-btn {
+        font-size: 7.5px;
+        padding: 3px 6px;
+    }
+
+    .hotspot-popover {
+        width: 175px;
+        padding: 10px 12px;
+    }
+
+    .hotspot-title {
+        font-size: 11.5px;
+    }
+
+    .hotspot-text {
+        font-size: 9.5px;
+    }
 }
 
 @media (max-width: 480px) {
     .hero-showroom-section {
-        height: min(540px, 82vh);
+        height: min(560px, 86vh);
     }
 
     .hero-inner-container {
@@ -1629,6 +1921,11 @@ body.intro-active {
     .hero-headline {
         font-size: clamp(14px, 4.6vw, 18.5px);
     }
+
+    .hero-angle-control,
+    .hero-recline-control {
+        display: none; /* Keep clean minimal UI on ultra-small mobile */
+    }
 }
 
 /* Prefers-reduced-motion Accessibility */
@@ -1639,7 +1936,8 @@ body.intro-active {
         transition: opacity 0.35s ease !important;
     }
 
-    .hero-scene-backdrop {
+    .hero-scene-backdrop,
+    .hero-hotspots-layer {
         transform: none !important;
         transition: filter 0.35s ease !important;
     }
@@ -1649,6 +1947,8 @@ body.intro-active {
         transition: none !important;
     }
 
+    .hotspot-pulse-ring,
+    .recline-motor-indicator,
     .beacon-pulse-ring,
     .hero-scroll-cue-dot {
         animation: none !important;
