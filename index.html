@@ -176,59 +176,28 @@
         </div>
     </aside>
 
-    <!-- 2. HERO INTERACTIVE SHOWROOM (4-Scene Interactive Product Storytelling Carousel) -->
-    <section class="component-14 hero-showroom-section" id="hero-slider" aria-label="Interactive Luxury Furniture Showroom">
+        <!-- 2. HERO BESPOKE SPATIAL ATELIER (4-Scene Interactive Luxury Furniture Showroom) -->
+    <section class="component-14 hero-showroom-section mood-evening" id="hero-slider" aria-label="Nivara Spatial Atelier Showroom">
         
+        <!-- Global Showroom Atmosphere Director (Top Control) -->
+        <div class="hero-atmosphere-director" role="group" aria-label="Spatial showroom atmosphere lighting">
+            <span class="atmosphere-label"><span class="atmosphere-spark" aria-hidden="true"></span> Mood:</span>
+            <div class="atmosphere-pills">
+                <button type="button" class="atmosphere-btn active" data-mood="evening" aria-pressed="true" title="Nocturne ambient lighting">☾ Nocturne</button>
+                <button type="button" class="atmosphere-btn" data-mood="golden" aria-pressed="false" title="Golden hour architectural lighting">✦ Golden Hour</button>
+                <button type="button" class="atmosphere-btn" data-mood="daylight" aria-pressed="false" title="Clean daylight interior lighting">☀ Daylight</button>
+            </div>
+        </div>
+
         <!-- SCENE 01: THE SOFA -->
-        <article class="hero-scene hero-scene-1 active" id="hero-scene-1" data-scene="1" aria-label="Scene 01: Sofas — Comfort, thoughtfully designed">
-            <div class="hero-scene-backdrop">
-                <svg class="hero-scene-stage" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                    <defs>
-                        <radialGradient id="s1-shade-warmth" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#FFFDF5" stop-opacity="0.95"/>
-                            <stop offset="45%" stop-color="#FFE08A" stop-opacity="0.85"/>
-                            <stop offset="80%" stop-color="#EAA832" stop-opacity="0.5"/>
-                            <stop offset="100%" stop-color="#9C6208" stop-opacity="0.2"/>
-                        </radialGradient>
-                        <radialGradient id="s1-sofa-glow" cx="82%" cy="48%" r="68%">
-                            <stop offset="0%" stop-color="#FFE294" stop-opacity="0.45"/>
-                            <stop offset="38%" stop-color="#F5B338" stop-opacity="0.18"/>
-                            <stop offset="72%" stop-color="#D48218" stop-opacity="0.05"/>
-                            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-                        </radialGradient>
-                        <linearGradient id="s1-brass-base" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#423010"/>
-                            <stop offset="35%" stop-color="#B88E36"/>
-                            <stop offset="50%" stop-color="#E8CA7C"/>
-                            <stop offset="75%" stop-color="#B88E36"/>
-                            <stop offset="100%" stop-color="#1F1707"/>
-                        </linearGradient>
-                        <linearGradient id="s1-brass-stem" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#543D15"/>
-                            <stop offset="45%" stop-color="#E5C372"/>
-                            <stop offset="55%" stop-color="#FFF0C4"/>
-                            <stop offset="80%" stop-color="#B3862B"/>
-                            <stop offset="100%" stop-color="#423010"/>
-                        </linearGradient>
-                    </defs>
-                    <image class="hero-stage-photo hero-stage-base" href="catalog_images/antalia_sofa.jpg" width="1024" height="1024" />
-                    <!-- Standing Floor Lamp Fixture -->
-                    <g class="hero-svg-luminaire" id="fixture-scene-1" role="button" tabindex="0" aria-label="Floor lamp. Hover or tap to toggle warm illumination." title="Tap lamp to switch light ON/OFF">
-                        <ellipse cx="850" cy="880" rx="45" ry="8" fill="url(#s1-brass-base)" />
-                        <line x1="850" y1="460" x2="850" y2="880" stroke="url(#s1-brass-stem)" stroke-width="4.5" />
-                        <rect x="844" y="380" width="12" height="10" rx="2" fill="#E2BD68" />
-                        <rect x="805" y="390" width="90" height="70" rx="4" fill="#EDE6DC" stroke="#C59A3F" stroke-width="1.5" />
-                    </g>
-                    <!-- Illumination Layer -->
-                    <g class="hero-stage-lights" aria-hidden="true">
-                        <polygon points="850,460 320,880 960,880" fill="url(#s1-sofa-glow)" style="mix-blend-mode: soft-light;" />
-                        <rect x="805" y="390" width="90" height="70" rx="4" fill="url(#s1-shade-warmth)" />
-                    </g>
-                </svg>
+        <article class="hero-scene hero-scene-1 active" id="hero-scene-1" data-scene="1" aria-label="Scene 01: Sofas — Living Architecture">
+            <div class="hero-scene-backdrop" data-parallax-depth="0.06">
+                <img class="hero-stage-photo" id="sofa-photo-base" src="catalog_images/antalia_sofa.jpg" alt="Nivara Living Antalia Bouclé Sofa" />
+                <div class="hero-lighting-bloom-layer hero-bloom-scene-1" aria-hidden="true"></div>
             </div>
 
             <!-- Interactive Hotspots Layer -->
-            <div class="hero-hotspots-layer" aria-label="Product craftsmanship hotspots">
+            <div class="hero-hotspots-layer" data-parallax-depth="0.10" aria-label="Sofa craftsmanship hotspots">
                 <div class="hero-hotspot" style="left: 48%; top: 62%;" data-hotspot="1">
                     <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Bouclé Cushioning">
                         <span class="hotspot-pulse-ring" aria-hidden="true"></span>
@@ -241,43 +210,45 @@
                     </div>
                 </div>
 
-                <div class="hero-hotspot" style="left: 28%; top: 56%;" data-hotspot="2">
-                    <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Tailored Leatherette Frame">
+                <div class="hero-hotspot" style="left: 76%; top: 72%;" data-hotspot="2">
+                    <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Solid Hardwood Chassis">
                         <span class="hotspot-pulse-ring" aria-hidden="true"></span>
                         <span class="hotspot-core-dot" aria-hidden="true"></span>
                     </button>
                     <div class="hotspot-popover" role="tooltip">
-                        <span class="hotspot-tag">Bespoke Framing</span>
-                        <h4 class="hotspot-title">Braided Leatherette</h4>
-                        <p class="hotspot-text">Sculptured cappuccino contour with artisanal saddle braided edge stitch trim.</p>
+                        <span class="hotspot-tag">Solid Timber</span>
+                        <h4 class="hotspot-title">Kiln-Dried Hardwood</h4>
+                        <p class="hotspot-text">Reinforced corner blocking with sustainably harvested seasoned timber framing.</p>
                     </div>
                 </div>
 
-                <div class="hero-hotspot" style="left: 65%; top: 76%;" data-hotspot="3">
-                    <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Dark Bronze Base">
+                <div class="hero-hotspot" style="left: 32%; top: 54%;" data-hotspot="3">
+                    <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Dual-Tone Contrast Weave">
                         <span class="hotspot-pulse-ring" aria-hidden="true"></span>
                         <span class="hotspot-core-dot" aria-hidden="true"></span>
                     </button>
                     <div class="hotspot-popover" role="tooltip">
-                        <span class="hotspot-tag">Architectural Base</span>
-                        <h4 class="hotspot-title">Bronze Stiletto Legs</h4>
-                        <p class="hotspot-text">Precision-engineered dark bronze architectural stiletto legs with acoustic pads.</p>
+                        <span class="hotspot-tag">Dual-Tone</span>
+                        <h4 class="hotspot-title">Contrast Tailoring</h4>
+                        <p class="hotspot-text">Textured cream and slate bouclé tailored with concealed hand-stitched French seams.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Scene Editorial Content -->
-            <div class="container-xxl hero-inner-container">
+            <div class="container-xxl hero-inner-container" data-parallax-depth="0.04">
                 <div class="hero-top-row">
                     <div class="hero-scene-badge-wrap">
                         <span class="hero-scene-num">01</span>
                         <span class="hero-scene-divider">/</span>
                         <span class="hero-scene-category">SOFAS</span>
                     </div>
-                    <button class="hero-lighting-toggle" type="button" data-scene-target="1" aria-label="Toggle Floor Lamp lighting" aria-pressed="false">
+
+                    <button class="hero-lighting-toggle" type="button" data-scene-target="1" aria-label="Toggle Floor Lamp ambient lighting" aria-pressed="false">
                         <span class="toggle-beacon-dot" aria-hidden="true"></span>
                         <svg class="toggle-svg-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
                         </svg>
                         <span class="toggle-meta">
                             <span class="toggle-title">Floor Lamp</span>
@@ -296,7 +267,7 @@
                         <span class="hero-mask-wrap"><span class="hero-line">DESIGNED.</span></span>
                     </h1>
                     <p class="hero-description">
-                        Individually tailored dual-tone silhouette in sculptured cappuccino leatherette, soft oatmeal bouclé cushioning, and warm atmospheric floor lamp illumination.
+                        Deep memory core cushioning enveloped in bespoke textured oatmeal bouclé, harmonized with authentic ambient lighting that enriches every contour.
                     </p>
                 </div>
 
@@ -311,37 +282,14 @@
         </article>
 
         <!-- SCENE 02: THE CHAIR -->
-        <article class="hero-scene hero-scene-2" id="hero-scene-2" data-scene="2" aria-label="Scene 02: Chairs — An invitation to pause">
-            <div class="hero-scene-backdrop">
-                <svg class="hero-scene-stage" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                    <defs>
-                        <radialGradient id="s2-shade-glow" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#FFFDF5" stop-opacity="0.95"/>
-                            <stop offset="45%" stop-color="#FFE08A" stop-opacity="0.82"/>
-                            <stop offset="80%" stop-color="#EAA832" stop-opacity="0.45"/>
-                            <stop offset="100%" stop-color="#9C6208" stop-opacity="0.15"/>
-                        </radialGradient>
-                        <radialGradient id="s2-lamp-wash" cx="20%" cy="42%" r="65%">
-                            <stop offset="0%" stop-color="#FFE294" stop-opacity="0.48"/>
-                            <stop offset="35%" stop-color="#F5B338" stop-opacity="0.20"/>
-                            <stop offset="65%" stop-color="#D48218" stop-opacity="0.06"/>
-                            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-                        </radialGradient>
-                    </defs>
-                    <image class="hero-stage-photo hero-stage-base" id="chair-photo-base" href="catalog_images/roma_designer_chair.jpg" width="1024" height="1024" />
-                    <!-- Interactive Hotspot on the Real Table Lamp -->
-                    <rect class="hero-svg-luminaire" id="fixture-scene-2" x="110" y="335" width="85" height="190" fill="transparent" role="button" tabindex="0" aria-label="Atelier table lamp. Hover or tap to toggle warm illumination." title="Tap lamp to switch lighting ON/OFF" />
-                    <!-- Illumination Layer (Locked directly over the photo's lamp and room) -->
-                    <g class="hero-stage-lights" aria-hidden="true">
-                        <circle cx="200" cy="420" r="500" fill="url(#s2-lamp-wash)" style="mix-blend-mode: soft-light;" />
-                        <polygon points="120,420 185,420 250,560 60,560" fill="url(#s2-lamp-wash)" style="mix-blend-mode: soft-light;" />
-                        <rect x="122" y="346" width="62" height="73" rx="3" fill="url(#s2-shade-glow)" style="mix-blend-mode: screen;" />
-                    </g>
-                </svg>
+        <article class="hero-scene hero-scene-2" id="hero-scene-2" data-scene="2" aria-label="Scene 02: Chairs — Sculptural Contour">
+            <div class="hero-scene-backdrop" data-parallax-depth="0.06">
+                <img class="hero-stage-photo" id="chair-photo-base" src="catalog_images/roma_designer_chair.jpg" alt="Nivara Living Roma Designer Chair" />
+                <div class="hero-lighting-bloom-layer hero-bloom-scene-2" aria-hidden="true"></div>
             </div>
 
             <!-- Interactive Hotspots Layer -->
-            <div class="hero-hotspots-layer" aria-label="Chair craftsmanship hotspots">
+            <div class="hero-hotspots-layer" data-parallax-depth="0.10" aria-label="Chair craftsmanship hotspots">
                 <div class="hero-hotspot" style="left: 54%; top: 48%;" data-hotspot="1">
                     <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Sculptured Teak Wings">
                         <span class="hotspot-pulse-ring" aria-hidden="true"></span>
@@ -380,7 +328,7 @@
             </div>
 
             <!-- Scene Editorial Content -->
-            <div class="container-xxl hero-inner-container">
+            <div class="container-xxl hero-inner-container" data-parallax-depth="0.04">
                 <div class="hero-top-row">
                     <div class="hero-scene-badge-wrap">
                         <span class="hero-scene-num">02</span>
@@ -391,7 +339,7 @@
                     <!-- 3D Silhouette Angle Selector -->
                     <div class="hero-angle-control" role="group" aria-label="Inspect Chair Perspective">
                         <button class="angle-btn active" data-angle-src="catalog_images/roma_designer_chair.jpg" type="button">Front</button>
-                        <button class="angle-btn" data-angle-src="catalog_images/roma_360_4.jpg" type="button">3/4 View</button>
+                        <button class="angle-btn" data-angle-src="catalog_images/roma_360_4.jpg" type="button">3/4 Silhouette</button>
                         <button class="angle-btn" data-angle-src="catalog_images/roma_designer_chair_detail.jpg" type="button">Detail</button>
                     </div>
 
@@ -432,37 +380,14 @@
         </article>
 
         <!-- SCENE 03: THE RECLINER -->
-        <article class="hero-scene hero-scene-3" id="hero-scene-3" data-scene="3" aria-label="Scene 03: Recliners — Your own moment of stillness">
-            <div class="hero-scene-backdrop">
-                <svg class="hero-scene-stage" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                    <defs>
-                        <radialGradient id="s3-shade-warmth" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#FFFDF5" stop-opacity="0.95"/>
-                            <stop offset="45%" stop-color="#FFE08A" stop-opacity="0.82"/>
-                            <stop offset="80%" stop-color="#EAA832" stop-opacity="0.45"/>
-                            <stop offset="100%" stop-color="#9C6208" stop-opacity="0.15"/>
-                        </radialGradient>
-                        <radialGradient id="s3-room-wash" cx="20%" cy="42%" r="65%">
-                            <stop offset="0%" stop-color="#FFE294" stop-opacity="0.48"/>
-                            <stop offset="35%" stop-color="#F5B338" stop-opacity="0.20"/>
-                            <stop offset="65%" stop-color="#D48218" stop-opacity="0.06"/>
-                            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-                        </radialGradient>
-                    </defs>
-                    <image class="hero-stage-photo hero-stage-base" id="recliner-photo-base" href="catalog_images/avian_recliner.jpg" width="1024" height="1024" />
-                    <!-- Interactive Hotspot on the Real Reading Lamp -->
-                    <rect class="hero-svg-luminaire" id="fixture-scene-3" x="120" y="330" width="170" height="420" fill="transparent" role="button" tabindex="0" aria-label="Atelier reading lamp. Hover or tap to toggle ambient illumination." title="Tap reading lamp to switch lighting ON/OFF" />
-                    <!-- Illumination Layer (Locked directly over the photo's lamp and recliner) -->
-                    <g class="hero-stage-lights" aria-hidden="true">
-                        <circle cx="205" cy="435" r="520" fill="url(#s3-room-wash)" style="mix-blend-mode: soft-light;" />
-                        <polygon points="130,500 280,500 420,850 70,850" fill="url(#s3-room-wash)" style="mix-blend-mode: soft-light;" />
-                        <rect x="130" y="345" width="150" height="165" rx="6" fill="url(#s3-shade-warmth)" style="mix-blend-mode: screen;" />
-                    </g>
-                </svg>
+        <article class="hero-scene hero-scene-3" id="hero-scene-3" data-scene="3" aria-label="Scene 03: Recliners — Twilight Repose">
+            <div class="hero-scene-backdrop" data-parallax-depth="0.06">
+                <img class="hero-stage-photo" id="recliner-photo-base" src="catalog_images/avian_recliner.jpg" alt="Nivara Living Avian Motorized Recliner" />
+                <div class="hero-lighting-bloom-layer hero-bloom-scene-3" aria-hidden="true"></div>
             </div>
 
             <!-- Interactive Hotspots Layer -->
-            <div class="hero-hotspots-layer" aria-label="Recliner craftsmanship hotspots">
+            <div class="hero-hotspots-layer" data-parallax-depth="0.10" aria-label="Recliner craftsmanship hotspots">
                 <div class="hero-hotspot" style="left: 52%; top: 38%;" data-hotspot="1">
                     <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Motorized Headrest">
                         <span class="hotspot-pulse-ring" aria-hidden="true"></span>
@@ -501,7 +426,7 @@
             </div>
 
             <!-- Scene Editorial Content -->
-            <div class="container-xxl hero-inner-container">
+            <div class="container-xxl hero-inner-container" data-parallax-depth="0.04">
                 <div class="hero-top-row">
                     <div class="hero-scene-badge-wrap">
                         <span class="hero-scene-num">03</span>
@@ -511,11 +436,11 @@
 
                     <!-- Interactive Reclining Articulation Position Selector -->
                     <div class="hero-recline-control" role="group" aria-label="Recline articulation settings">
-                        <span class="recline-control-label"><span class="recline-motor-indicator"></span> Motor Articulation:</span>
+                        <span class="recline-control-label"><span class="recline-motor-indicator" aria-hidden="true"></span> Articulation:</span>
                         <div class="recline-pills-wrap">
                             <button class="recline-pill-btn active" data-recline-src="catalog_images/avian_recliner.jpg" data-recline-pos="0" type="button">Upright • 105°</button>
                             <button class="recline-pill-btn" data-recline-src="catalog_images/avian_360_1.jpg" data-recline-pos="1" type="button">Lounge • 135°</button>
-                            <button class="recline-pill-btn" data-recline-src="catalog_images/avian_360_2.jpg" data-recline-pos="2" type="button">Full Recline • 160°</button>
+                            <button class="recline-pill-btn" data-recline-src="catalog_images/avian_360_2.jpg" data-recline-pos="2" type="button">Recline • 160°</button>
                         </div>
                     </div>
 
@@ -556,88 +481,66 @@
         </article>
 
         <!-- SCENE 04: THE LIVING SPACE -->
-        <article class="hero-scene hero-scene-4" id="hero-scene-4" data-scene="4" aria-label="Scene 04: Living Spaces — Make space for living">
-            <div class="hero-scene-backdrop">
-                <svg class="hero-scene-stage" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                    <defs>
-                        <linearGradient id="s4-led-core" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#FFD478" stop-opacity="0.85"/>
-                            <stop offset="15%" stop-color="#FFF8E8" stop-opacity="1"/>
-                            <stop offset="85%" stop-color="#FFF8E8" stop-opacity="1"/>
-                            <stop offset="100%" stop-color="#FFD478" stop-opacity="0.85"/>
-                        </linearGradient>
-                        <radialGradient id="s4-table-fan" cx="50%" cy="0%" r="90%">
-                            <stop offset="0%" stop-color="#FFDE8A" stop-opacity="0.45"/>
-                            <stop offset="40%" stop-color="#F5B842" stop-opacity="0.20"/>
-                            <stop offset="75%" stop-color="#D4881E" stop-opacity="0.06"/>
-                            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-                        </radialGradient>
-                    </defs>
-                    <image class="hero-stage-photo hero-stage-base" href="catalog_images/dining_monolith.jpg" width="1024" height="1024" />
-                    <!-- Interactive Hotspot on the Real Pendant -->
-                    <rect class="hero-svg-luminaire" id="fixture-scene-4" x="400" y="240" width="270" height="70" fill="transparent" role="button" tabindex="0" aria-label="Architectural linear suspension pendant. Hover or tap to toggle atelier luminaire." title="Tap pendant to switch statement luminaire ON/OFF" />
-                    <!-- Illumination Layer (Locked directly on the photo's linear pendant & dining table) -->
-                    <g class="hero-stage-lights" aria-hidden="true">
-                        <polygon points="410,260 660,291 820,750 240,750" fill="url(#s4-table-fan)" style="mix-blend-mode: soft-light;" />
-                        <ellipse cx="530" cy="630" rx="320" ry="70" fill="url(#s4-table-fan)" style="mix-blend-mode: soft-light;" />
-                        <!-- LED line on pendant, exactly aligned to the tube body -->
-                        <line x1="410" y1="260" x2="660" y2="291" stroke="#FFEEC2" stroke-width="3.5" stroke-linecap="round" />
-                        <line x1="410" y1="260" x2="660" y2="291" stroke="url(#s4-led-core)" stroke-width="2" stroke-linecap="round" />
-                    </g>
-                </svg>
+        <article class="hero-scene hero-scene-4" id="hero-scene-4" data-scene="4" aria-label="Scene 04: Living Spaces — The Monolith Atelier">
+            <div class="hero-scene-backdrop" data-parallax-depth="0.06">
+                <img class="hero-stage-photo" id="dining-photo-base" src="catalog_images/dining_monolith.jpg" alt="Nivara Living Architectural Dining Monolith" />
+                <div class="hero-lighting-bloom-layer hero-bloom-scene-4" aria-hidden="true"></div>
             </div>
 
             <!-- Interactive Hotspots Layer -->
-            <div class="hero-hotspots-layer" aria-label="Living space craftsmanship hotspots">
+            <div class="hero-hotspots-layer" data-parallax-depth="0.10" aria-label="Living space craftsmanship hotspots">
                 <div class="hero-hotspot" style="left: 50%; top: 65%;" data-hotspot="1">
                     <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Calacatta Marble Monolith">
                         <span class="hotspot-pulse-ring" aria-hidden="true"></span>
                         <span class="hotspot-core-dot" aria-hidden="true"></span>
                     </button>
                     <div class="hotspot-popover" role="tooltip">
-                        <span class="hotspot-tag">Haute Stone</span>
-                        <h4 class="hotspot-title">Calacatta Marble Monolith</h4>
-                        <p class="hotspot-text">Bookmatched Italian marble monolith supported by fluted teak joinery.</p>
+                        <span class="hotspot-tag">Honed Marble</span>
+                        <h4 class="hotspot-title">Calacatta Monolith</h4>
+                        <p class="hotspot-text">Bookmatched Italian Calacatta gold-veined marble slab finished with a tactile satin honed seal.</p>
                     </div>
                 </div>
 
-                <div class="hero-hotspot" style="left: 54%; top: 27%;" data-hotspot="2">
-                    <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Linear Suspension Pendant">
+                <div class="hero-hotspot" style="left: 54%; top: 28%;" data-hotspot="2">
+                    <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Statement Linear Suspension">
                         <span class="hotspot-pulse-ring" aria-hidden="true"></span>
                         <span class="hotspot-core-dot" aria-hidden="true"></span>
                     </button>
                     <div class="hotspot-popover" role="tooltip">
-                        <span class="hotspot-tag">Statement Luminaire</span>
+                        <span class="hotspot-tag">Atelier Lighting</span>
                         <h4 class="hotspot-title">Linear Suspension</h4>
-                        <p class="hotspot-text">Architectural bronze suspension luminaire with warm 2700K ambient LED glow.</p>
+                        <p class="hotspot-text">Architectural suspended luminaire casting 2700K downward incandescent illumination across the dining surface.</p>
                     </div>
                 </div>
 
-                <div class="hero-hotspot" style="left: 78%; top: 72%;" data-hotspot="3">
-                    <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Couture Dining Chairs">
+                <div class="hero-hotspot" style="left: 32%; top: 74%;" data-hotspot="3">
+                    <button class="hotspot-trigger" type="button" aria-expanded="false" aria-label="Inspect Fluted Pedestal Bases">
                         <span class="hotspot-pulse-ring" aria-hidden="true"></span>
                         <span class="hotspot-core-dot" aria-hidden="true"></span>
                     </button>
                     <div class="hotspot-popover" role="tooltip">
-                        <span class="hotspot-tag">Living Architecture</span>
-                        <h4 class="hotspot-title">Tactile Hardwood Chairs</h4>
-                        <p class="hotspot-text">Solid timber dining chairs in tactile ivory bouclé and contoured backrests.</p>
+                        <span class="hotspot-tag">Architectural Base</span>
+                        <h4 class="hotspot-title">Fluted Oak Pedestals</h4>
+                        <p class="hotspot-text">Sculptural fluted column bases hand-carved in solid natural oak with internal steel reinforcement.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Scene Editorial Content -->
-            <div class="container-xxl hero-inner-container">
+            <div class="container-xxl hero-inner-container" data-parallax-depth="0.04">
                 <div class="hero-top-row">
                     <div class="hero-scene-badge-wrap">
                         <span class="hero-scene-num">04</span>
                         <span class="hero-scene-divider">/</span>
                         <span class="hero-scene-category">LIVING SPACES</span>
                     </div>
-                    <button class="hero-lighting-toggle" type="button" data-scene-target="4" aria-label="Toggle Linear Suspension Pendant lighting" aria-pressed="false">
+
+                    <button class="hero-lighting-toggle" type="button" data-scene-target="4" aria-label="Toggle Statement Pendant luminaire" aria-pressed="false">
                         <span class="toggle-beacon-dot" aria-hidden="true"></span>
                         <svg class="toggle-svg-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M12 2v6M8 8h8M6 14l6 6 6-6"/>
+                            <line x1="12" y1="1" x2="12" y2="7"/>
+                            <ellipse cx="12" cy="11" rx="4" ry="4"/>
+                            <path d="m5 17 2-2M19 17l-2-2M12 15v6"/>
                         </svg>
                         <span class="toggle-meta">
                             <span class="toggle-title">Linear Pendant</span>
@@ -650,18 +553,18 @@
                 </div>
 
                 <div class="hero-headline-wrap">
-                    <span class="hero-eyebrow">Furniture that transforms the way home feels.</span>
+                    <span class="hero-eyebrow">A sanctuary of form and gathering.</span>
                     <h2 class="hero-headline">
-                        <span class="hero-mask-wrap"><span class="hero-line">MAKE SPACE</span></span>
-                        <span class="hero-mask-wrap"><span class="hero-line">FOR LIVING.</span></span>
+                        <span class="hero-mask-wrap"><span class="hero-line">MONOLITHIC MARBLE</span></span>
+                        <span class="hero-mask-wrap"><span class="hero-line">ATELIER EDITIONS.</span></span>
                     </h2>
                     <p class="hero-description">
-                        Calacatta marble and seasoned hardwood joinery designed for architectural dining spaces, crowned with authentic warm linear pendant illumination.
+                        Honed Calacatta marble and seasoned hardwood joinery designed for architectural dining spaces, crowned with warm atmospheric pendant illumination.
                     </p>
                 </div>
 
                 <div class="hero-actions-row">
-                    <a href="#collections" class="btn-shepel-primary" data-filter-target="all">Discover the Collection</a>
+                    <a href="#collections" class="btn-shepel-primary" data-filter-target="all">Explore Editions</a>
                     <button class="btn-hero-light-action" type="button" data-scene-target="4">
                         <span class="light-action-dot"></span>
                         <span class="light-action-text">Switch Pendant</span>
@@ -670,21 +573,21 @@
             </div>
         </article>
 
-        <!-- Navigation Arrows (Refined Minimalist Luxury) -->
-        <div class="hero-nav-arrows" aria-label="Scene navigation">
+        <!-- Previous / Next Luxury Navigation Arrows -->
+        <div class="hero-nav-arrows" aria-label="Showroom Navigation">
             <button class="hero-arrow-btn hero-arrow-prev" id="hero-prev-btn" type="button" aria-label="Previous scene">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M15 18l-6-6 6-6"/>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6"/>
                 </svg>
             </button>
             <button class="hero-arrow-btn hero-arrow-next" id="hero-next-btn" type="button" aria-label="Next scene">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 18l6-6-6-6"/>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6"/>
                 </svg>
             </button>
         </div>
 
-        <!-- 4-Scene Architectural Showcase Chapter Navigation -->
+        <!-- 4-Scene Architectural Showcase Chapter Timeline Navigation -->
         <nav class="hero-showcase-nav hero-showroom-nav" aria-label="Showroom Scenes">
             <button class="showcase-nav-item active" data-slide="1" aria-label="01 — SOFAS">
                 <span class="showcase-nav-num">01</span>
@@ -712,9 +615,9 @@
             </button>
         </nav>
 
-        <!-- Luxury Animated Scroll Indicator (Clickable Smooth Scroll) -->
+        <!-- Luxury Interactive Scroll Cue (Smooth Scroll into Gallery) -->
         <a href="#collections" class="hero-scroll-cue" id="hero-scroll-cue" aria-label="Scroll to Atelier Collection">
-            <span class="hero-scroll-cue-text">Scroll</span>
+            <span class="hero-scroll-cue-text">Explore</span>
             <div class="hero-scroll-cue-track" aria-hidden="true">
                 <span class="hero-scroll-cue-dot"></span>
             </div>

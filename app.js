@@ -252,6 +252,27 @@ function initHeroSlider() {
         });
     });
 
+    // Global Atmosphere Mood Director (☾ Nocturne, ✦ Golden Hour, ☀ Daylight)
+    const moodBtns = heroSection.querySelectorAll('.atmosphere-btn');
+    moodBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const targetMood = btn.getAttribute('data-mood');
+            if (!targetMood) return;
+
+            moodBtns.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-pressed', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
+
+            heroSection.classList.remove('mood-evening', 'mood-golden', 'mood-daylight');
+            heroSection.classList.add(`mood-${targetMood}`);
+        });
+    });
+
     // Wire up interactive lighting in all scenes
     scenes.forEach((sceneEl, idx) => {
         const sceneNum = idx + 1;
@@ -412,6 +433,7 @@ function initHeroSlider() {
             chairBasePhoto.style.transition = 'opacity 0.25s ease';
             chairBasePhoto.style.opacity = '0.35';
             setTimeout(() => {
+                chairBasePhoto.src = targetSrc;
                 chairBasePhoto.setAttribute('href', targetSrc);
                 chairBasePhoto.style.opacity = '1';
             }, 250);
@@ -436,6 +458,7 @@ function initHeroSlider() {
             reclinerBasePhoto.style.transition = 'opacity 0.25s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
             reclinerBasePhoto.style.opacity = '0.4';
             setTimeout(() => {
+                reclinerBasePhoto.src = targetSrc;
                 reclinerBasePhoto.setAttribute('href', targetSrc);
                 reclinerBasePhoto.style.opacity = '1';
             }, 250);
@@ -451,6 +474,7 @@ function initHeroSlider() {
             if (activeBtn && activeBtn.getAttribute('data-recline-pos') === '0') {
                 reclinerBasePhoto.style.opacity = '0.5';
                 setTimeout(() => {
+                    reclinerBasePhoto.src = 'catalog_images/avian_360_1.jpg';
                     reclinerBasePhoto.setAttribute('href', 'catalog_images/avian_360_1.jpg');
                     reclinerBasePhoto.style.opacity = '1';
                 }, 200);
@@ -461,6 +485,7 @@ function initHeroSlider() {
             const target = activeBtn ? activeBtn.getAttribute('data-recline-src') : defaultSrc;
             reclinerBasePhoto.style.opacity = '0.5';
             setTimeout(() => {
+                reclinerBasePhoto.src = target;
                 reclinerBasePhoto.setAttribute('href', target);
                 reclinerBasePhoto.style.opacity = '1';
             }, 200);
@@ -618,15 +643,32 @@ function initHeroSlider() {
 }
 window.initHeroSlider = initHeroSlider;
 
-// 2b. Hero Scroll Cue Fade (Hero section remains crisp, solid & unaffected)
+// 2b. Hero Cinematic Scroll Parallax & Scroll Cue
 function initHeroScrollParallax() {
+    const heroSection = document.getElementById('hero-slider');
     const scrollCue = document.getElementById('hero-scroll-cue');
-    if (!scrollCue) return;
+    if (!heroSection) return;
+
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-        // Fade out scroll cue smoothly on scroll without affecting hero elements
-        scrollCue.style.opacity = scrollY > 30 ? '0' : '0.85';
+        const heroHeight = heroSection.offsetHeight;
+
+        // Fade out scroll cue smoothly on scroll
+        if (scrollCue) {
+            scrollCue.style.opacity = scrollY > 30 ? '0' : '0.85';
+            scrollCue.style.pointerEvents = scrollY > 30 ? 'none' : 'auto';
+        }
+
+        // Velvety vertical scroll parallax on active backdrop photo
+        if (!isReducedMotion && scrollY < heroHeight) {
+            const progress = scrollY / heroHeight;
+            const activeBackdrop = heroSection.querySelector('.hero-scene.active .hero-scene-backdrop');
+            if (activeBackdrop) {
+                activeBackdrop.style.transform = `translate3d(0, ${progress * 55}px, 0)`;
+            }
+        }
     }, { passive: true });
 }
 
