@@ -108,9 +108,9 @@ const sceneLightingState = {
 
 // Fixture descriptions for toggling
 const fixtureNames = {
-    1: 'Lamp',
-    2: 'Spotlight',
-    3: 'Floor Lamp',
+    1: 'Floor Lamp',
+    2: 'Reading Lamp',
+    3: 'Table Lamp',
     4: 'Pendant'
 };
 

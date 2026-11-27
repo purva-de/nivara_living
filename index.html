@@ -276,29 +276,27 @@
             <div class="hero-scene-backdrop">
                 <svg class="hero-scene-stage" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                     <defs>
-                        <radialGradient id="s2-spotlight-beam" cx="50%" cy="0%" r="100%">
-                            <stop offset="0%" stop-color="#FFE8A0" stop-opacity="0.55"/>
-                            <stop offset="35%" stop-color="#F5B842" stop-opacity="0.22"/>
-                            <stop offset="70%" stop-color="#D4881E" stop-opacity="0.06"/>
-                            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+                        <radialGradient id="s2-shade-glow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#FFFDF5" stop-opacity="0.95"/>
+                            <stop offset="45%" stop-color="#FFE08A" stop-opacity="0.82"/>
+                            <stop offset="80%" stop-color="#EAA832" stop-opacity="0.45"/>
+                            <stop offset="100%" stop-color="#9C6208" stop-opacity="0.15"/>
                         </radialGradient>
-                        <radialGradient id="s2-floor-glow" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#FFD478" stop-opacity="0.30"/>
-                            <stop offset="50%" stop-color="#F5A82E" stop-opacity="0.10"/>
+                        <radialGradient id="s2-lamp-wash" cx="20%" cy="42%" r="65%">
+                            <stop offset="0%" stop-color="#FFE294" stop-opacity="0.48"/>
+                            <stop offset="35%" stop-color="#F5B338" stop-opacity="0.20"/>
+                            <stop offset="65%" stop-color="#D48218" stop-opacity="0.06"/>
                             <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
                         </radialGradient>
                     </defs>
                     <image class="hero-stage-photo" href="catalog_images/avian_recliner.jpg" width="1024" height="1024" />
-                    <!-- Ceiling Downlight Fixture -->
-                    <g class="hero-svg-luminaire" id="fixture-scene-2" role="button" tabindex="0" aria-label="Ceiling downlight. Hover or tap to toggle ambient lighting." title="Tap downlight to switch ambient glow ON/OFF">
-                        <rect x="500" y="44" width="40" height="12" rx="6" fill="#1C1E22" stroke="rgba(212,171,76,0.6)" stroke-width="1.5" />
-                        <ellipse cx="520" cy="50" rx="9" ry="4" class="s2-emitter-idle" fill="#3D3220" />
-                    </g>
-                    <!-- Illumination Layer -->
+                    <!-- Interactive Hotspot on the Real Reading Lamp -->
+                    <rect class="hero-svg-luminaire" id="fixture-scene-2" x="120" y="330" width="170" height="420" fill="transparent" role="button" tabindex="0" aria-label="Atelier reading lamp. Hover or tap to toggle ambient illumination." title="Tap reading lamp to switch lighting ON/OFF" />
+                    <!-- Illumination Layer (Locked directly over the photo's lamp and recliner) -->
                     <g class="hero-stage-lights" aria-hidden="true">
-                        <polygon points="505,53 535,53 840,860 200,860" fill="url(#s2-spotlight-beam)" style="mix-blend-mode: soft-light;" />
-                        <ellipse cx="520" cy="850" rx="340" ry="80" fill="url(#s2-floor-glow)" style="mix-blend-mode: soft-light;" />
-                        <ellipse cx="520" cy="50" rx="9" ry="4" fill="#FFF9EA" />
+                        <circle cx="205" cy="435" r="520" fill="url(#s2-lamp-wash)" style="mix-blend-mode: soft-light;" />
+                        <polygon points="130,500 280,500 420,850 70,850" fill="url(#s2-lamp-wash)" style="mix-blend-mode: soft-light;" />
+                        <rect x="130" y="345" width="150" height="165" rx="6" fill="url(#s2-shade-glow)" style="mix-blend-mode: screen;" />
                     </g>
                 </svg>
             </div>
@@ -311,13 +309,13 @@
                         <span class="hero-scene-divider">/</span>
                         <span class="hero-scene-category">LOUNGE ERGONOMICS</span>
                     </div>
-                    <button class="hero-lighting-toggle" type="button" data-scene-target="2" aria-label="Toggle Recliner ambient lighting" aria-pressed="false">
+                    <button class="hero-lighting-toggle" type="button" data-scene-target="2" aria-label="Toggle Recliner reading lamp" aria-pressed="false">
                         <span class="toggle-beacon-dot" aria-hidden="true"></span>
                         <svg class="toggle-svg-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
                         </svg>
                         <span class="toggle-meta">
-                            <span class="toggle-title">Ambient Spotlight</span>
+                            <span class="toggle-title">Reading Lamp</span>
                             <span class="toggle-status">Tap to Light</span>
                         </span>
                         <span class="toggle-switch-track" aria-hidden="true">
@@ -333,7 +331,7 @@
                         <span class="hero-mask-wrap"><span class="hero-line">& MOTORIZED RECLINERS</span></span>
                     </h2>
                     <p class="hero-description">
-                        Dual-motor German articulation with high-resilience memory foams, framed by recessed spotlighting that sculpts every tactile contour.
+                        Dual-motor German articulation with high-resilience memory foams, framed by warm ambient reading lamp illumination that sculpts every tactile contour.
                     </p>
                 </div>
 
@@ -341,7 +339,7 @@
                     <a href="#collections" class="btn-shepel-primary">Explore Recliners</a>
                     <button class="btn-hero-light-action" type="button" data-scene-target="2">
                         <span class="light-action-dot"></span>
-                        <span class="light-action-text">Switch Spotlight</span>
+                        <span class="light-action-text">Switch Lamp</span>
                     </button>
                 </div>
             </div>
@@ -385,13 +383,13 @@
                         <span class="hero-scene-divider">/</span>
                         <span class="hero-scene-category">COUTURE CHAIRS</span>
                     </div>
-                    <button class="hero-lighting-toggle" type="button" data-scene-target="3" aria-label="Toggle Floor Lamp lighting" aria-pressed="false">
+                    <button class="hero-lighting-toggle" type="button" data-scene-target="3" aria-label="Toggle Table Lamp lighting" aria-pressed="false">
                         <span class="toggle-beacon-dot" aria-hidden="true"></span>
                         <svg class="toggle-svg-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M12 2v8M12 18v4M4.93 4.93l2.83 2.83M18 12h4M16.24 7.76l2.83-2.83"/>
                         </svg>
                         <span class="toggle-meta">
-                            <span class="toggle-title">Floor Lamp</span>
+                            <span class="toggle-title">Table Lamp</span>
                             <span class="toggle-status">Tap to Light</span>
                         </span>
                         <span class="toggle-switch-track" aria-hidden="true">
@@ -415,7 +413,7 @@
                     <a href="#collections" class="btn-shepel-primary">Explore Chairs</a>
                     <button class="btn-hero-light-action" type="button" data-scene-target="3">
                         <span class="light-action-dot"></span>
-                        <span class="light-action-text">Switch Floor Lamp</span>
+                        <span class="light-action-text">Switch Lamp</span>
                     </button>
                 </div>
             </div>
@@ -441,14 +439,14 @@
                     </defs>
                     <image class="hero-stage-photo" href="catalog_images/dining_monolith.jpg" width="1024" height="1024" />
                     <!-- Interactive Hotspot on the Real Pendant -->
-                    <rect class="hero-svg-luminaire" id="fixture-scene-4" x="350" y="235" width="375" height="75" fill="transparent" role="button" tabindex="0" aria-label="Architectural linear suspension pendant. Hover or tap to toggle atelier luminaire." title="Tap pendant to switch statement luminaire ON/OFF" />
+                    <rect class="hero-svg-luminaire" id="fixture-scene-4" x="400" y="240" width="270" height="70" fill="transparent" role="button" tabindex="0" aria-label="Architectural linear suspension pendant. Hover or tap to toggle atelier luminaire." title="Tap pendant to switch statement luminaire ON/OFF" />
                     <!-- Illumination Layer (Locked directly on the photo's linear pendant & dining table) -->
                     <g class="hero-stage-lights" aria-hidden="true">
-                        <polygon points="360,250 710,302 850,750 200,750" fill="url(#s4-table-fan)" style="mix-blend-mode: soft-light;" />
+                        <polygon points="410,260 660,291 820,750 240,750" fill="url(#s4-table-fan)" style="mix-blend-mode: soft-light;" />
                         <ellipse cx="530" cy="630" rx="320" ry="70" fill="url(#s4-table-fan)" style="mix-blend-mode: soft-light;" />
-                        <!-- LED line on pendant -->
-                        <line x1="365" y1="250" x2="705" y2="302" stroke="#FFEEC2" stroke-width="4.5" stroke-linecap="round" />
-                        <line x1="365" y1="250" x2="705" y2="302" stroke="url(#s4-led-core)" stroke-width="3" stroke-linecap="round" />
+                        <!-- LED line on pendant, exactly aligned to the tube body -->
+                        <line x1="410" y1="260" x2="660" y2="291" stroke="#FFEEC2" stroke-width="3.5" stroke-linecap="round" />
+                        <line x1="410" y1="260" x2="660" y2="291" stroke="url(#s4-led-core)" stroke-width="2" stroke-linecap="round" />
                     </g>
                 </svg>
             </div>
